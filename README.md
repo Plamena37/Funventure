@@ -1,2 +1,3 @@
-# Fun-venture
+# 🌱 Fun-venture
  
+## 🎉 An app for events... 🎉

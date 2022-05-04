@@ -1,0 +1,23 @@
+/* Favorite Layout */
+.favorite__body {
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(76, 69, 179, 0.5)
+    ),
+    url("../../images/login/bg-9.jpg");
+  background-position: bottom;
+  background-position: center;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.favorite__layout {
+  background-color: var(--gray-light-low);
+  width: 80vw;
+  height: auto;
+  margin: 3rem auto 0;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}

@@ -1,0 +1,30 @@
+.featured__section {
+  padding: 4rem 0 3rem 0;
+}
+
+.wrapper {
+  max-width: 75rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.featured__heading {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gray-dark-med);
+  text-align: center;
+  letter-spacing: 0.75px;
+  margin-bottom: 1.8rem;
+}
+
+.featured__img {
+  display: flex;
+  justify-content: space-around;
+}
+
+.featured__img {
+  height: 2.5rem;
+  filter: brightness(0);
+  opacity: 50%;
+}

@@ -1,0 +1,50 @@
+.testimonial__layout {
+  background-color: var(--white);
+  padding-block: 7rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.03);
+}
+
+.testimonials__section {
+  width: 100%;
+  height: 30rem;
+  max-width: 75rem;
+  margin-inline: auto;
+  background-color: var(--main-purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.2rem;
+  height: 20rem;
+}
+
+.test__container {
+  width: 50rem;
+  height: 30rem;
+  background-color: #e2e0ff;
+  border-radius: 0.2rem;
+  position: relative;
+  border-radius: 0.5rem;
+}
+
+.carousel-root {
+  margin-inline: auto;
+  width: 65%;
+  height: 20rem;
+  text-align: center;
+}
+
+.carousel .carousel-status {
+  top: 17px !important;
+  right: 24px !important;
+  font-size: 0.75rem !important;
+  color: var(--main-bg) !important;
+}
+
+/*  */
+.test__card {
+  padding: 4rem 0;
+  background-color: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,24 @@
+.profile__desc__container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.profile__desc {
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 0.3rem;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.03);
+}
+
+.profile__desc__heading {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.profile__desc__text {
+  font-size: 1rem;
+}

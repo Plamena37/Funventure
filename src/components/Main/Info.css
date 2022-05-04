@@ -1,0 +1,38 @@
+.info__section {
+  background-color: var(--purple-light-med);
+  padding: 2.5rem;
+  margin-bottom: 9rem;
+}
+
+.info {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.info li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info__icon {
+  width: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--gray-darkest);
+}
+
+.info__num {
+  color: var(--main-purple);
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.info__desc {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gray-dark-high);
+  text-transform: uppercase;
+}

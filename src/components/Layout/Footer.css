@@ -1,0 +1,57 @@
+@import url("https://use.fontawesome.com/releases/v6.0.0/css/all.css");
+
+.footer {
+  background-color: var(--gray-light-low);
+  padding: 2rem 5rem;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  align-items: top;
+  font-size: 1rem;
+  margin: auto 0;
+  box-shadow: 1px 3px 25px 1px rgba(0, 0, 0, 0.1);
+  margin-top: 5rem;
+}
+
+.footer__desc {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer__logo__img {
+  width: 3rem;
+  filter: brightness(60%);
+}
+
+.footer__logo .router__link.logo > h3 {
+  display: inline-block;
+  font-size: 1.4rem;
+  color: var(--main-purple);
+  letter-spacing: 0.1rem;
+}
+
+.footer__logo__links {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.4rem;
+  color: var(--main-purple);
+  margin-block: 0.5rem;
+}
+
+.footer nav > h3 {
+  color: var(--main-purple);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+nav > p {
+  margin-bottom: 1rem;
+}

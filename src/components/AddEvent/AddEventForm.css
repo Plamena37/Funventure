@@ -1,0 +1,120 @@
+/* *************************** EVENT HEADER ********************************** */
+
+.add__events__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.events__icon {
+  font-size: 4rem;
+  color: var(--yellow-dark);
+  color: var(--purple-light-high);
+}
+
+/* Main Heading */
+.form__primary__heading {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--purple-dark-med);
+  margin-bottom: 3rem;
+  /* border-bottom: 2px solid var(--yellow-dark); */
+}
+
+.add__event__form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* *************************** EVENT SMALLER HEADER AND ICON ********************************** */
+.form__nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form__icon {
+  font-size: 1.5rem;
+  color: var(--main-purple);
+  color: var(--yellow-dark);
+}
+
+.form__heading {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+
+.form__heading > span {
+  font-size: 1.5rem;
+  color: var(--yellow-dark);
+}
+
+/* *************************** EVENT INPUTS ********************************** */
+.form__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* *************************** EVENT DETAILS ********************************** */
+.form__time {
+  display: flex;
+  gap: 1rem;
+}
+
+.form__time .time {
+  width: 100%;
+}
+
+/* *************************** EVENT CATEGORY ********************************** */
+.form__inputs.select__category {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.MuiFormLabel-root.category__label {
+  padding-left: 1rem !important;
+}
+
+.select {
+  width: 100%;
+}
+
+/* *************************** EVENT IMAGE ********************************** */
+.event__img__btn {
+  border: none;
+  background-color: var(--yellow-darker);
+  color: var(--main-bg);
+  padding: 1.2rem 1rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* *************************** EVENT BTN ********************************** */
+.event__form__btn {
+  border: none;
+  background-color: var(--main-purple);
+  color: var(--main-bg);
+  padding: 1.4rem 0.6rem;
+  border-radius: 0.3rem;
+  width: 100%;
+  margin-inline: auto;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.event__form__btn:hover {
+  background-color: var(--purple-dark-med);
+}

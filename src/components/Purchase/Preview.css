@@ -1,0 +1,27 @@
+.preview__wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.preview__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+}
+
+.preview__list > li > span {
+  font-weight: 600;
+  color: var(--gray-dark-high);
+  color: var(--yellow-darker);
+}
+
+.preview__list__heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--purple-dark-low);
+}

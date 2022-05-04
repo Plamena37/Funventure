@@ -1,0 +1,34 @@
+.overlay__section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.4),
+      rgba(76, 69, 179, 0.4)
+    ),
+    url("../../images/login/bg-9.jpg");
+  background-position: top;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  position: relative;
+  width: 75rem;
+  display: flex;
+  background-color: var(--main-bg);
+  z-index: 999;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  box-shadow: 1px 5px 16px 2px rgba(0, 0, 0, 0.1);
+}
+
+.overlay__img {
+  width: 35%;
+}

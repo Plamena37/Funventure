@@ -1,0 +1,89 @@
+/* NAVIGATION CONTAINER */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem 1rem;
+  padding: 1rem;
+  background-color: var(--purple-light-low);
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+  z-index: 9;
+  position: relative;
+  /* position: sticky;
+  top: 0;
+  left: 0; */
+}
+
+/* LOGO IMAGE */
+.nav .nav__logo {
+  width: 3rem;
+  filter: brightness(60%);
+  cursor: pointer;
+}
+
+/* LOGO HEADING */
+.nav .router__link.logo .nav__header {
+  display: inline-block;
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: var(--main-purple);
+}
+
+/* NAV LIST */
+.nav .nav__list {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto;
+  font-size: 1.2rem;
+  font-weight: 500;
+  list-style-type: none;
+  color: var(--main-purple);
+}
+
+/* Links */
+.router__link:link,
+.router__link:visited {
+  text-decoration: none;
+  color: var(--main-purple);
+  transition: all 0.3s;
+}
+
+.router__link:hover,
+.router__link:active {
+  cursor: pointer;
+  color: var(--purple-light-high);
+  border-bottom: 1px solid currentColor;
+}
+
+.router__link.logo:hover,
+.router__link.logo:active {
+  border: none;
+}
+
+/* Link LogIn / SignUp */
+.router__link.last:link,
+.router__link.last:visited {
+  margin-left: 0.2rem;
+  background-color: var(--main-purple);
+  color: var(--main-bg);
+  border-radius: 0.3rem;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s;
+}
+
+.router__link.last:hover,
+.router__link.last:active {
+  background-color: inherit;
+  color: var(--main-purple);
+  box-shadow: inset 0 0 0 3px var(--purple-light-high);
+  border-bottom: none;
+}
+
+/* Profile image link */
+.profile__img__link:hover {
+  border: none;
+}

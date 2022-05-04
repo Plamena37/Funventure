@@ -1,0 +1,207 @@
+body {
+  background-color: var(--main-bg);
+}
+
+/*******************************************************/
+/* Card layout*/
+.card__layout {
+  padding: 3rem;
+}
+
+/* Card */
+.card {
+  width: 25rem;
+  height: auto;
+  background-color: var(--white);
+  border-radius: 0.3rem;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.05);
+}
+
+/*******************************************************/
+/* Price */
+.price__section {
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price__title {
+  font-size: 1.2rem;
+}
+
+.price__ticket {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.price__price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--main-purple);
+}
+
+/*******************************************************/
+/* Image */
+.image__section {
+  position: relative;
+}
+
+.card__img {
+  width: 100%;
+  position: relative;
+  filter: brightness(80%);
+}
+
+.card__btn {
+  outline: none;
+  border: none;
+  color: var(--black);
+  background-color: var(--main-bg);
+  padding: 0.75rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  position: absolute;
+  bottom: 1rem;
+  left: 0.75rem;
+}
+
+/*******************************************************/
+/* Details */
+.details__section {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--gray-light-med);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.details__title {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.details__icon {
+  width: 1.2rem;
+  color: var(--main-purple);
+}
+
+.details__desc {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.details__data {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--gray-dark-high);
+}
+
+/*******************************************************/
+/* Going */
+.going__section {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray-light-med);
+}
+
+.going {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.going__icon {
+  width: 1.6rem;
+  color: var(--gray-dark-low);
+}
+
+.going__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.going__data {
+  font-size: 1.2rem;
+  color: var(--gray-dark-low);
+}
+
+/*******************************************************/
+/* Likes */
+.likes__section {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*Likes Icon */
+.likes__icon {
+  width: 1.8rem;
+  color: var(--main-purple);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+/* Likes text */
+.likes__text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.likes__text > span {
+  font-weight: 500;
+}
+
+/* Button */
+.btn.btn__likes {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background-color: var(--main-purple);
+  color: var(--main-bg);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn.btn__likes:hover {
+  /* background-color: #2b2866;
+  color: #f0efff; */
+  background-color: var(--white);
+  color: var(--main-purple);
+  box-shadow: inset 0 0 0 3px var(--main-purple);
+}

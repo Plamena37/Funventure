@@ -1,0 +1,64 @@
+/* *************************** PURCHASE INPUTS ********************************** */
+.purchase__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.purchase__inputs {
+  display: flex;
+  flex-direction: row;
+}
+
+.MuiInputBase-input.Mui-disabled {
+  cursor: not-allowed;
+}
+
+.purchase__input {
+  width: 100%;
+  cursor: not-allowed;
+}
+
+/* Error messages */
+.MuiFormHelperText-contained {
+  margin-left: 3px !important;
+  margin-right: 14px;
+}
+
+/* *************************** PURCHASE TICKET LABEL ********************************** */
+.total__price {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  border-bottom: 1px solid var(--purple-dark-low);
+}
+
+.total__price__heading {
+  font-size: 2rem;
+  color: var(--gray-dark-high);
+}
+
+.total__price__sum {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--gray-dark-med);
+}
+
+/* *************************** PURCHASE FINAL PREVIEW BTN ******************************** */
+.btn__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn__wrapper .event__form__btn {
+  width: 100%;
+}
+
+.purchase__link {
+  display: inline-block;
+  text-decoration: none;
+  width: 100%;
+}

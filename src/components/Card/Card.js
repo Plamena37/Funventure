@@ -12,7 +12,6 @@ export default function Card() {
     <section className="card__layout">
       <div className="card">
         <Price price="20" title="Powder Festival" />
-        {/* <div></div> */}
         <Link to="/event">
           <Image seats="300" />
         </Link>

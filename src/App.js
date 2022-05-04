@@ -1,6 +1,5 @@
 import "./Colors.css";
-import { HashRouter as BrowserRouter, Routes, Route } from "react-router-dom";
-import logo from "./logo.svg";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import FAQ from "./pages/FAQ";
 import Main from "./pages/Main";
 import LogIn from "./pages/LogIn";
@@ -16,7 +15,7 @@ import ModalEvent from "./components/AddEvent/ModalEvent";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/faq" element={<FAQ />} />
@@ -31,7 +30,7 @@ function App() {
         <Route path="/purchase-success" element={<Modal />} />
         <Route path="/added-event" element={<ModalEvent />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 

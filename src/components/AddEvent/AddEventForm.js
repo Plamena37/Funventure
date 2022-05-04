@@ -10,17 +10,22 @@ import {
   MenuItem,
   FormControl,
   Box,
+  Button,
 } from "@material-ui/core";
+import PublishIcon from "@material-ui/icons/Publish";
 
 export default function AddEventForm({
   formData,
   eventHandleChange,
   handleSubmit,
+  error,
+  asdf,
 }) {
   // NEEDED FOR EVENT CATEGORY
   const [category, setCategory] = useState("");
-
+  const [formContainsErrors, setFormContainsErrors] = useState(false);
   const handleChange = (event) => {
+    //tui go premesti inache parcala :D
     setCategory(event.target.value);
   };
 
@@ -50,7 +55,7 @@ export default function AddEventForm({
         <i class="fas fa-plus-circle events__icon"></i>
         <h2 className="form__primary__heading">Add New Event </h2>
       </div>
-      <form className="add__event__form">
+      <form className="add__event__form" onSubmit={handleSubmit}>
         {/************************ EVENT DESCRIPTION **********************************/}
         <section className="event__description">
           <nav className="form__nav">
@@ -69,11 +74,8 @@ export default function AddEventForm({
               label="Event title"
               variant="outlined"
               onChange={(event) => eventHandleChange(event)}
-              error={!/(^$)|(^[A-Za-z0-9]+$)/.test(formData.title)} //for letters and numbers
-              helperText={
-                !/(^$)|(^[A-Za-z0-9]+$)/.test(formData.title) &&
-                validations.title
-              }
+              error={error.title} //for letters and numbers
+              helperText={error.title && validations.title}
             />
             <TextField
               required
@@ -87,11 +89,8 @@ export default function AddEventForm({
               minRows={2}
               maxRows={4}
               onChange={(event) => eventHandleChange(event)}
-              error={!/(^$)|(^.{10,500}$)/.test(formData.description)} // all characters between 10 and 500
-              helperText={
-                !/(^$)|(^.{10,500}$)/.test(formData.description) &&
-                validations.description
-              }
+              error={error.description} // all characters between 10 and 500
+              helperText={error.description && validations.description}
             />
             <TextField
               required
@@ -103,11 +102,8 @@ export default function AddEventForm({
               variant="outlined"
               type="number"
               onChange={(event) => eventHandleChange(event)}
-              error={!/(^$)|(^[+]?\d+([.]\d+)?$)/.test(formData.price)} // for positive numbers only
-              helperText={
-                !/(^$)|(^[+]?\d+([.]\d+)?$)/.test(formData.price) &&
-                validations.positiveNumbersOnly
-              }
+              error={error.price} // for positive numbers only
+              helperText={error.price && validations.positiveNumbersOnly}
             />
           </div>
         </section>
@@ -130,11 +126,8 @@ export default function AddEventForm({
               label="City"
               variant="outlined"
               onChange={(event) => eventHandleChange(event)}
-              error={!/(^$)|(^[a-zA-Z]+$)/.test(formData.city)} // will be true if the string contains numbers
-              helperText={
-                !/(^$)|(^[a-zA-Z]+$)/.test(formData.city) &&
-                validations.lettersOnly
-              }
+              error={error.city} // will be true if the string contains numbers
+              helperText={error.city && validations.lettersOnly}
             />
 
             <TextField
@@ -171,16 +164,8 @@ export default function AddEventForm({
                 variant="outlined"
                 type="time"
                 onChange={(event) => eventHandleChange(event)}
-                error={
-                  !/(^$)|(^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$)/.test(
-                    formData.startTime
-                  )
-                } // will be true if the string contains numbers
-                helperText={
-                  !/(^$)|(^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$)/.test(
-                    formData.startTime
-                  ) && validations.time
-                }
+                error={error.startTime} // will be true if the string contains numbers
+                helperText={error.startTime && validations.time}
               />
 
               <TextField
@@ -248,11 +233,8 @@ export default function AddEventForm({
               variant="outlined"
               type="number"
               onChange={(event) => eventHandleChange(event)}
-              error={!/(^$)|(^[+]?\d+([.]\d+)?$)/.test(formData.seats)} // for positive numbers only
-              helperText={
-                !/(^$)|(^[+]?\d+([.]\d+)?$)/.test(formData.seats) &&
-                validations.positiveNumbersOnly
-              }
+              error={error.seats} // for positive numbers only
+              helperText={error.seats && validations.positiveNumbersOnly}
             />
           </div>
         </section>
@@ -297,21 +279,30 @@ export default function AddEventForm({
               label="Organizer Team"
               variant="outlined"
               onChange={(event) => eventHandleChange(event)}
-              error={!/(^$)|(^[A-Za-z0-9]+$)/.test(formData.team)} //for letters and numbers
-              helperText={
-                !/(^$)|(^[A-Za-z0-9]+$)/.test(formData.team) &&
-                validations.title
-              }
+              error={error.team} //for letters and numbers
+              helperText={error.team && validations.title}
             />
           </div>
         </section>
 
         {/************************ EVENT BTN **********************************/}
-        <Link to="/added-event" className="purchase__link">
-          <button className="event__form__btn" onClick={handleSubmit}>
-            <i class="fas fa-upload"></i> Publish Event{" "}
-          </button>
-        </Link>
+        <Button
+          style={{
+            padding: "1.4rem 0.6rem",
+            borderRadius: "0.3rem",
+            width: "100%",
+            fontSize: "1.2rem",
+            fontWeight: 600,
+            cursor: "pointer",
+          }}
+          variant="contained"
+          startIcon={<PublishIcon />}
+          color="primary"
+          disabled={asdf()}
+          type="submit"
+        >
+          Publish Event
+        </Button>
       </form>
     </AddEventLayout>
   );

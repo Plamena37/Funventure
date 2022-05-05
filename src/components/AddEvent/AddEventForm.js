@@ -1,7 +1,5 @@
 import "./AddEventForm.css";
 import AddEventLayout from "./AddEventLayout";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { validations } from "../validationMessages";
 import {
   TextField,
@@ -19,35 +17,24 @@ export default function AddEventForm({
   eventHandleChange,
   handleSubmit,
   error,
-  asdf,
+  pushErrorsInArray,
+  category,
 }) {
-  // NEEDED FOR EVENT CATEGORY
-  const [category, setCategory] = useState("");
-  const [formContainsErrors, setFormContainsErrors] = useState(false);
-  const handleChange = (event) => {
-    //tui go premesti inache parcala :D
-    setCategory(event.target.value);
-  };
-
   // Getting current date
-  const curDate = new Date();
-
-  // Getting the input Date
-  // const inputDate = new Date(formData.date);
-  // const dateValidation = inputDate < curDate;
+  const currentDate = new Date();
 
   // Creating yyyy-mm-dd current date format
-  const curYear = curDate.getFullYear().toString();
-  let curMonth = curDate.getMonth() + 1;
-  let curDay = curDate.getDate();
+  const currentYear = currentDate.getFullYear().toString();
+  let currentMonth = currentDate.getMonth() + 1;
+  let currentDay = currentDate.getDate();
 
-  if (curMonth < 10) {
-    curMonth = `0${curMonth}`;
+  if (currentMonth < 10) {
+    currentMonth = `0${currentMonth}`;
   }
-  if (curDay < 10) {
-    curDay = `0${curDay}`;
+  if (currentDay < 10) {
+    currentDay = `0${currentDay}`;
   }
-  const curDateFinal = `${curYear}-${curMonth}-${curDay}`;
+  const currentDateFinal = `${currentYear}-${currentMonth}-${currentDay}`;
 
   return (
     <AddEventLayout children>
@@ -86,8 +73,8 @@ export default function AddEventForm({
               variant="outlined"
               label={`Event Description (char: ${formData.description.length})`}
               multiline
-              minRows={2}
-              maxRows={4}
+              minRows={4}
+              maxRows={8}
               onChange={(event) => eventHandleChange(event)}
               error={error.description} // all characters between 10 and 500
               helperText={error.description && validations.description}
@@ -98,7 +85,7 @@ export default function AddEventForm({
               id="price"
               name="price"
               value={formData.price}
-              label="Ticket Price"
+              label="Ticket Price ($)"
               variant="outlined"
               type="number"
               onChange={(event) => eventHandleChange(event)}
@@ -142,11 +129,11 @@ export default function AddEventForm({
               type="date"
               onChange={(event) => eventHandleChange(event)}
               InputProps={{
-                inputProps: { min: curDateFinal },
+                inputProps: { min: currentDateFinal },
               }}
-              error={formData.date < curDateFinal && formData.date !== ""}
+              error={formData.date < currentDateFinal && formData.date !== ""}
               helperText={
-                formData.date < curDateFinal &&
+                formData.date < currentDateFinal &&
                 formData.date !== "" &&
                 validations.date
               }
@@ -211,7 +198,7 @@ export default function AddEventForm({
                     label="Category"
                     variant="outlined"
                     className="form__input select"
-                    onClick={handleChange}
+                    // onClick={handleChange}
                     onChange={(event) => eventHandleChange(event)}
                   >
                     <MenuItem value={"Festival"}>Festival</MenuItem>
@@ -288,7 +275,7 @@ export default function AddEventForm({
         {/************************ EVENT BTN **********************************/}
         <Button
           style={{
-            padding: "1.4rem 0.6rem",
+            padding: "1.2rem 0.6rem",
             borderRadius: "0.3rem",
             width: "100%",
             fontSize: "1.2rem",
@@ -298,7 +285,7 @@ export default function AddEventForm({
           variant="contained"
           startIcon={<PublishIcon />}
           color="primary"
-          disabled={asdf()}
+          disabled={pushErrorsInArray()}
           type="submit"
         >
           Publish Event

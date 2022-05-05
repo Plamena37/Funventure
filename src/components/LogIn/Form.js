@@ -3,6 +3,7 @@ import LogInForm from "./LogInForm";
 import SignUpForm from "./SignUpForm";
 import "./LogInForm.css";
 import "../../Colors.css";
+import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -13,6 +14,8 @@ import { auth } from "../../firebase";
 import { signInWithGoogle } from "../../firebase";
 
 export default function Form() {
+  const navigate = useNavigate();
+
   // LOG IN
   const [logInFieldsState, setLogInFieldsState] = useState({
     email: "",
@@ -28,33 +31,77 @@ export default function Form() {
   });
 
   const [active, setActive] = useState(true);
-  const [isSubmit, setIsSubmit] = useState(false);
+
+  const [logInfieldErrors, setLogInFieldErrors] = useState({
+    email: false,
+    password: false,
+  });
+
+  const [signUpfieldErrors, setSignUpFieldErrors] = useState({
+    username: false,
+    email: false,
+    password: false,
+    // confirmPassword: false,
+  });
+
+  const [fieldErrors, setFieldErrors] = useState({
+    email: false,
+    password: false,
+    username: false,
+  });
+
+  const validationConditions = {
+    email: /(^$)|(^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$)/,
+    username: /(^$)|(^[A-Za-z0-9]+$)/,
+    password: /(^$)|(^.{5,}$)/,
+  };
+
+  const handleValidation = (fieldName, fieldValue) => {
+    if (fieldName !== "confirmPassword") {
+      setFieldErrors({
+        ...fieldErrors,
+        [fieldName]: !validationConditions[fieldName].test(fieldValue),
+      });
+    }
+  };
 
   function handleLogInChange(event) {
+    const { name, value } = event.target;
     //Set the state
     setLogInFieldsState({
       ...logInFieldsState,
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
+    handleValidation(name, value);
   }
 
   function handleSignUpChange(event) {
+    const { name, value } = event.target;
     //Set the state
     setSignUpFieldsState({
       ...signUpFieldsState,
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
+    handleValidation(name, value);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setIsSubmit(true);
+  // PUSHES THE ERROR BOOLEANS IN AN ARRAY
+  const pushErrorsInArray = () => {
+    let arrayWithValues = [];
+    for (const errorValue in fieldErrors) {
+      arrayWithValues.push(fieldErrors[errorValue]);
+    }
+    // IF THE ARRAY CONTAINS A FALSY VALUE, THE OPERATION STOPS AND RETURNS FALSE
+    return arrayWithValues.some((element) => element === true);
+  };
 
-    alert(`(${isSubmit}) this is the submit state`);
-  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    let checkForErrors = pushErrorsInArray();
 
-  function toggleActive() {
-    setActive((prevActive) => !prevActive);
+    if (!checkForErrors) {
+      navigate("/");
+    }
   }
 
   // FIXME
@@ -93,7 +140,7 @@ export default function Form() {
   // FIXME
 
   return (
-    <form className="form form--signup">
+    <div className="form form--signup">
       <nav className="login__nav">
         <button
           className={active ? "form__btn btn--active" : "form__btn"}
@@ -116,6 +163,8 @@ export default function Form() {
           handleLogInChange={handleLogInChange}
           handleSubmit={handleSubmit}
           handleLogIn={login}
+          error={fieldErrors}
+          pushErrorsInArray={pushErrorsInArray}
         />
       ) : (
         <SignUpForm
@@ -124,16 +173,10 @@ export default function Form() {
           handleSubmit={handleSubmit}
           handleRegister={register}
           signInWithGoogle={signInWithGoogle}
+          error={fieldErrors}
+          pushErrorsInArray={pushErrorsInArray}
         />
       )}
-      {/* <div className="btn__wrapper"> */}
-      {/* <button className="btn btn--primary">
-        {active ? "Login" : "Signup"}
-      </button> */}
-      {/* <button className="btn btn--secondary">
-        Sign {active ? "in" : "up"} with google
-      </button> */}
-      {/* </div> */}
-    </form>
+    </div>
   );
 }

@@ -1,10 +1,12 @@
 import Navigation from "../components/Layout/Navigation";
 import PurchaseForm from "../components/Purchase/PurchaseForm";
 import Footer from "../components/Layout/Footer";
-import FinalPreview from "./FinalPreview";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Purchase() {
+  const navigate = useNavigate();
+
   const [purchaseData, setpurchaseData] = useState({
     tickets: 0,
     email: "",
@@ -16,36 +18,69 @@ export default function Purchase() {
     price: "20",
   });
 
-  // FIXME
-  const [globalErrorState, setGlobalErrorState] = useState(false);
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState({
+    tickets: false,
+    email: false,
+    firstName: false,
+    lastName: false,
+    cardNumber: false,
+    cardCvv: false,
+  });
+
+  const validationConditions = {
+    tickets: /(^$)|(^\d{1,2}$)/,
+    email: /(^$)|(^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$)/,
+    firstName: /(^$)|(^[a-zA-Z]+$)/,
+    lastName: /(^$)|(^[a-zA-Z]+$)/,
+    cardNumber: /(^$)|(^\b\d{4}[ -]?\d{4}[ -]?\d{4}[ -]?\d{4}\b$)/,
+    cardCvv: /(^$)|(^\d{3}$)/,
+  };
+
+  const handleValidation = (fieldName, fieldValue) => {
+    if (fieldName !== "cardMonth") {
+      setFieldErrors({
+        ...fieldErrors,
+        [fieldName]: !validationConditions[fieldName].test(fieldValue),
+      });
+    }
+  };
 
   function purchaseHandleChange(event) {
-    const name = event.target.name;
-    const value = event.target.value;
+    const { name, value } = event.target;
     setpurchaseData({ ...purchaseData, [name]: value });
+    handleValidation(name, value);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setIsSubmit((prevSubmit) => !prevSubmit);
+  // PUSHES THE ERROR BOOLEANS IN AN ARRAY
+  const pushErrorsInArray = () => {
+    let arrayWithValues = [];
+    for (const errorValue in fieldErrors) {
+      arrayWithValues.push(fieldErrors[errorValue]);
+    }
+    // IF THE ARRAY CONTAINS A FALSY VALUE, THE OPERATION STOPS AND RETURNS FALSE
+    return arrayWithValues.some((element) => element === true);
+  };
 
-    alert(`(${isSubmit}) this is the submit state`);
+  function handleSubmit(event) {
+    event.preventDefault();
+    let checkForErrors = pushErrorsInArray();
+
+    if (!checkForErrors) {
+      navigate("/final-preview");
+    }
   }
 
   return (
     <>
       <div className="form__body">
         <Navigation />
-        {/* {formTrue ? (
-          <FinalPreview purchaseData={purchaseData} />
-        ) : ( */}
         <PurchaseForm
           purchaseData={purchaseData}
           purchaseHandleChange={purchaseHandleChange}
           handleSubmit={handleSubmit}
+          error={fieldErrors}
+          pushErrorsInArray={pushErrorsInArray}
         />
-
         <Footer />
       </div>
     </>

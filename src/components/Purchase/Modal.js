@@ -2,7 +2,7 @@ import "./Modal.css";
 import { Link } from "react-router-dom";
 import Confetti from "react-confetti";
 
-export default function Modal(props) {
+export default function Modal() {
   return (
     <section className="backdrop">
       <Confetti />

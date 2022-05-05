@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 1.2rem 1rem;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: var(--purple-light-low);
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
   z-index: 9;

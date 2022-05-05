@@ -62,3 +62,7 @@
   text-decoration: none;
   width: 100%;
 }
+
+.purchase__inputs.total__price {
+  margin-bottom: 2.5rem;
+}

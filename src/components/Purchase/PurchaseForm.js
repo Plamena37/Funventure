@@ -14,14 +14,14 @@ export default function PurchaseForm({
   pushErrorsInArray,
 }) {
   // Getting current date
-  const curDate = new Date();
-  const curYear = curDate.getFullYear().toString();
-  let curMonth = curDate.getMonth() + 1;
+  const currrentDate = new Date();
+  const currentYear = currrentDate.getFullYear().toString();
+  let currrentMonth = currrentDate.getMonth() + 1;
 
-  if (curMonth < 10) {
-    curMonth = `0${curMonth}`;
+  if (currrentMonth < 10) {
+    currrentMonth = `0${currrentMonth}`;
   }
-  const curDateFinal = `${curYear}-${curMonth}`;
+  const currentDateFinal = `${currentYear}-${currrentMonth}`;
 
   return (
     <PurchaseLayout children>
@@ -250,15 +250,15 @@ export default function PurchaseForm({
                   variant="outlined"
                   type="month"
                   InputProps={{
-                    inputProps: { min: curDateFinal },
+                    inputProps: { min: currentDateFinal },
                   }}
                   onChange={(event) => purchaseHandleChange(event)}
                   error={
-                    purchaseData.cardMonth < curDateFinal &&
+                    purchaseData.cardMonth < currentDateFinal &&
                     purchaseData.cardMonth !== ""
                   }
                   helperText={
-                    purchaseData.cardMonth < curDateFinal &&
+                    purchaseData.cardMonth < currentDateFinal &&
                     purchaseData.cardMonth !== "" &&
                     validations.cardMonth
                   }

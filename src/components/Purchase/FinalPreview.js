@@ -1,9 +1,11 @@
 import "./Preview.css";
+import "../AddEvent/AddEventLayout.css";
 import { Link } from "react-router-dom";
+import PurchaseLayout from "./PurchaseLayout";
 
 export default function FinalPreview({ purchaseData }) {
   return (
-    <section>
+    <PurchaseLayout children>
       <div className="add__events__header">
         <i class="fas fa-search events__icon"></i>
         <h2 className="form__primary__heading">Final Preview </h2>
@@ -72,6 +74,6 @@ export default function FinalPreview({ purchaseData }) {
           <button className="event__form__btn">Purchase</button>
         </Link>
       </div>
-    </section>
+    </PurchaseLayout>
   );
 }

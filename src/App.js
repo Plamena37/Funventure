@@ -9,9 +9,9 @@ import AddEvent from "./pages/AddEvent";
 import SingleCard from "./pages/SingleCard";
 import Profile from "./pages/Profile";
 import Purchase from "./pages/Purchase";
-import FinalPreview from "./pages/FinalPreview";
 import Modal from "./components/Purchase/Modal";
 import ModalEvent from "./components/AddEvent/ModalEvent";
+import FinalPreview from "./components/Purchase/FinalPreview";
 
 function App() {
   return (

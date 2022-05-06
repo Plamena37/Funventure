@@ -1,5 +1,6 @@
 import Navigation from "../components/Layout/Navigation";
 import PurchaseForm from "../components/Purchase/PurchaseForm";
+import FinalPreview from "../components/Purchase/FinalPreview";
 import Footer from "../components/Layout/Footer";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -70,19 +71,20 @@ export default function Purchase() {
     }
   }
 
+  const finalPreviewPassData = false;
   return (
-    <>
-      <div className="form__body">
-        <Navigation />
-        <PurchaseForm
-          purchaseData={purchaseData}
-          purchaseHandleChange={purchaseHandleChange}
-          handleSubmit={handleSubmit}
-          error={fieldErrors}
-          pushErrorsInArray={pushErrorsInArray}
-        />
-        <Footer />
-      </div>
-    </>
+    <div className="form__body">
+      <Navigation />
+      <PurchaseForm
+        purchaseData={purchaseData}
+        purchaseHandleChange={purchaseHandleChange}
+        handleSubmit={handleSubmit}
+        error={fieldErrors}
+        pushErrorsInArray={pushErrorsInArray}
+      />
+      {/* {finalPreviewPassData &&  */}
+      <FinalPreview purchaseData={purchaseData} />
+      <Footer />
+    </div>
   );
 }

@@ -1,17 +1,6 @@
 import "./HowItWorks.css";
 import "../../Colors.css";
-import {
-  BookmarkAltIcon,
-  CheckCircleIcon,
-  ClockIcon,
-  GiftIcon,
-  HeartIcon,
-  GlobeIcon,
-  LightBulbIcon,
-  MapIcon,
-  StarIcon,
-  UserAddIcon,
-} from "@heroicons/react/outline";
+import { HeartIcon, LightBulbIcon, MapIcon } from "@heroicons/react/outline";
 
 export default function HowItWorks() {
   return (

@@ -65,7 +65,7 @@ export default function Form() {
     }
   };
 
-  function handleLogInChange(event) {
+  const handleLogInChange = (event) => {
     const { name, value } = event.target;
     //Set the state
     setLogInFieldsState({
@@ -73,9 +73,9 @@ export default function Form() {
       [name]: value,
     });
     handleValidation(name, value);
-  }
+  };
 
-  function handleSignUpChange(event) {
+  const handleSignUpChange = (event) => {
     const { name, value } = event.target;
     //Set the state
     setSignUpFieldsState({
@@ -83,7 +83,7 @@ export default function Form() {
       [name]: value,
     });
     handleValidation(name, value);
-  }
+  };
 
   // PUSHES THE ERROR BOOLEANS IN AN ARRAY
   const pushErrorsInArray = () => {
@@ -95,14 +95,14 @@ export default function Form() {
     return arrayWithValues.some((element) => element === true);
   };
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
       navigate("/");
     }
-  }
+  };
 
   // FIXME
   const register = async () => {

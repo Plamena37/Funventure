@@ -46,11 +46,11 @@ export default function Purchase() {
     }
   };
 
-  function purchaseHandleChange(event) {
+  const purchaseHandleChange = (event) => {
     const { name, value } = event.target;
     setpurchaseData({ ...purchaseData, [name]: value });
     handleValidation(name, value);
-  }
+  };
 
   // PUSHES THE ERROR BOOLEANS IN AN ARRAY
   const pushErrorsInArray = () => {
@@ -62,14 +62,14 @@ export default function Purchase() {
     return arrayWithValues.some((element) => element === true);
   };
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
       navigate("/final-preview");
     }
-  }
+  };
 
   const finalPreviewPassData = false;
   return (

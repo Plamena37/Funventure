@@ -10,7 +10,7 @@ export default function Accordion(props) {
 
   const content = useRef(null);
 
-  function toggleAccordion() {
+  const toggleAccordion = () => {
     setActive(active === "" ? "active" : "");
     setHeight(
       active === "active" ? "0px" : `${content.current.scrollHeight}px`
@@ -18,7 +18,7 @@ export default function Accordion(props) {
     setRotate(
       active === "active" ? "accordion__icon" : "accordion__icon rotate"
     );
-  }
+  };
   return (
     <section className="accordion__section">
       <button className={`accordion ${active}`} onClick={toggleAccordion}>

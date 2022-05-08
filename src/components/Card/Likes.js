@@ -1,5 +1,5 @@
-import { useState } from "react";
 import "./Card.css";
+import { useState } from "react";
 import { HeartIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
@@ -11,12 +11,12 @@ export default function Likes(props) {
     fill: liked ? "#4c45b3" : "#fff",
   };
 
-  function like() {
+  const like = () => {
     setLiked((prevLiked) => !prevLiked);
     setLikeCount((prevLikeCount) =>
       !liked ? prevLikeCount + 1 : prevLikeCount - 1
     );
-  }
+  };
   return (
     <section className="likes__section">
       <div className="likes">

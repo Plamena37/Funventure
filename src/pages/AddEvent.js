@@ -56,12 +56,12 @@ export default function Events() {
   };
 
   // EVENT HANDLE CHANGE
-  function eventHandleChange(event) {
+  const eventHandleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
     setCategory(value);
     handleValidation(name, value);
-  }
+  };
 
   // PUSHES THE ERROR BOOLEANS IN AN ARRAY
   const pushErrorsInArray = () => {
@@ -73,14 +73,14 @@ export default function Events() {
     return arrayWithValues.some((element) => element === true);
   };
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
       navigate("/added-event");
     }
-  }
+  };
 
   return (
     <div className="form__body">

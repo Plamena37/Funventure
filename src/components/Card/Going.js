@@ -12,26 +12,26 @@ export default function Going(props) {
   const [maybeCount, setMaybeCount] = useState(Number(props.maybe));
   const [cantCount, setCantCount] = useState(Number(props.cant));
 
-  function goingTo() {
+  const goingTo = () => {
     setGoing((prevGoing) => !prevGoing);
     setGoingCount((prevGoingCount) =>
       !going ? prevGoingCount + 1 : prevGoingCount - 1
     );
-  }
+  };
 
-  function maybeTo() {
+  const maybeTo = () => {
     setGoing((prevMaybe) => !prevMaybe);
     setMaybeCount((prevMaybeCount) =>
       !going ? prevMaybeCount + 1 : prevMaybeCount - 1
     );
-  }
+  };
 
-  function cantTo() {
+  const cantTo = () => {
     setGoing((prevCant) => !prevCant);
     setCantCount((prevCantCount) =>
       !going ? prevCantCount + 1 : prevCantCount - 1
     );
-  }
+  };
 
   return (
     <section className="going__section">

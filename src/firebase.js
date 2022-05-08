@@ -31,7 +31,7 @@ export const signInWithGoogle = () => {
       console.log(error);
     });
 };
-
+export default app;
 // const analytics = getAnalytics(app);
 // const app = firebase.initializeApp(firebaseConfig);
 // export const auth = app.auth();

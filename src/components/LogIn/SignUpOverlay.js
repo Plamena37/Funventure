@@ -1,8 +1,8 @@
 import "./FormOverlay.css";
 import "../../Colors.css";
-import Form from "./Form";
+import SignUp from "./SignUp";
 
-export default function FormOverlay() {
+export default function SignUpOverlay() {
   return (
     <section className="overlay__section">
       <div className="overlay">
@@ -11,7 +11,7 @@ export default function FormOverlay() {
           alt="Hot air baloon"
           src={require("../../images/login/login.jpg")}
         />
-        <Form />
+        <SignUp />
       </div>
     </section>
   );

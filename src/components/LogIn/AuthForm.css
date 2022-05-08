@@ -99,12 +99,6 @@
   box-shadow: inset 0 0 0 3px var(--main-purple);
 }
 
-.error__text {
-  color: var(--red);
-  align-self: flex-start;
-  margin-top: -1.2rem;
-}
-
 .MuiInputBase-input {
   outline: none !important;
 }

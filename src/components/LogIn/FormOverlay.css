@@ -12,7 +12,6 @@
       rgba(76, 69, 179, 0.4)
     ),
     url("../../images/login/bg-9.jpg");
-  background-position: top;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -21,6 +20,7 @@
 .overlay {
   position: relative;
   width: 75rem;
+  height: 40rem;
   display: flex;
   background-color: var(--main-bg);
   z-index: 999;

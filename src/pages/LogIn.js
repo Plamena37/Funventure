@@ -1,5 +1,6 @@
-import FormOverlay from "../components/LogIn/FormOverlay";
+// import FormOverlay from "../components/LogIn/FormOverlay"
+import LogInOverlay from "../components/LogIn/LogInOverlay";
 
 export default function LogIn() {
-  return <FormOverlay />;
+  return <LogInOverlay />;
 }

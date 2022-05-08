@@ -2,8 +2,11 @@ import "./Preview.css";
 import "../AddEvent/AddEventLayout.css";
 import { Link } from "react-router-dom";
 import PurchaseLayout from "./PurchaseLayout";
+import { useLocation } from "react-router-dom";
 
-export default function FinalPreview({ purchaseData }) {
+export default function FinalPreview() {
+  const { state } = useLocation();
+  console.log({ state });
   return (
     <PurchaseLayout children>
       <div className="add__events__header">
@@ -38,30 +41,19 @@ export default function FinalPreview({ purchaseData }) {
         <ul className="preview__list">
           <li className="preview__list__heading"> User Information</li>
           <li>
-            First Name: <span>{purchaseData.firstName}</span>
+            {/* <p>{purchaseData.firstName}</p> */}
+            {/* First Name: <span>{location.purchaseData.firstName}</span> */}
           </li>
-          <li>
-            Last Name: <span>{purchaseData.lastName}</span>
-          </li>
-          <li>
-            Ticket Count: <span>{purchaseData.tickets}</span>
-          </li>
-          <li>
-            Email: <span>{purchaseData.email}</span>
-          </li>
-          <li>
-            Card Number: <span>{purchaseData.cardNumber}</span>
-          </li>
-          <li>
-            Valid until: <span>{purchaseData.cardMonth}</span>
-          </li>
-          <li>
-            CVV: <span>{purchaseData.cardCvv}</span>
-          </li>
+          <li>{/* Last Name: <span>{purchaseData.lastName}</span> */}</li>
+          <li>{/* Ticket Count: <span>{purchaseData.tickets}</span> */}</li>
+          <li>{/* Email: <span>{purchaseData.email}</span> */}</li>
+          <li>{/* Card Number: <span>{purchaseData.cardNumber}</span> */}</li>
+          <li>{/* Valid until: <span>{purchaseData.cardMonth}</span> */}</li>
+          <li>{/* CVV: <span>{purchaseData.cardCvv}</span> */}</li>
           <li>
             Total Price:{" "}
             <span>
-              ${Number(purchaseData.tickets) * Number(purchaseData.price)}
+              {/* ${Number(purchaseData.tickets) * Number(purchaseData.price)} */}
             </span>
           </li>
         </ul>

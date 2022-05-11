@@ -1,9 +1,76 @@
+import React, { useContext, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { AuthenticationContext } from "../../context/AuthenticationContext";
+import { Avatar, Button, makeStyles, TextField } from "@material-ui/core";
+
 import "./Navigation.css";
 import "../../Colors.css";
-import { Link } from "react-router-dom";
-import { signInWithGoogle } from "../../firebase";
+
+const useStyles = makeStyles((theme) => ({
+  avatar: {
+    height: theme.spacing(5),
+    width: theme.spacing(5),
+    backgroundColor: theme.palette.primary.main,
+  },
+  logoContainer: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  createRecipeButton: {
+    marginLeft: "1vw",
+  },
+}));
 
 export default function Navigation() {
+  // FIXME
+  const { currentUser, loadedUserFromStorage } = useContext(
+    AuthenticationContext
+  );
+  const { logout } = useContext(AuthenticationContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const classes = useStyles();
+  const [navigationBarStyles, setNavigationBarStyles] = useState(false);
+
+  async function handleLogout() {
+    try {
+      await logout();
+      navigate("/");
+    } catch (logoutError) {
+      console.log("Logout error");
+    }
+  }
+
+  function userNavigationButton() {
+    if (!loadedUserFromStorage) {
+      return <div style={{ width: "50px" }}></div>;
+    }
+    console.log(currentUser);
+    if (currentUser) {
+      const firstLetter = currentUser?.displayName?.charAt(0).toUpperCase();
+      return (
+        <>
+          <button onClick={handleLogout} className="logout-button">
+            Log Out
+          </button>
+          <Link to="/profile" style={{ textDecoration: "none" }}>
+            <Avatar className={classes.avatar} src={currentUser?.photoURL}>
+              {firstLetter}
+            </Avatar>
+          </Link>
+        </>
+      );
+    } else {
+      return (
+        <Link to="/login" className="nav-button">
+          Sign Up / Login
+        </Link>
+      );
+    }
+  }
+  // console.log(loadedUserFromStorage);
+
+  // FIXME
   return (
     <nav className="nav">
       <Link to="/">
@@ -28,14 +95,18 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link to="/favorite" className="router__link">
-            My Favorite
-          </Link>
+          {currentUser && location.pathname !== "/profile" && (
+            <Link to="/favorite" className="router__link">
+              My Favorite
+            </Link>
+          )}
         </li>
         <li>
-          <Link to="/add-event" className="router__link">
-            Add event
-          </Link>
+          {currentUser && location.pathname !== "/profile" && (
+            <Link to="/add-event" className="router__link">
+              Add event
+            </Link>
+          )}
         </li>
         <li>
           <Link to="/faq" className="router__link">
@@ -43,25 +114,26 @@ export default function Navigation() {
           </Link>
         </li>
         <li>
-          <Link to="/login" className="router__link last">
-            LogIn / Sign up
-          </Link>
-        </li>
-        {/* FIXME */}
-        <li>
           <Link to="/profile" className="router__link">
             Profile
           </Link>
         </li>
-        <li>Log out</li>
+        {/* FIXME */}
+        <div className="user-info-wrapper">{userNavigationButton()}</div>
         <li>
+          <Link to="/login" className="router__link last">
+            LogIn / Sign up
+          </Link>
+        </li>
+
+        {/* <li>
           <Link to="/profile" className="router__link profile__img__link">
             <img
               src={localStorage.getItem("profilePic")}
               className="google__img"
             />
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

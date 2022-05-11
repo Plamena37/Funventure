@@ -87,3 +87,31 @@
 .profile__img__link:hover {
   border: none;
 }
+
+.user-info-wrapper {
+  display: flex;
+  margin-right: 1vw;
+  align-items: center;
+}
+
+.nav-button {
+  font-size: 17px;
+  text-decoration: none;
+  color: rgb(36, 36, 36);
+  transition-duration: 0.4s;
+}
+
+.nav-button:hover {
+  color: #c1272d;
+  cursor: pointer;
+}
+
+.logout-button {
+  margin-right: 10px;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 100;
+  border: none;
+  cursor: pointer;
+}

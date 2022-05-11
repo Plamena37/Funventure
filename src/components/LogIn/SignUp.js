@@ -3,14 +3,13 @@ import "../../Colors.css";
 import { TextField, Button } from "@material-ui/core";
 import { validations } from "../validationMessages";
 import { signInWithGoogle } from "../../firebase";
-import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 import { AuthenticationContext } from "../../context/AuthenticationContext";
 
 export default function SignUpForm() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [signUpFieldsState, setSignUpFieldsState] = useState({
     username: "",
@@ -60,16 +59,69 @@ export default function SignUpForm() {
     return arrayWithValues.some((element) => element === true);
   };
 
-  const handleSubmit = (event) => {
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   let checkForErrors = pushErrorsInArray();
+
+  //   if (!checkForErrors) {
+  //     navigate("/");
+  //   }
+  // };
+
+  // FIXME
+  const { signUp, signUpWithGoogle } = useContext(AuthenticationContext);
+
+  const [error, setError] = useState({ didError: false, message: "" });
+
+  async function handleSignUpWithGoogle() {
+    try {
+      await signUpWithGoogle();
+      navigate("/");
+    } catch (loginError) {
+      console.log("Login error!!!");
+    }
+  }
+
+  //Sign up with Email and password
+  async function handleSubmit(event) {
     event.preventDefault();
+    //  FIXME
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
       navigate("/");
     }
-  };
+    //  FIXME
 
-  // FIXME
+    //Check if the passwords match
+    if (signUpFieldsState.password !== signUpFieldsState.confirmPassword) {
+      return setError({
+        ...error,
+        didError: true,
+        message: "Passwords must match",
+      });
+    } else {
+      setError({ ...error, didError: false, message: "" });
+    }
+
+    //SignUp
+    try {
+      setError({ ...error, message: "" });
+
+      //This will wait for the result and if it fails it goes to the catch
+      await signUp(
+        signUpFieldsState.email,
+        signUpFieldsState.password,
+        signUpFieldsState.username
+      );
+
+      //Redirect to login upon sucsessfull registration
+      navigate("/login");
+      console.log("Signed UP");
+    } catch (signUpError) {
+      console.log("Sign Up errrorrrr");
+    }
+  }
 
   // FIXME
 
@@ -164,7 +216,7 @@ export default function SignUpForm() {
         <Link to="/" className="router__link logo link__google">
           <button
             className="btn btn--secondary btn__google"
-            onClick={signInWithGoogle}
+            onClick={handleSignUpWithGoogle}
           >
             Sign up with google
           </button>

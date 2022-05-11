@@ -15,7 +15,14 @@ export default function Testimonials() {
         <span class="subheading">ratings</span>
         <h2 class="heading__secondary">Our Testimonials</h2>
       </div>
-      <Carousel infiniteLoop autoPlay useKeyboardArrows stopOnHover swipeable>
+      <Carousel
+        showThumbs={false}
+        infiniteLoop
+        autoPlay
+        useKeyboardArrows
+        stopOnHover
+        swipeable
+      >
         {testCards}
       </Carousel>
     </div>

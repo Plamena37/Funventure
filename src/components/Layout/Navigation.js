@@ -68,8 +68,6 @@ export default function Navigation() {
       );
     }
   }
-  // console.log(loadedUserFromStorage);
-
   // FIXME
   return (
     <nav className="nav">

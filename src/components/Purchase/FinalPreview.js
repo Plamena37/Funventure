@@ -5,8 +5,8 @@ import PurchaseLayout from "./PurchaseLayout";
 import { useLocation } from "react-router-dom";
 
 export default function FinalPreview() {
-  const { state } = useLocation();
-  console.log({ state });
+  // const { state } = useLocation();
+  // console.log({ state });
   return (
     <PurchaseLayout children>
       <div className="add__events__header">

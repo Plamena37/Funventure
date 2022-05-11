@@ -71,13 +71,12 @@ export default function Purchase() {
     }
   };
 
-  // const ara = 5;
   // const toFinalPreview = () => {
   //   navigate("/final-preview", {
   //     state: { ara: ara },
   //   });
   // };
-  const finalPreviewPassData = false;
+  // const finalPreviewPassData = false;
 
   return (
     <div className="form__body">

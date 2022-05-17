@@ -30,6 +30,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   color: var(--main-purple);
+  cursor: pointer;
 }
 
 /* NAV LIST */

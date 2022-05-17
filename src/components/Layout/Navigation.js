@@ -43,7 +43,7 @@ export default function Navigation() {
 
   function userNavigationButton() {
     if (!loadedUserFromStorage) {
-      return <div style={{ width: "50px" }}></div>;
+      // return <div style={{ width: "5px" }}></div>;
     }
     console.log(currentUser);
     if (currentUser) {
@@ -118,11 +118,11 @@ export default function Navigation() {
         </li>
         {/* FIXME */}
         <div className="user-info-wrapper">{userNavigationButton()}</div>
-        <li>
+        {/* <li>
           <Link to="/login" className="router__link last">
             LogIn / Sign up
           </Link>
-        </li>
+        </li> */}
 
         {/* <li>
           <Link to="/profile" className="router__link profile__img__link">

@@ -42,17 +42,41 @@ export default function FinalPreview() {
           <li className="preview__list__heading"> User Information</li>
           <li>
             {/* <p>{purchaseData.firstName}</p> */}
+            First Name: <span>Plamena</span>
             {/* First Name: <span>{location.purchaseData.firstName}</span> */}
           </li>
-          <li>{/* Last Name: <span>{purchaseData.lastName}</span> */}</li>
-          <li>{/* Ticket Count: <span>{purchaseData.tickets}</span> */}</li>
-          <li>{/* Email: <span>{purchaseData.email}</span> */}</li>
-          <li>{/* Card Number: <span>{purchaseData.cardNumber}</span> */}</li>
-          <li>{/* Valid until: <span>{purchaseData.cardMonth}</span> */}</li>
-          <li>{/* CVV: <span>{purchaseData.cardCvv}</span> */}</li>
+          <li>
+            {/* Last Name: <span>{purchaseData.lastName}</span> */} Last Name:{" "}
+            <span>Ivanova</span>
+          </li>
+
+          <li>
+            {/* Ticket Count: <span>{purchaseData.tickets}</span> */}Ticket
+            Count: <span>3</span>
+          </li>
+
+          <li>
+            {/* Email: <span>{purchaseData.email}</span> */}Email:{" "}
+            <span>yomena37@gmail.com</span>
+          </li>
+
+          <li>
+            {/* Card Number: <span>{purchaseData.cardNumber}</span> */} Card
+            Number: <span>3333333333333333</span>
+          </li>
+
+          <li>
+            {/* Valid until: <span>{purchaseData.cardMonth}</span> */}Valid
+            until: <span>Oct, 2027</span>
+          </li>
+          <li>
+            {/* CVV: <span>{purchaseData.cardCvv}</span> */} CVV:{" "}
+            <span>333</span>
+          </li>
           <li>
             Total Price:{" "}
             <span>
+              $60
               {/* ${Number(purchaseData.tickets) * Number(purchaseData.price)} */}
             </span>
           </li>

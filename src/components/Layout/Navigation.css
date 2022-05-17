@@ -47,17 +47,27 @@
 
 /* Links */
 .router__link:link,
-.router__link:visited {
+.router__link:visited,
+.logout-button {
   text-decoration: none;
   color: var(--main-purple);
   transition: all 0.3s;
 }
 
 .router__link:hover,
-.router__link:active {
+.router__link:active,
+.logout-button:hover {
   cursor: pointer;
   color: var(--purple-light-high);
   border-bottom: 1px solid currentColor;
+}
+
+.logout-button {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
 }
 
 .router__link.logo:hover,
@@ -104,15 +114,5 @@
 
 .nav-button:hover {
   color: #c1272d;
-  cursor: pointer;
-}
-
-.logout-button {
-  margin-right: 10px;
-  background-color: transparent;
-  text-decoration: none;
-  font-size: 17px;
-  font-weight: 100;
-  border: none;
   cursor: pointer;
 }

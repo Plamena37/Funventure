@@ -118,11 +118,11 @@ export default function Navigation() {
         </li>
         {/* FIXME */}
         <div className="user-info-wrapper">{userNavigationButton()}</div>
-        {/* <li>
+        <li>
           <Link to="/login" className="router__link last">
             LogIn / Sign up
           </Link>
-        </li> */}
+        </li>
 
         {/* <li>
           <Link to="/profile" className="router__link profile__img__link">

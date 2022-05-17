@@ -2,4 +2,6 @@
   width: 80%;
   padding: 2rem;
   margin: 2rem auto 0;
+  /* 100vh - footer - navigation - section padding */
+  height: calc(100vh - 360px - 70px - 32px);
 }

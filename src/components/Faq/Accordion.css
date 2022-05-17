@@ -103,4 +103,5 @@
 
 .faq__img {
   max-width: 30rem;
+  margin-inline: auto;
 }

@@ -67,13 +67,13 @@ export default function Purchase() {
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
-      navigate("/final-preview", { purchaseData });
+      navigate("/final-preview", { state: { ...purchaseData } });
     }
   };
 
   // const toFinalPreview = () => {
   //   navigate("/final-preview", {
-  //     state: { ara: ara },
+  //     state: { bk: bk },
   //   });
   // };
   // const finalPreviewPassData = false;
@@ -96,7 +96,7 @@ export default function Purchase() {
         CLICK ME
       </button> */}
       {/* {finalPreviewPassData &&  */}
-      {/* <FinalPreview purchaseData={purchaseData} /> */}
+      <FinalPreview purchaseData={purchaseData} />
       <Footer />
     </div>
   );

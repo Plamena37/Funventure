@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import PurchaseLayout from "./PurchaseLayout";
 import { useLocation } from "react-router-dom";
 
-export default function FinalPreview() {
+export default function FinalPreview({ purchaseData }) {
   // const { state } = useLocation();
-  // console.log({ state });
+  // console.log(purchaseData);
+
+  const location = useLocation();
   return (
     <PurchaseLayout children>
       <div className="add__events__header">
@@ -41,9 +43,10 @@ export default function FinalPreview() {
         <ul className="preview__list">
           <li className="preview__list__heading"> User Information</li>
           <li>
-            {/* <p>{purchaseData.firstName}</p> */}
-            First Name: <span>Plamena</span>
-            {/* First Name: <span>{location.purchaseData.firstName}</span> */}
+            First Name:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.firstName}
+            </span>{" "}
           </li>
           <li>
             {/* Last Name: <span>{purchaseData.lastName}</span> */} Last Name:{" "}

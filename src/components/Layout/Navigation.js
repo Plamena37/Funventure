@@ -26,7 +26,7 @@ export default function Navigation() {
   const { currentUser, loadedUserFromStorage } = useContext(
     AuthenticationContext
   );
-  const { logout } = useContext(AuthenticationContext);
+  const { logout, login } = useContext(AuthenticationContext);
   const navigate = useNavigate();
   const location = useLocation();
   const classes = useStyles();
@@ -37,37 +37,51 @@ export default function Navigation() {
       await logout();
       navigate("/");
     } catch (logoutError) {
-      console.log("Logout error");
+      console.log(logoutError);
     }
   }
 
-  function userNavigationButton() {
-    if (!loadedUserFromStorage) {
-      // return <div style={{ width: "5px" }}></div>;
-    }
-    console.log(currentUser);
-    if (currentUser) {
-      const firstLetter = currentUser?.displayName?.charAt(0).toUpperCase();
-      return (
-        <>
-          <button onClick={handleLogout} className="logout-button">
-            Log Out
-          </button>
-          <Link to="/profile" style={{ textDecoration: "none" }}>
-            <Avatar className={classes.avatar} src={currentUser?.photoURL}>
-              {firstLetter}
-            </Avatar>
-          </Link>
-        </>
-      );
-    } else {
-      return (
-        <Link to="/login" className="nav-button">
-          Sign Up / Login
-        </Link>
-      );
-    }
-  }
+  // async function handleLogin(event) {
+  //   event.preventDefault();
+
+  //   try {
+  //     //This will wait for the result and if it fails it goes to the catch
+  //     await login(textFieldState.email, textFieldState.password);
+
+  //     //Redirect to home upon sucsessfull login
+  //     navigate("/");
+  //   } catch (loginError) {
+  //     console.log(loginError);
+  //   }
+  // }
+
+  // function userNavigationButton() {
+  //   if (!loadedUserFromStorage) {
+  //     return <div style={{ width: "5px" }}></div>;
+  //   }
+  //   console.log(currentUser);
+  //   if (currentUser) {
+  //     const firstLetter = currentUser?.displayName?.charAt(0).toUpperCase();
+  //     return (
+  //       <>
+  //         <button onClick={handleLogout} className="logout-button">
+  //           Log Out
+  //         </button>
+  //         <Link to="/profile" style={{ textDecoration: "none" }}>
+  //           <Avatar className={classes.avatar} src={currentUser?.photoURL}>
+  //             {firstLetter}
+  //           </Avatar>
+  //         </Link>
+  //       </>
+  //     );
+  //   } else {
+  //     return (
+  //       <Link to="/login" className="nav-button">
+  //         Sign Up / Login
+  //       </Link>
+  //     );
+  //   }
+  // }
   // FIXME
   return (
     <nav className="nav">
@@ -117,11 +131,14 @@ export default function Navigation() {
           </Link>
         </li>
         {/* FIXME */}
-        <div className="user-info-wrapper">{userNavigationButton()}</div>
+        {/* <div className="user-info-wrapper">{userNavigationButton()}</div> */}
         <li>
           <Link to="/login" className="router__link last">
             LogIn / Sign up
           </Link>
+        </li>
+        <li>
+          <button onClick={handleLogout}>Logout</button>
         </li>
 
         {/* <li>

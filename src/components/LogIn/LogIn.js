@@ -11,8 +11,8 @@ export default function LogInForm() {
     email: "",
     password: "",
 
-    username: "",
-    confirmPassword: "",
+    // username: "",
+    // confirmPassword: "",
   });
 
   const [fieldErrors, setFieldErrors] = useState({
@@ -94,7 +94,7 @@ export default function LogInForm() {
   };
   // FIXME
 
-  const handleLogInChange = (event) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     //Set the state
     setLogInFieldsState({
@@ -137,7 +137,7 @@ export default function LogInForm() {
           id="email"
           name="email"
           label="Email"
-          onChange={handleLogInChange}
+          onChange={handleChange}
           value={logInFieldsState.email}
           required
           className="textfield"
@@ -149,7 +149,7 @@ export default function LogInForm() {
           id="password"
           name="password"
           label="Password"
-          onChange={handleLogInChange}
+          onChange={handleChange}
           value={logInFieldsState.password}
           required
           className="textfield"
@@ -160,15 +160,15 @@ export default function LogInForm() {
         />
 
         <Button
-          style={{
-            margin: "2rem 0 1rem",
-            padding: "0.75rem 0.6rem",
-            borderRadius: "0.3rem",
-            width: "100%",
-            fontSize: "1.2rem",
-            fontWeight: 600,
-            cursor: "pointer",
-          }}
+          // style={{
+          //   margin: "2rem 0 1rem",
+          //   padding: "0.75rem 0.6rem",
+          //   borderRadius: "0.3rem",
+          //   width: "100%",
+          //   fontSize: "1.2rem",
+          //   fontWeight: 600,
+          //   cursor: "pointer",
+          // }}
           variant="contained"
           color="primary"
           disabled={pushErrorsInArray()}

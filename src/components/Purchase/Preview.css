@@ -13,7 +13,7 @@
   margin-bottom: 3rem;
 }
 
-.preview__list > li > span {
+.purchase-data-highlight {
   font-weight: 600;
   color: var(--gray-dark-high);
   color: var(--yellow-darker);

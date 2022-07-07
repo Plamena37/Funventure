@@ -4,12 +4,10 @@ import Footer from "../components/Layout/Footer";
 
 export default function Favorite() {
   return (
-    <>
-      <div className="favorite__body">
-        <Navigation />
-        <ToFavorite />
-        <Footer />
-      </div>
-    </>
+    <div className="favorite__body">
+      <Navigation />
+      <ToFavorite />
+      <Footer />
+    </div>
   );
 }

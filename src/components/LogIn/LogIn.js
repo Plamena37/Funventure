@@ -160,15 +160,15 @@ export default function LogInForm() {
         />
 
         <Button
-          // style={{
-          //   margin: "2rem 0 1rem",
-          //   padding: "0.75rem 0.6rem",
-          //   borderRadius: "0.3rem",
-          //   width: "100%",
-          //   fontSize: "1.2rem",
-          //   fontWeight: 600,
-          //   cursor: "pointer",
-          // }}
+          style={{
+            margin: "2rem 0 1rem",
+            padding: "0.75rem 0.6rem",
+            borderRadius: "0.3rem",
+            width: "100%",
+            fontSize: "1.2rem",
+            fontWeight: 600,
+            cursor: "pointer",
+          }}
           variant="contained"
           color="primary"
           disabled={pushErrorsInArray()}

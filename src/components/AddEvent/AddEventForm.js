@@ -21,10 +21,10 @@ export default function AddEventForm({
   category,
 }) {
   // Getting current date
-  const currentDate = new Date();
+  let currentDate = new Date();
 
   // Creating yyyy-mm-dd current date format
-  const currentYear = currentDate.getFullYear().toString();
+  let currentYear = currentDate.getFullYear().toString();
   let currentMonth = currentDate.getMonth() + 1;
   let currentDay = currentDate.getDate();
 

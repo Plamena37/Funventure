@@ -5,10 +5,8 @@ import PurchaseLayout from "./PurchaseLayout";
 import { useLocation } from "react-router-dom";
 
 export default function FinalPreview({ purchaseData }) {
-  // const { state } = useLocation();
-  // console.log(purchaseData);
-
   const location = useLocation();
+
   return (
     <PurchaseLayout children>
       <div className="add__events__header">
@@ -19,25 +17,26 @@ export default function FinalPreview({ purchaseData }) {
         <ul className="preview__list">
           <li className="preview__list__heading">Event Information:</li>
           <li>
-            Title:<span> Powder Fest</span>
+            Title:<span className="purchase-data-highlight"> Powder Fest</span>
           </li>
           <li>
-            City: <span>Burgas</span>
+            City: <span className="purchase-data-highlight">Burgas</span>
           </li>
           <li>
-            Date: <span>03 Oct 2022</span>
+            Date: <span className="purchase-data-highlight">03 Oct 2022</span>
           </li>
           <li>
-            Time: <span>2 PM to 4 PM</span>
+            Time: <span className="purchase-data-highlight">2 PM to 4 PM</span>
           </li>
           <li>
-            Category: <span>Festival</span>
+            Category: <span className="purchase-data-highlight">Festival</span>{" "}
           </li>
           <li>
-            Price:<span> $20</span>
+            Price:<span className="purchase-data-highlight"> $20</span>
           </li>
           <li>
-            Organization: <span>Dreamers Org</span>
+            Organization:{" "}
+            <span className="purchase-data-highlight">Dreamers Org</span>
           </li>
         </ul>
         <ul className="preview__list">
@@ -49,38 +48,45 @@ export default function FinalPreview({ purchaseData }) {
             </span>{" "}
           </li>
           <li>
-            {/* Last Name: <span>{purchaseData.lastName}</span> */} Last Name:{" "}
-            <span>Ivanova</span>
-          </li>
-
-          <li>
-            {/* Ticket Count: <span>{purchaseData.tickets}</span> */}Ticket
-            Count: <span>3</span>
-          </li>
-
-          <li>
-            {/* Email: <span>{purchaseData.email}</span> */}Email:{" "}
-            <span>yomena37@gmail.com</span>
-          </li>
-
-          <li>
-            {/* Card Number: <span>{purchaseData.cardNumber}</span> */} Card
-            Number: <span>3333333333333333</span>
-          </li>
-
-          <li>
-            {/* Valid until: <span>{purchaseData.cardMonth}</span> */}Valid
-            until: <span>Oct, 2027</span>
+            Last Name:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.lastName}
+            </span>
           </li>
           <li>
-            {/* CVV: <span>{purchaseData.cardCvv}</span> */} CVV:{" "}
-            <span>333</span>
+            Ticket Count:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.tickets}
+            </span>
+          </li>
+          <li>
+            Email:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.email}
+            </span>
+          </li>{" "}
+          <li>
+            Card Number:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.cardNumber}
+            </span>
+          </li>{" "}
+          <li>
+            Valid until:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.cardMonth}
+            </span>
+          </li>{" "}
+          <li>
+            CVV:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.cardCvv}
+            </span>
           </li>
           <li>
             Total Price:{" "}
-            <span>
-              $60
-              {/* ${Number(purchaseData.tickets) * Number(purchaseData.price)} */}
+            <span className="purchase-data-highlight">
+              ${Number(location.state?.tickets) * Number(location.state?.price)}
             </span>
           </li>
         </ul>

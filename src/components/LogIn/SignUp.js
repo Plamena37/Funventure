@@ -2,7 +2,6 @@ import "./AuthForm.css";
 import "../../Colors.css";
 import { TextField, Button } from "@material-ui/core";
 import { validations } from "../validationMessages";
-import { signInWithGoogle } from "../../firebase";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";

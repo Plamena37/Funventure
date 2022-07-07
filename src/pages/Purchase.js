@@ -3,7 +3,7 @@ import PurchaseForm from "../components/Purchase/PurchaseForm";
 import FinalPreview from "../components/Purchase/FinalPreview";
 import Footer from "../components/Layout/Footer";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Purchase() {
   const navigate = useNavigate();
@@ -71,13 +71,6 @@ export default function Purchase() {
     }
   };
 
-  // const toFinalPreview = () => {
-  //   navigate("/final-preview", {
-  //     state: { bk: bk },
-  //   });
-  // };
-  // const finalPreviewPassData = false;
-
   return (
     <div className="form__body">
       <Navigation />
@@ -88,15 +81,6 @@ export default function Purchase() {
         error={fieldErrors}
         pushErrorsInArray={pushErrorsInArray}
       />
-      {/* <button
-        onClick={() => {
-          toFinalPreview();
-        }}
-      >
-        CLICK ME
-      </button> */}
-      {/* {finalPreviewPassData &&  */}
-      <FinalPreview purchaseData={purchaseData} />
       <Footer />
     </div>
   );

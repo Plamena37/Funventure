@@ -130,13 +130,15 @@
   cursor: pointer;
 }
 
-.username__link:link {
+.username__link:link,
+.username__link:visited {
   color: var(--yellow-darker) !important;
   color: var(--purple-light-high) !important;
   transition: all 0.3s;
 }
 
-.username__link:hover {
+.username__link:hover,
+.username__link:active {
   box-shadow: none;
   border-bottom: none;
   color: var(--purple-dark-high) !important;

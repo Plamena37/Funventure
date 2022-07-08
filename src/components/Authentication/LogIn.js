@@ -1,18 +1,16 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthenticationContext } from "../../context/AuthenticationContext";
 import { validations } from "../validationMessages";
 import "./AuthForm.css";
 import "../../Variables.css";
 
 export default function LogInForm() {
+  const navigate = useNavigate();
+
   const [logInFieldsState, setLogInFieldsState] = useState({
     email: "",
     password: "",
-
-    // username: "",
-    // confirmPassword: "",
   });
 
   const [fieldErrors, setFieldErrors] = useState({
@@ -33,66 +31,6 @@ export default function LogInForm() {
       });
     }
   };
-  // FIXME
-  const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
-  const { login, signUpWithGoogle, resetPassword } = useContext(
-    AuthenticationContext
-  );
-  //  HANDLE LOG IN WITH GOOGLE
-  async function handleSignUpWithGoogle() {
-    try {
-      await signUpWithGoogle();
-      navigate("/");
-      console.log("Logged in!");
-    } catch (loginError) {
-      console.log("Log in error!");
-    }
-  }
-
-  // HANDLE LOG IN
-  async function handleLogin(event) {
-    event.preventDefault();
-    let checkForErrors = pushErrorsInArray();
-
-    try {
-      //This will wait for the result and if it fails it goes to the catch
-      await login(logInFieldsState.email, logInFieldsState.password);
-
-      if (!checkForErrors) {
-        navigate("/");
-      }
-      //Redirect to home upon sucsessfull login
-      navigate("/");
-    } catch (loginError) {
-      console.log("Log in error!!");
-    }
-  }
-
-  // ---------------- Reset Password ----------------
-
-  const handleOpenPopup = () => {
-    setOpen(true);
-  };
-
-  const handleLCosePopup = () => {
-    setLogInFieldsState({ ...logInFieldsState, email: "" });
-    setOpen(false);
-  };
-
-  const handleResetPassword = (event) => {
-    event.preventDefault();
-    const resetPasswordPromise = resetPassword(logInFieldsState.email);
-    resetPasswordPromise
-      .then(() => {
-        console.log("An email sent!");
-        setOpen(false);
-      })
-      .catch((error) => {
-        console.log("Reset password error!");
-      });
-  };
-  // FIXME
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -114,14 +52,28 @@ export default function LogInForm() {
     return arrayWithValues.some((element) => element === true);
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   let checkForErrors = pushErrorsInArray();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let checkForErrors = pushErrorsInArray();
 
-  //   if (!checkForErrors) {
-  //     navigate("/");
-  //   }
-  // };
+    if (!checkForErrors) {
+      // TODO FIXME
+      let emailLocalStorage = localStorage.getItem("email").replace(/"/g, "");
+      let passwordLocalStorage = localStorage
+        .getItem("password")
+        .replace(/"/g, "");
+
+      if (
+        logInFieldsState.email === emailLocalStorage &&
+        logInFieldsState.password === passwordLocalStorage
+      ) {
+        navigate("/");
+        console.log("LOGIN COMPLETED 🎉🎉🎉");
+      }
+
+      // TODO FIXME
+    }
+  };
 
   return (
     <div className="form form--signup">
@@ -132,7 +84,7 @@ export default function LogInForm() {
           <button className="form__btn ">Sign up</button>
         </Link>
       </nav>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleSubmit}>
         <TextField
           id="email"
           name="email"
@@ -177,9 +129,7 @@ export default function LogInForm() {
           Log in
         </Button>
 
-        <button className="btn btn--secondary" onClick={handleSignUpWithGoogle}>
-          Sign in with google
-        </button>
+        <button className="btn btn--secondary">Sign in with google</button>
       </form>
     </div>
   );

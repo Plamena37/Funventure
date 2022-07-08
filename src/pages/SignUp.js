@@ -1,4 +1,4 @@
-import SignUpOverlay from "../components/LogIn/SignUpOverlay";
+import SignUpOverlay from "../components/Authentication/SignUpOverlay";
 
 export default function SignUp() {
   return <SignUpOverlay />;

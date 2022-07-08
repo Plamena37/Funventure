@@ -1,7 +1,6 @@
 import "./Profile.css";
 import ProfileLayout from "./ProfileLayout";
 import { Link } from "react-router-dom";
-import { signInWithGoogle } from "../../firebase";
 
 export default function Profile() {
   return (
@@ -17,7 +16,7 @@ export default function Profile() {
           </li>
           <li>
             <h2 className="profile__list__heading">
-              {localStorage.getItem("name")}
+              {localStorage.getItem("username").replace(/"/g, "")}
             </h2>
             <p className="profile__list__info">
               <span>Events: 0</span>

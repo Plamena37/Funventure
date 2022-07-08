@@ -1,6 +1,5 @@
 import Navigation from "../components/Layout/Navigation";
 import PurchaseForm from "../components/Purchase/PurchaseForm";
-import FinalPreview from "../components/Purchase/FinalPreview";
 import Footer from "../components/Layout/Footer";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

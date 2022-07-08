@@ -48,3 +48,40 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* Carousel arrows */
+.carousel-status {
+  visibility: hidden;
+}
+
+.carousel .control-arrow:before,
+.carousel.carousel-slider .control-arrow:before {
+  margin: 0 !important;
+}
+.carousel.carousel-slider .control-arrow::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--yellow-darker);
+  top: 135px;
+  position: absolute;
+  z-index: -999;
+  overflow: visible;
+}
+
+.carousel .control-next.control-arrow:after {
+  right: -15px;
+}
+
+.carousel .control-prev.control-arrow:after {
+  left: -15px;
+}
+
+.carousel.carousel-slider {
+  overflow: visible !important;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: none !important;
+}

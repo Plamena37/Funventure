@@ -2,10 +2,8 @@ import "./AuthForm.css";
 import "../../Variables.css";
 import { TextField, Button } from "@material-ui/core";
 import { validations } from "../validationMessages";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
-import { AuthenticationContext } from "../../context/AuthenticationContext";
 
 export default function SignUpForm() {
   const navigate = useNavigate();
@@ -58,71 +56,26 @@ export default function SignUpForm() {
     return arrayWithValues.some((element) => element === true);
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   let checkForErrors = pushErrorsInArray();
-
-  //   if (!checkForErrors) {
-  //     navigate("/");
-  //   }
-  // };
-
-  // FIXME
-  const { signUp, signUpWithGoogle } = useContext(AuthenticationContext);
-
-  const [error, setError] = useState({ didError: false, message: "" });
-
-  async function handleSignUpWithGoogle() {
-    try {
-      await signUpWithGoogle();
-      navigate("/");
-    } catch (loginError) {
-      console.log("Login error!!!");
-    }
-  }
-
-  //Sign up with Email and password
-  async function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    //  FIXME
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
-      navigate("/");
-    }
-    //  FIXME
-
-    //Check if the passwords match
-    if (signUpFieldsState.password !== signUpFieldsState.confirmPassword) {
-      return setError({
-        ...error,
-        didError: true,
-        message: "Passwords must match",
-      });
-    } else {
-      setError({ ...error, didError: false, message: "" });
-    }
-
-    //SignUp
-    try {
-      setError({ ...error, message: "" });
-
-      //This will wait for the result and if it fails it goes to the catch
-      await signUp(
-        signUpFieldsState.email,
-        signUpFieldsState.password,
-        signUpFieldsState.username
+      // TODO FIXME
+      localStorage.setItem(
+        "username",
+        JSON.stringify(signUpFieldsState.username)
+      );
+      localStorage.setItem("email", JSON.stringify(signUpFieldsState.email));
+      localStorage.setItem(
+        "password",
+        JSON.stringify(signUpFieldsState.password)
       );
 
-      //Redirect to login upon sucsessfull registration
+      // TODO FIXME
       navigate("/login");
-      console.log("Signed UP");
-    } catch (signUpError) {
-      console.log("Sign Up errrorrrr");
     }
-  }
-
-  // FIXME
+  };
 
   return (
     <div className="form form--signup">
@@ -212,14 +165,9 @@ export default function SignUpForm() {
           Sign Up
         </Button>
 
-        <Link to="/" className="router__link logo link__google">
-          <button
-            className="btn btn--secondary btn__google"
-            onClick={handleSignUpWithGoogle}
-          >
-            Sign up with google
-          </button>
-        </Link>
+        <button className="btn btn--secondary btn__google">
+          Sign up with google
+        </button>
       </form>
     </div>
   );

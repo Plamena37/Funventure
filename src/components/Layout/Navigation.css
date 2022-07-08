@@ -63,11 +63,24 @@
 }
 
 .logout-button {
-  font-size: 1.2rem;
-  font-weight: var(--bold-500);
-  margin-right: 10px;
-  background-color: transparent;
+  color: var(--main-purple);
+
+  box-shadow: var(--btn-inset) var(--purple-light-high);
   border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.logout-button:hover {
+  border: none;
+  /* background-color: var(--white); */
+  box-shadow: var(--btn-inset) var(--main-bg);
 }
 
 .router__link.logo:hover,
@@ -115,4 +128,16 @@
 .nav-button:hover {
   color: #c1272d;
   cursor: pointer;
+}
+
+.username__link:link {
+  color: var(--yellow-darker) !important;
+  color: var(--purple-light-high) !important;
+  transition: all 0.3s;
+}
+
+.username__link:hover {
+  box-shadow: none;
+  border-bottom: none;
+  color: var(--purple-dark-high) !important;
 }

@@ -1,7 +1,7 @@
 .testimonial__layout {
   background-color: var(--white);
   padding-block: 7rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--section-light);
 }
 
 .testimonials__section {

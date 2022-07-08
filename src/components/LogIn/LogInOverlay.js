@@ -1,5 +1,5 @@
 import "./FormOverlay.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import LogIn from "./LogIn";
 
 export default function LogInOverlay() {

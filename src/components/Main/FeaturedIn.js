@@ -1,5 +1,5 @@
 import "./FeaturedIn.css";
-import "../../Colors.css";
+import "../../Variables.css";
 
 export default function FeaturedIn() {
   return (

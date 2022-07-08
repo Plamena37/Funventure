@@ -1,5 +1,5 @@
 import "./HowItWorks.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import { HeartIcon, LightBulbIcon, MapIcon } from "@heroicons/react/outline";
 
 export default function HowItWorks() {

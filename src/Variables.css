@@ -1,4 +1,5 @@
 :root {
+  /*========== Colors ==========*/
   --main-purple: #4c45b3;
   --main-bg: #f0efff;
   --purple-light-high: #b3a7dd;
@@ -25,7 +26,15 @@
   --black: #000;
 
   --red: #e60606;
-}
 
-/* FIXME     DA SE PREKRUSTI NA VARIABLES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-/* FIXME     DA SE TURNE FONT WEIGHT TUKA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  /*========== Font weight ==========*/
+  --bold-700: 700;
+  --bold-600: 600;
+  --bold-500: 500;
+  --normal-400: 400;
+
+  /*========== Box shadow ==========*/
+  --section-light: 0 25px 50px -12px rgba(0, 0, 0, 0.03);
+  --section-medium: 0 1.2rem 3.2rem;
+  --btn-inset: inset 0 0 0 3px;
+}

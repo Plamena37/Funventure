@@ -2,14 +2,14 @@
   padding: 1.5rem 3rem;
   padding-block: 7rem;
   background-color: var(--white);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--section-light);
 }
 
 .subheading {
   display: block;
   font-size: 1.2rem;
   color: var(--main-purple);
-  font-weight: 500;
+  font-weight: var(--bold-500);
   text-transform: uppercase;
   letter-spacing: 0.75px;
   margin-bottom: 0.3rem;
@@ -18,7 +18,7 @@
 .heading__secondary {
   color: var(--gray-darkest);
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: var(--bold-700);
   letter-spacing: -0.8px;
   margin-bottom: 4rem;
 }
@@ -100,7 +100,7 @@
   top: calc(50% - 6rem);
   text-align: center;
   font-size: 8rem;
-  font-weight: bold;
+  font-weight: var(--bold-700);
   text-transform: uppercase;
   letter-spacing: 1px;
   z-index: 1;
@@ -156,7 +156,7 @@
 .container .content h2 {
   margin-bottom: 1rem;
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: var(--bold-600);
   color: var(--main-purple);
 }
 

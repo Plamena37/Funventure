@@ -1,5 +1,5 @@
 import "./Testimonials.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import TestCard from "./TestCard";
 import testData from "../../testData";
 import "react-responsive-carousel/lib/styles/carousel.min.css";

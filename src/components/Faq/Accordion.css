@@ -55,7 +55,7 @@
 
 /* Accordion title */
 .accordion__title {
-  font-weight: 600;
+  font-weight: var(--bold-600);
   font-size: 1.4rem;
   letter-spacing: 0.05rem;
   text-align: left;
@@ -90,7 +90,7 @@
 
 /* Accordion text */
 .accordion__text {
-  font-weight: 400;
+  font-weight: var(--bold-400);
   font-size: 1.2rem;
   padding: 1rem;
 }

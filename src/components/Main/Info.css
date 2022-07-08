@@ -27,12 +27,12 @@
 .info__num {
   color: var(--main-purple);
   font-size: 3rem;
-  font-weight: 500;
+  font-weight: var(--bold-500);
 }
 
 .info__desc {
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: var(--bold-700);
   color: var(--gray-dark-high);
   text-transform: uppercase;
 }

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../../context/AuthenticationContext";
 import { validations } from "../validationMessages";
 import "./AuthForm.css";
-import "../../Colors.css";
+import "../../Variables.css";
 
 export default function LogInForm() {
   const [logInFieldsState, setLogInFieldsState] = useState({

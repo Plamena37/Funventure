@@ -14,7 +14,7 @@ body {
   height: auto;
   background-color: var(--white);
   border-radius: 0.3rem;
-  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.05);
+  box-shadow: var(--section-medium) rgba(0, 0, 0, 0.05);
 }
 
 /*******************************************************/
@@ -35,12 +35,12 @@ body {
   font-size: 1.2rem;
   display: flex;
   align-items: center;
-  font-weight: 500;
+  font-weight: var(--bold-500);
 }
 
 .price__price {
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: var(--bold-700);
   color: var(--main-purple);
 }
 
@@ -64,7 +64,7 @@ body {
   padding: 0.75rem;
   border-radius: 0.3rem;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: var(--bold-700);
   cursor: pointer;
   transition: all 0.3s;
 
@@ -104,12 +104,12 @@ body {
 
 .details__desc {
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: var(--bold-700);
 }
 
 .details__data {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: var(--bold-500);
   text-align: center;
   color: var(--gray-dark-high);
 }
@@ -141,7 +141,7 @@ body {
   align-items: center;
   gap: 0.2rem;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: var(--bold-700);
 
   border: none;
   outline: none;
@@ -175,14 +175,14 @@ body {
 /* Likes text */
 .likes__text {
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: var(--bold-700);
   display: flex;
   align-items: center;
   gap: 0.2rem;
 }
 
 .likes__text > span {
-  font-weight: 500;
+  font-weight: var(--bold-500);
 }
 
 /* Button */
@@ -191,7 +191,7 @@ body {
   border: none;
   border-radius: 0.3rem;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: var(--bold-700);
   background-color: var(--main-purple);
   color: var(--main-bg);
   transition: all 0.3s;
@@ -203,5 +203,5 @@ body {
   color: #f0efff; */
   background-color: var(--white);
   color: var(--main-purple);
-  box-shadow: inset 0 0 0 3px var(--main-purple);
+  box-shadow: var(--btn-inset) var(--main-purple);
 }

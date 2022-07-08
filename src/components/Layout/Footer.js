@@ -1,5 +1,5 @@
 import "./Footer.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
 

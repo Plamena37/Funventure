@@ -52,7 +52,7 @@
 .footer nav > h3 {
   color: var(--main-purple);
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: var(--bold-700);
   margin-bottom: 1.2rem;
 }
 

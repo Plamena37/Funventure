@@ -11,7 +11,7 @@
 .featured__heading {
   font-size: 1.4rem;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: var(--bold-700);
   color: var(--gray-dark-med);
   text-align: center;
   letter-spacing: 0.75px;

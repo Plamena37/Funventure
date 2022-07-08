@@ -4,7 +4,7 @@ import { AuthenticationContext } from "../../context/AuthenticationContext";
 import { Avatar, Button, makeStyles, TextField } from "@material-ui/core";
 
 import "./Navigation.css";
-import "../../Colors.css";
+import "../../Variables.css";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {

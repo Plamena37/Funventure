@@ -1,5 +1,5 @@
 import "./TestCard.css";
-import "../../Colors.css";
+import "../../Variables.css";
 
 export default function TestCard(props) {
   return (

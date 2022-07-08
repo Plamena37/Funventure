@@ -1,6 +1,6 @@
 .example__section {
   padding-block: 7rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.03);
+  box-shadow: var(--section-light);
 }
 
 .center-text {
@@ -24,7 +24,7 @@
 /* FIXME */
 .example__img {
   width: 90%;
-  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.1);
+  box-shadow: var(--section-medium) rgba(0, 0, 0, 0.1);
 }
 
 .list__item .example__icon {

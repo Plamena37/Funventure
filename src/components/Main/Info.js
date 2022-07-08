@@ -1,5 +1,5 @@
 import "./Info.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import {
   CalendarIcon,
   ThumbUpIcon,

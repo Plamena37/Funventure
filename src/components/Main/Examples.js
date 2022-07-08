@@ -1,5 +1,5 @@
 import "./Examples.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import { CheckIcon } from "@heroicons/react/outline";
 
 export default function Examples() {

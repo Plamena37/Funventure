@@ -1,4 +1,4 @@
-import "./Colors.css";
+import "./Variables.css";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import FAQ from "./pages/FAQ";
 import Main from "./pages/Main";

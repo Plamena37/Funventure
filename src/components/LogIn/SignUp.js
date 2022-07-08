@@ -1,5 +1,5 @@
 import "./AuthForm.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import { TextField, Button } from "@material-ui/core";
 import { validations } from "../validationMessages";
 import { useState, useContext } from "react";

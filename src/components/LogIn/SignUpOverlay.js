@@ -1,5 +1,5 @@
 import "./FormOverlay.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import SignUp from "./SignUp";
 
 export default function SignUpOverlay() {

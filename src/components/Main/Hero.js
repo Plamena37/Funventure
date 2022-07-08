@@ -1,5 +1,5 @@
 import "./Hero.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import HeroTestimonial from "./HeroTestimonial";
 import { Link } from "react-router-dom";
 

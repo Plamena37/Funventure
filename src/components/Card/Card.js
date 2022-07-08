@@ -1,5 +1,5 @@
 import "./Card.css";
-import "../../Colors.css";
+import "../../Variables.css";
 import Price from "./Price";
 import Image from "./Image";
 import Details from "./Details";

@@ -6,7 +6,7 @@
   gap: 1.2rem 1rem;
   padding: 0.5rem;
   background-color: var(--purple-light-low);
-  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+  box-shadow: var(--section-medium) rgba(0, 0, 0, 0.03);
   z-index: 9;
   position: relative;
   /* position: sticky;
@@ -28,7 +28,7 @@
   letter-spacing: 0.2rem;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-weight: var(--bold-500);
   color: var(--main-purple);
   cursor: pointer;
 }
@@ -40,7 +40,7 @@
   gap: 1.5rem;
   margin-left: auto;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: var(--bold-500);
   list-style-type: none;
   color: var(--main-purple);
 }
@@ -64,7 +64,7 @@
 
 .logout-button {
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: var(--bold-500);
   margin-right: 10px;
   background-color: transparent;
   border: none;
@@ -90,7 +90,7 @@
 .router__link.last:active {
   background-color: inherit;
   color: var(--main-purple);
-  box-shadow: inset 0 0 0 3px var(--purple-light-high);
+  box-shadow: var(--btn-inset) var(--purple-light-high);
   border-bottom: none;
 }
 

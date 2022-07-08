@@ -1,5 +1,5 @@
 import Chevron from "./Chevron";
-import "../../Colors.css";
+import "../../Variables.css";
 import { useState, useRef } from "react";
 import "./Accordion.css";
 

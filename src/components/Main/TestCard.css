@@ -60,14 +60,14 @@
 
 .test__desc {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: var(--bold-800);
   margin-bottom: 2rem;
   font-style: oblique;
 }
 
 .test__author {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: var(--bold-600);
 }
 
 .test__job {

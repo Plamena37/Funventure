@@ -17,7 +17,7 @@ export default function FinalPreview({ purchaseData }) {
         <ul className="preview__list">
           <li className="preview__list__heading">Event Information:</li>
           <li>
-            Title:<span className="purchase-data-highlight"> Powder Fest</span>
+            Title:<span className="purchase-data-highlight">Powder Fest</span>
           </li>
           <li>
             City: <span className="purchase-data-highlight">Burgas</span>

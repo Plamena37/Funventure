@@ -30,6 +30,7 @@ function App() {
             <Route path="/favorite" element={<Favorite />} />
             <Route path="/add-event" element={<AddEvent />} />
             <Route path="/event" element={<SingleCard />} />
+            {/* <Route path="/event/:eventId" element={<SingleCard />} /> */}
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/purchase" element={<Purchase />} />
             <Route path="/final-preview" element={<FinalPreview />} />

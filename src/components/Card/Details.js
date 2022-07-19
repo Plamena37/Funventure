@@ -3,7 +3,6 @@ import {
   LocationMarkerIcon,
   CalendarIcon,
   ClockIcon,
-  BookmarkIcon,
   SparklesIcon,
 } from "@heroicons/react/solid";
 

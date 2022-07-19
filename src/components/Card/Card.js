@@ -5,7 +5,7 @@ import Image from "./Image";
 import Details from "./Details";
 import Going from "./Going";
 import Likes from "./Likes";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { EventContext } from "../../context/EventsContextProvider";
 import { useContext, useState } from "react";
@@ -13,6 +13,8 @@ import { useSnackbar } from "notistack";
 import Button from "@material-ui/core/Button";
 
 export default function Card() {
+  const navigate = useNavigate();
+
   const { allEvents, deleteEvent } = useContext(EventContext);
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
@@ -85,6 +87,14 @@ export default function Card() {
       category: item.category,
       seats: item.seats,
       team: item.team,
+    });
+
+    let currentID = item.id;
+    console.log(currentID);
+    // BUG
+    // navigate("/event", { state: { ...selectedEvent } });
+    navigate("/event", {
+      currentID: currentID,
     });
   }
 

@@ -49,3 +49,11 @@
   font-weight: var(--bold-500) !important;
   letter-spacing: 0.05rem !important;
 }
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+  padding-inline: 1rem;
+}
+
+.MuiButtonBase-root {
+  display: flex !important;
+}

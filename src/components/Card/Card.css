@@ -162,6 +162,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--gray-light-med);
 }
 
 /*Likes Icon */
@@ -187,10 +188,10 @@ body {
 
 /* Button */
 .btn.btn__likes {
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.4rem;
   border: none;
   border-radius: 0.3rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: var(--bold-700);
   background-color: var(--main-purple);
   color: var(--main-bg);
@@ -204,4 +205,87 @@ body {
   background-color: var(--white);
   color: var(--main-purple);
   box-shadow: var(--btn-inset) var(--main-purple);
+}
+
+/* BTN VIEW, BTN DELETE */
+.btn__wrapper {
+  display: flex;
+  flex-direction: column !important;
+  padding: 1rem 1rem;
+  gap: 0.5rem !important;
+}
+
+.btn {
+  border: none;
+  padding: 0.75rem 0.6rem;
+  border-radius: 0.3rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: var(--bold-600);
+  letter-spacing: 0.1rem;
+  width: 100%;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn--delete {
+  color: #fff;
+  color: var(--yellow-darker);
+}
+
+.btn--view:hover,
+.btn--delete:hover {
+  background-color: var(--gray-light-med);
+}
+
+.all-events__container {
+  padding: 3rem 7rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem;
+}
+
+.search__bar {
+  border: none;
+  outline: none;
+  border-bottom: solid 2px var(--main-purple);
+  padding: 0.75rem 0 0.75rem 0.5rem;
+  font-size: 16px;
+  align-self: flex-start;
+  color: #294b80;
+}
+
+.filter-and-delete-container {
+  margin: 0 auto;
+}
+
+.card__layout {
+  display: flex;
+  flex-direction: column;
+}
+
+/*------------------------ No Notes Message ------------------------ */
+.message__container {
+  padding: 7rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/-1;
+}
+
+.message__container > span {
+  font-size: 2rem;
+  color: var(--main-purple);
+  margin-bottom: 10px;
+  font-weight: var(--bold-500);
+}
+.message_link {
+  font-size: 1.2rem;
+  color: var(--purple-light-high);
+  transition: all 0.3s;
+}
+
+.message_link:hover {
+  color: var(--yellow-darker);
 }

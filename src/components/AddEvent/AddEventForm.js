@@ -1,4 +1,6 @@
-import "./AddEventForm.css";
+import { EventContext } from "../../context/EventsContextProvider";
+import { useState, useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 import AddEventLayout from "./AddEventLayout";
 import { validations } from "../validationMessages";
 import {
@@ -11,15 +13,10 @@ import {
   Button,
 } from "@material-ui/core";
 import PublishIcon from "@material-ui/icons/Publish";
+import { useNavigate } from "react-router-dom";
+import "./AddEventForm.css";
 
-export default function AddEventForm({
-  formData,
-  eventHandleChange,
-  handleSubmit,
-  error,
-  pushErrorsInArray,
-  category,
-}) {
+export default function AddEventForm() {
   // Getting current date
   let currentDate = new Date();
 
@@ -35,6 +32,107 @@ export default function AddEventForm({
     currentDay = `0${currentDay}`;
   }
   const currentDateFinal = `${currentYear}-${currentMonth}-${currentDay}`;
+
+  //Get the notes data from the context by destructuring
+  const { addToEventsData } = useContext(EventContext);
+
+  // IMPORTANT
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    id: uuidv4(),
+    title: "",
+    description: "",
+    price: 0,
+    city: "",
+    date: "",
+    startTime: "",
+    endTime: "",
+    category: "",
+    seats: 0,
+    // image: "",
+    team: "",
+  });
+  const [category, setCategory] = useState("");
+
+  const [fieldErrors, setFieldErrors] = useState({
+    title: false,
+    description: false,
+    price: false,
+    city: false,
+    startTime: false,
+    seats: false,
+    team: false,
+  });
+
+  const validationConditions = {
+    title: /(^$)|(^[A-Za-z0-9 ]*[A-Za-z0-9][A-Za-z0-9 ]*$)/,
+    description: /(^$)|(^.{10,500}$)/,
+    price: /(^$)|(^[+]?\d+([.]\d+)?$)/,
+    city: /(^$)|(^[a-zA-Z\s]*$)/,
+    startTime: /(^$)|(^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$)/,
+    seats: /(^$)|(^[+]?\d+([.]\d+)?$)/,
+    team: /(^$)|(^[A-Za-z0-9 ]*[A-Za-z0-9][A-Za-z0-9 ]*$)/,
+  };
+
+  const handleValidation = (fieldName, fieldValue) => {
+    if (
+      fieldName !== "date" &&
+      fieldName !== "endTime" &&
+      fieldName !== "category"
+    ) {
+      setFieldErrors({
+        ...fieldErrors,
+        [fieldName]: !validationConditions[fieldName].test(fieldValue),
+      });
+    }
+  };
+
+  // EVENT HANDLE CHANGE
+  const eventHandleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+    setCategory(value);
+    handleValidation(name, value);
+  };
+
+  // PUSHES THE ERROR BOOLEANS IN AN ARRAY
+  const pushErrorsInArray = () => {
+    let arrayWithValues = [];
+    for (const errorValue in fieldErrors) {
+      arrayWithValues.push(fieldErrors[errorValue]);
+    }
+    // IF THE ARRAY CONTAINS A FALSY VALUE, THE OPERATION STOPS AND RETURNS FALSE
+    return arrayWithValues.some((element) => element === true);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let checkForErrors = pushErrorsInArray();
+
+    if (!checkForErrors) {
+      //Sets the new note
+      addToEventsData(formData);
+
+      //Clear the form after submission.
+      // setFormData({
+      //   id: uuidv4(),
+      //   title: "",
+      //   description: "",
+      //   price: 0,
+      //   city: "",
+      //   date: "",
+      //   startTime: "",
+      //   endTime: "",
+      //   category: "",
+      //   seats: 0,
+      //   team: "",
+      // });
+      navigate("/added-event");
+    }
+  };
+
+  // IMPORTANT
 
   return (
     <AddEventLayout children>
@@ -61,8 +159,8 @@ export default function AddEventForm({
               label="Event title"
               variant="outlined"
               onChange={(event) => eventHandleChange(event)}
-              error={error.title} //for letters and numbers
-              helperText={error.title && validations.title}
+              error={fieldErrors.title} //for letters and numbers
+              helperText={fieldErrors.title && validations.title}
             />
             <TextField
               required
@@ -76,8 +174,8 @@ export default function AddEventForm({
               minRows={4}
               maxRows={8}
               onChange={(event) => eventHandleChange(event)}
-              error={error.description} // all characters between 10 and 500
-              helperText={error.description && validations.description}
+              error={fieldErrors.description} // all characters between 10 and 500
+              helperText={fieldErrors.description && validations.description}
             />
             <TextField
               required
@@ -89,8 +187,8 @@ export default function AddEventForm({
               variant="outlined"
               type="number"
               onChange={(event) => eventHandleChange(event)}
-              error={error.price} // for positive numbers only
-              helperText={error.price && validations.positiveNumbersOnly}
+              error={fieldErrors.price} // for positive numbers only
+              helperText={fieldErrors.price && validations.positiveNumbersOnly}
             />
           </div>
         </section>
@@ -113,8 +211,8 @@ export default function AddEventForm({
               label="City"
               variant="outlined"
               onChange={(event) => eventHandleChange(event)}
-              error={error.city} // will be true if the string contains numbers
-              helperText={error.city && validations.lettersOnly}
+              error={fieldErrors.city} // will be true if the string contains numbers
+              helperText={fieldErrors.city && validations.lettersOnly}
             />
 
             <TextField
@@ -151,8 +249,8 @@ export default function AddEventForm({
                 variant="outlined"
                 type="time"
                 onChange={(event) => eventHandleChange(event)}
-                error={error.startTime} // will be true if the string contains numbers
-                helperText={error.startTime && validations.time}
+                error={fieldErrors.startTime} // will be true if the string contains numbers
+                helperText={fieldErrors.startTime && validations.time}
               />
 
               <TextField
@@ -220,8 +318,8 @@ export default function AddEventForm({
               variant="outlined"
               type="number"
               onChange={(event) => eventHandleChange(event)}
-              error={error.seats} // for positive numbers only
-              helperText={error.seats && validations.positiveNumbersOnly}
+              error={fieldErrors.seats} // for positive numbers only
+              helperText={fieldErrors.seats && validations.positiveNumbersOnly}
             />
           </div>
         </section>
@@ -266,8 +364,8 @@ export default function AddEventForm({
               label="Organizer Team"
               variant="outlined"
               onChange={(event) => eventHandleChange(event)}
-              error={error.team} //for letters and numbers
-              helperText={error.team && validations.title}
+              error={fieldErrors.team} //for letters and numbers
+              helperText={fieldErrors.team && validations.title}
             />
           </div>
         </section>

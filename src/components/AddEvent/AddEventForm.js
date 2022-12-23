@@ -15,6 +15,7 @@ import {
 import PublishIcon from "@material-ui/icons/Publish";
 import { useNavigate } from "react-router-dom";
 import "./AddEventForm.css";
+import { URL_EVENTS } from "../../API_KEY";
 
 export default function AddEventForm() {
   const navigate = useNavigate();
@@ -135,7 +136,7 @@ export default function AddEventForm() {
       };
 
       fetch(
-        "https://funventure-3d50c-default-rtdb.firebaseio.com/events.json",
+        URL_EVENTS,
         {
           method: "POST",
           body: JSON.stringify(eventData),

@@ -21,9 +21,14 @@
 }
 
 /* Profile Image */
+.profile__list__container {
+  width: 5rem;
+  margin-right: 1rem;
+}
+
 .profile__list__img {
-  width: 80%;
-  border-radius: 50%;
+  width: 100%;
+  border-radius: 100%;
 }
 
 /* Profile Name */

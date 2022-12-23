@@ -5,6 +5,7 @@ import { validations } from "../validationMessages";
 import "./AuthForm.css";
 import "../../Variables.css";
 import { EventContext } from "../../context/EventsContextProvider";
+import { API_KEY } from "../../API_KEY";
 
 export default function LogInForm() {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ export default function LogInForm() {
 
     if (!checkForErrors) {
       fetch(
-        " https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBNk5xmO5tyndMnTz16Nnr2qrpHDEg6o2E",
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`,
         {
           method: "POST",
           body: JSON.stringify({

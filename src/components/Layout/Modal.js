@@ -2,6 +2,7 @@ import classes from "./Modal.module.css";
 import { useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { EventContext } from "../../context/EventsContextProvider";
+import { API_KEY } from "../../API_KEY";
 
 export default function Modal() {
   const newPasswordRef = useRef();
@@ -13,7 +14,7 @@ export default function Modal() {
     const newPassword = newPasswordRef.current.value;
 
     fetch(
-      "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyBNk5xmO5tyndMnTz16Nnr2qrpHDEg6o2E",
+      `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${API_KEY}`,
       {
         method: "POST",
         body: JSON.stringify({

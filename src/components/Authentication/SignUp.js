@@ -4,6 +4,7 @@ import { TextField, Button } from "@material-ui/core";
 import { validations } from "../validationMessages";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { API_KEY } from "../../API_KEY";
 
 export default function SignUpForm() {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ export default function SignUpForm() {
 
     if (!checkForErrors) {
       fetch(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=        AIzaSyBNk5xmO5tyndMnTz16Nnr2qrpHDEg6o2E",
+        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`,
         {
           method: "POST",
           body: JSON.stringify({

@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import { URL_EVENTS } from "../API_KEY";
 
 export const EventContext = createContext({
   token: "",
@@ -41,7 +42,7 @@ export default function EventsContextProvider(props) {
   // Get All Events
   const getAllEvents = () => {
     setIsLoading(true);
-    fetch("https://funventure-3d50c-default-rtdb.firebaseio.com/events.json")
+    fetch(URL_EVENTS)
       .then((response) => {
         return response.json();
       })
@@ -66,9 +67,7 @@ export default function EventsContextProvider(props) {
   };
 
   async function getEvent(id) {
-    const response = await fetch(
-      "https://funventure-3d50c-default-rtdb.firebaseio.com/events.json" + id
-    );
+    const response = await fetch(URL_EVENTS + id);
     if (!response.ok) {
       throw { message: "Failed to fetch post.", status: 500 };
     }

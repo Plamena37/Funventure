@@ -13,6 +13,6 @@ export const validations = {
   time: "Must contain valid time!",
   date: "Must contain a valid date!",
   // LOGIN
-  password: "Must be more than 5 characters!",
+  password: "Must be more than 6 characters!",
   wrongPassword: "The password confirmation does not match!",
 };

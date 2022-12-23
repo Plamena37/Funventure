@@ -9,6 +9,7 @@
   box-shadow: var(--section-medium) rgba(0, 0, 0, 0.03);
   z-index: 9;
   position: relative;
+  padding-inline: 2rem;
   /* position: sticky;
   top: 0;
   left: 0; */

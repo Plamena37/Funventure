@@ -2,10 +2,13 @@ import Navigation from "../components/Layout/Navigation";
 import PurchaseForm from "../components/Purchase/PurchaseForm";
 import Footer from "../components/Layout/Footer";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Purchase() {
+export default function Purchase({ eventDetail }) {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const savedEventInfo = location.state.eventDetail;
 
   const [purchaseData, setpurchaseData] = useState({
     tickets: 0,
@@ -66,7 +69,9 @@ export default function Purchase() {
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
-      navigate("/final-preview", { state: { ...purchaseData } });
+      navigate("/final-preview", {
+        state: { ...purchaseData, ...savedEventInfo },
+      });
     }
   };
 
@@ -74,6 +79,7 @@ export default function Purchase() {
     <div className="form__body">
       <Navigation />
       <PurchaseForm
+        savedEventInfo={savedEventInfo}
         purchaseData={purchaseData}
         purchaseHandleChange={purchaseHandleChange}
         handleSubmit={handleSubmit}

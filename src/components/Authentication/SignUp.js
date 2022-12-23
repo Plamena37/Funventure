@@ -24,7 +24,7 @@ export default function SignUpForm() {
   const validationConditions = {
     email: /(^$)|(^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$)/,
     username: /(^$)|(^[A-Za-z0-9]+$)/,
-    password: /(^$)|(^.{5,}$)/,
+    password: /(^$)|(^.{6,}$)/,
   };
 
   const handleValidation = (fieldName, fieldValue) => {
@@ -43,7 +43,9 @@ export default function SignUpForm() {
       ...signUpFieldsState,
       [name]: value,
     });
+
     handleValidation(name, value);
+    localStorage.setItem("username", signUpFieldsState.username);
   };
 
   // PUSHES THE ERROR BOOLEANS IN AN ARRAY
@@ -61,20 +63,69 @@ export default function SignUpForm() {
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
-      // TODO FIXME
-      localStorage.setItem(
-        "username",
-        JSON.stringify(signUpFieldsState.username)
-      );
-      localStorage.setItem("email", JSON.stringify(signUpFieldsState.email));
-      localStorage.setItem(
-        "password",
-        JSON.stringify(signUpFieldsState.password)
-      );
+      fetch(
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=        AIzaSyBNk5xmO5tyndMnTz16Nnr2qrpHDEg6o2E",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: signUpFieldsState.email,
+            password: signUpFieldsState.password,
+            username: signUpFieldsState.username,
+            returnSecureToken: true,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => {
+          if (res.ok) {
+          } else {
+            return res.json().then((data) => {
+              // THROW AN ERROR IF AUTHENTICATION FAILS
+              const errorMessage =
+                data?.error?.message || "Authentication failed!";
 
-      // TODO FIXME
-      navigate("/login");
+              throw new Error(errorMessage);
+            });
+          }
+        })
+        .then((data) => {
+          navigate("/login");
+        })
+        .catch((err) => {
+          switch (err.message) {
+            case "EMAIL_EXISTS":
+              alert("Entered email already exists! 💥");
+              break;
+            case "OPERATION_NOT_ALLOWED":
+              alert("Entered password is disabled for this project! 💥");
+              break;
+            case "TOO_MANY_ATTEMPTS_TRY_LATER":
+              alert(
+                "All requests from this device are blocked due to unusual activity. Try again later! 💥"
+              );
+              break;
+            default:
+              alert("Something went wrong! 💣");
+          }
+          return;
+        });
     }
+
+    // if (!checkForErrors) {
+    //   // TODO FIXME
+    //   localStorage.setItem(
+    //     "username",
+    //     JSON.stringify(signUpFieldsState.username)
+    //   );
+    //   localStorage.setItem("email", JSON.stringify(signUpFieldsState.email));
+    //   localStorage.setItem(
+    //     "password",
+    //     JSON.stringify(signUpFieldsState.password)
+    //   );
+
+    // }
   };
 
   return (

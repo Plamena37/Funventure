@@ -1,4 +1,44 @@
-/* Single Card Info section */
+/* Event Detail Page Header */
+.single__card__header {
+  text-align: center;
+}
+
+.single__card__icon {
+  font-size: 4rem;
+  color: var(--purple-light-high);
+}
+
+.single__card__heading {
+  font-size: 2.5rem;
+  font-weight: var(--bold-600);
+  color: var(--purple-dark-med);
+  margin-bottom: 3rem;
+}
+
+/* Event Detail Page Info */
+.single__card__list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--gray-light-med);
+}
+
+.single__card__list > li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.card__list__desc {
+  font-size: 1rem;
+  font-weight: var(--bold-500);
+  color: var(--gray-dark-high);
+}
+
+/* Event Detail Info Section */
 .single__card__info {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -11,7 +51,7 @@
   border-radius: 0.2rem;
 }
 
-/* Card description list */
+/* Event Detail Description List */
 .card__info__container {
   list-style: none;
 }
@@ -23,13 +63,13 @@
   margin-bottom: 1rem;
 }
 
-/* Event heading */
+/* Event Detail Heading */
 .card__info__heading {
   font-size: 2rem;
   color: var(--purple-dark-med);
 }
 
-/* Event Price */
+/* Event Detail Price */
 .card__info__price {
   font-size: 1.2rem;
 }
@@ -48,14 +88,17 @@
   margin-bottom: 2rem;
 }
 
-/* Event btns */
+/* Event Detail Buttons */
 .card__info__container > li:last-child {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
-.card__info__btn {
+.info__btn:link,
+.info__btn:visited,
+.btn__reserve {
+  display: inline-block;
   border: none;
   padding: 1.2rem 1.5rem;
   border-radius: 0.3rem;
@@ -64,6 +107,7 @@
   font-family: inherit;
   font-weight: var(--bold-600);
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s;
 }
 
@@ -75,13 +119,23 @@
   background-color: var(--purple-dark-med);
 }
 
-.btn__back {
+.btn__back:link,
+.btn__back:visited {
   background-color: var(--main-bg);
   box-shadow: var(--btn-inset) var(--main-purple);
   color: var(--main-purple);
+  display: inline-block;
 }
 
-.btn__back:hover {
+.btn__back:hover,
+.btn__back:active {
   background-color: var(--white);
   box-shadow: var(--btn-inset) var(--main-bg);
+}
+
+/* Event Detail Layout */
+.single__card__layout {
+  width: 80%;
+  padding: 2rem;
+  margin: 2rem auto 0;
 }

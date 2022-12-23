@@ -1,11 +1,12 @@
 import "./Preview.css";
 import "../AddEvent/AddEventLayout.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PurchaseLayout from "./PurchaseLayout";
 import { useLocation } from "react-router-dom";
 
-export default function FinalPreview({ purchaseData }) {
+export default function FinalPreview({ purchaseData, savedEventInfo }) {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <PurchaseLayout children>
@@ -17,30 +18,50 @@ export default function FinalPreview({ purchaseData }) {
         <ul className="preview__list">
           <li className="preview__list__heading">Event Information:</li>
           <li>
-            Title:<span className="purchase-data-highlight">Powder Fest</span>
+            Title:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.title}
+            </span>
           </li>
           <li>
-            City: <span className="purchase-data-highlight">Burgas</span>
+            City:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.city}
+            </span>
           </li>
           <li>
-            Date: <span className="purchase-data-highlight">03 Oct 2022</span>
+            Date:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.date}
+            </span>
           </li>
           <li>
-            Time: <span className="purchase-data-highlight">2 PM to 4 PM</span>
+            Time:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.startTime} to {location.state?.endTime}
+            </span>
           </li>
           <li>
-            Category: <span className="purchase-data-highlight">Festival</span>{" "}
+            Category:{" "}
+            <span className="purchase-data-highlight">
+              {location.state?.category}
+            </span>{" "}
           </li>
           <li>
-            Price:<span className="purchase-data-highlight"> $20</span>
+            Single Ticket Price:{" "}
+            <span className="purchase-data-highlight">
+              ${location.state?.price}
+            </span>
           </li>
           <li>
             Organization:{" "}
-            <span className="purchase-data-highlight">Dreamers Org</span>
+            <span className="purchase-data-highlight">
+              {location.state?.team}
+            </span>
           </li>
         </ul>
         <ul className="preview__list">
-          <li className="preview__list__heading"> User Information</li>
+          <li className="preview__list__heading">User Information</li>
           <li>
             First Name:{" "}
             <span className="purchase-data-highlight">
@@ -92,9 +113,10 @@ export default function FinalPreview({ purchaseData }) {
         </ul>
       </div>
       <div className="btn__wrapper">
-        <Link to="/purchase" className="purchase__link">
-          <button className="event__form__btn">Edit</button>
-        </Link>
+        <button className="event__form__btn" onClick={() => navigate(-1)}>
+          Edit
+        </button>
+
         <Link to="/purchase-success" className="purchase__link">
           <button className="event__form__btn">Purchase</button>
         </Link>

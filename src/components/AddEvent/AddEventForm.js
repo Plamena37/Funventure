@@ -17,6 +17,8 @@ import { useNavigate } from "react-router-dom";
 import "./AddEventForm.css";
 
 export default function AddEventForm() {
+  const navigate = useNavigate();
+
   // Getting current date
   let currentDate = new Date();
 
@@ -33,14 +35,13 @@ export default function AddEventForm() {
   }
   const currentDateFinal = `${currentYear}-${currentMonth}-${currentDay}`;
 
-  //Get the notes data from the context by destructuring
-  const { addToEventsData } = useContext(EventContext);
-
   // IMPORTANT
-  const navigate = useNavigate();
+
+  const [category, setCategory] = useState("");
+  const [image, setImage] = useState();
 
   const [formData, setFormData] = useState({
-    id: uuidv4(),
+    // id: uuidv4(),
     title: "",
     description: "",
     price: 0,
@@ -50,10 +51,9 @@ export default function AddEventForm() {
     endTime: "",
     category: "",
     seats: 0,
-    // image: "",
+    image: "",
     team: "",
   });
-  const [category, setCategory] = useState("");
 
   const [fieldErrors, setFieldErrors] = useState({
     title: false,
@@ -79,7 +79,8 @@ export default function AddEventForm() {
     if (
       fieldName !== "date" &&
       fieldName !== "endTime" &&
-      fieldName !== "category"
+      fieldName !== "category" &&
+      fieldName !== "image"
     ) {
       setFieldErrors({
         ...fieldErrors,
@@ -94,7 +95,13 @@ export default function AddEventForm() {
     setFormData({ ...formData, [name]: value });
     setCategory(value);
     handleValidation(name, value);
+    // setImage(URL.createObjectURL(event.target.files[0]));
   };
+
+  function imageHandleChange(event) {
+    // console.log(e.target.files);
+    setImage(URL.createObjectURL(event.target.files[0]));
+  }
 
   // PUSHES THE ERROR BOOLEANS IN AN ARRAY
   const pushErrorsInArray = () => {
@@ -112,7 +119,37 @@ export default function AddEventForm() {
 
     if (!checkForErrors) {
       //Sets the new note
-      addToEventsData(formData);
+
+      const eventData = {
+        title: formData.title,
+        description: formData.description,
+        price: formData.price,
+        city: formData.city,
+        date: formData.date,
+        startTime: formData.startTime,
+        endTime: formData.endTime,
+        category: formData.category,
+        seats: formData.seats,
+        image: formData.image,
+        team: formData.team,
+      };
+
+      fetch(
+        "https://funventure-3d50c-default-rtdb.firebaseio.com/events.json",
+        {
+          method: "POST",
+          body: JSON.stringify(eventData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then(() => {
+          navigate("/added-event");
+        })
+        .catch((err) => {
+          console.warn(err.message);
+        });
 
       //Clear the form after submission.
       // setFormData({
@@ -128,10 +165,9 @@ export default function AddEventForm() {
       //   seats: 0,
       //   team: "",
       // });
-      navigate("/added-event");
+      //
     }
   };
-
   // IMPORTANT
 
   return (
@@ -333,17 +369,22 @@ export default function AddEventForm() {
             </h3>
           </nav>
           <div>
-            {/* <TextField
-          required
-          className="form__input"
-          id="image"
-          name="imagee"
-          label="Image"
-          variant="outlined"
-           onChange={(event) => onChangeHandler(event)}
-        /> */}
-            <input type="file" style={{ display: "none" }} />
-            <button className="event__img__btn">Upload Cover Image</button>
+            <TextField
+              required
+              className="form__input"
+              id="image"
+              name="image"
+              label="Image"
+              variant="outlined"
+              onChange={(event) => eventHandleChange(event)}
+            />
+            {/* <input
+              type="file"
+              name="image"
+              id="image"
+              onChange={imageHandleChange}
+              // style={{ display: "none" }}
+            /> */}
           </div>
         </section>
 

@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { TextField, Button } from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
 import { validations } from "../validationMessages";
 import "./AuthForm.css";
 import "../../Variables.css";
+import { EventContext } from "../../context/EventsContextProvider";
 
 export default function LogInForm() {
   const navigate = useNavigate();
+  const eventCtx = useContext(EventContext);
 
   const [logInFieldsState, setLogInFieldsState] = useState({
     email: "",
@@ -20,7 +22,7 @@ export default function LogInForm() {
 
   const validationConditions = {
     email: /(^$)|(^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$)/,
-    password: /(^$)|(^.{5,}$)/,
+    password: /(^$)|(^.{6,}$)/,
   };
 
   const handleValidation = (fieldName, fieldValue) => {
@@ -57,22 +59,71 @@ export default function LogInForm() {
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
-      // TODO FIXME
-      let emailLocalStorage = localStorage.getItem("email").replace(/"/g, "");
-      let passwordLocalStorage = localStorage
-        .getItem("password")
-        .replace(/"/g, "");
+      fetch(
+        " https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBNk5xmO5tyndMnTz16Nnr2qrpHDEg6o2E",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: logInFieldsState.email,
+            password: logInFieldsState.password,
+            returnSecureToken: true,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            return res.json().then((data) => {
+              const errorMessage =
+                data?.error?.message || "Authentication failed!";
 
-      if (
-        logInFieldsState.email === emailLocalStorage &&
-        logInFieldsState.password === passwordLocalStorage
-      ) {
-        navigate("/");
-        console.log("LOGIN COMPLETED 🎉🎉🎉");
-      }
+              throw new Error(errorMessage);
+            });
+          }
+        })
+        .then((data) => {
+          eventCtx.login(data.idToken);
 
-      // TODO FIXME
+          console.log(data);
+          navigate("/");
+        })
+        .catch((err) => {
+          switch (err.message) {
+            case "EMAIL_NOT_FOUND":
+              alert("Entered email is not found! 💥");
+              break;
+            case "INVALID_PASSWORD":
+              alert("Entered invalid password! 💥");
+              break;
+            case "USER_DISABLED":
+              alert("User is disabled! 💥");
+              break;
+            default:
+              alert("Something went wrong! 💣");
+          }
+          return;
+        });
     }
+
+    // if (!checkForErrors) {
+    //   // TODO FIXME
+    //   let emailLocalStorage = localStorage.getItem("email").replace(/"/g, "");
+    //   let passwordLocalStorage = localStorage
+    //     .getItem("password")
+    //     .replace(/"/g, "");
+
+    //   if (
+    //     logInFieldsState.email === emailLocalStorage &&
+    //     logInFieldsState.password === passwordLocalStorage
+    //   ) {
+    //     navigate("/");
+    //     console.log("LOGIN COMPLETED 🎉🎉🎉");
+    //   }
+    // }
   };
 
   return (

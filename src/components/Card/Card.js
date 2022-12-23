@@ -1,10 +1,6 @@
 import "./Card.css";
 import "../../Variables.css";
-import Price from "./Price";
-import Image from "./Image";
-import Details from "./Details";
-import Going from "./Going";
-import Likes from "./Likes";
+
 import { Link, useNavigate } from "react-router-dom";
 
 import { EventContext } from "../../context/EventsContextProvider";
@@ -19,7 +15,7 @@ export default function Card() {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const [selectedEvent, setSelectedEvent] = useState({
-    id: "",
+    // id: "",
     title: "",
     description: "",
     price: 0,
@@ -107,7 +103,7 @@ export default function Card() {
 
     return filteredAllEvents.map((item) => (
       <div key={item.id} className="card">
-        <Price price={item.price} title={item.title} />
+        {/* <Price price={item.price} title={item.title} />
         <Link to="/event">
           <Image seats={item.seats} />
         </Link>
@@ -119,7 +115,7 @@ export default function Card() {
           category={item.category}
         />
         <Going going="30" maybe="20" cant="15" />
-        <Likes like="137" />
+        <Likes like="137" /> */}
 
         <section className="btn__wrapper">
           <button

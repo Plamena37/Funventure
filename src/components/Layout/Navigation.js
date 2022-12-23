@@ -2,17 +2,22 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./Navigation.css";
 import "../../Variables.css";
+import { useContext } from "react";
+import { EventContext } from "../../context/EventsContextProvider";
 
 export default function Navigation() {
   const navigate = useNavigate();
+  const eventCtx = useContext(EventContext);
 
-  let handleLogout = () => {
-    // localStorage.clear();
-    // localStorage.removeItem("email");
-    // localStorage.removeItem("username");
-    // localStorage.removeItem("password");
+  const isLoggedIn = eventCtx.isLoggedIn;
+
+  let logoutHandler = () => {
+    eventCtx.logout();
     navigate("/login");
   };
+
+  // BUG
+  // ADD USERNAME
 
   return (
     <nav className="nav">
@@ -26,6 +31,7 @@ export default function Navigation() {
       <Link to="/" className="router__link logo">
         <h3 className="nav__header">FunVenture</h3>
       </Link>
+
       <ul className="nav__list">
         <li>
           <Link to="/" className="router__link">
@@ -39,7 +45,7 @@ export default function Navigation() {
           </Link>
         </li>
 
-        {localStorage.getItem("username") && (
+        {isLoggedIn && (
           <li>
             <Link to="/favorite" className="router__link">
               My Favorite
@@ -47,7 +53,7 @@ export default function Navigation() {
           </li>
         )}
 
-        {localStorage.getItem("username") && (
+        {isLoggedIn && (
           <li>
             <Link to="/add-event" className="router__link">
               Add event
@@ -61,15 +67,15 @@ export default function Navigation() {
           </Link>
         </li>
 
-        {/* {localStorage.getItem("username") && (
+        {isLoggedIn && (
           <li>
             <Link to="/profile" className="router__link">
               Profile
             </Link>
           </li>
-        )} */}
+        )}
 
-        {!localStorage.getItem("username") && (
+        {!isLoggedIn && (
           <li>
             <Link to="/login" className="router__link last">
               LogIn / Sign up
@@ -77,16 +83,17 @@ export default function Navigation() {
           </li>
         )}
 
-        {localStorage.getItem("username") && (
+        {isLoggedIn && (
           <li>
             <Link to="/profile" className="router__link username__link">
-              Hi, {localStorage.getItem("username").replace(/"/g, "")}
+              {/* Hi, {localStorage.getItem("username").replace(/"/g, "")} */}
+              Hi, {localStorage.getItem("username")}
             </Link>
           </li>
         )}
 
-        {localStorage.getItem("username") && (
-          <button className="logout-button" onClick={handleLogout}>
+        {isLoggedIn && (
+          <button className="logout-button" onClick={logoutHandler}>
             {" "}
             Log out
           </button>

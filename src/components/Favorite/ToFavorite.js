@@ -1,6 +1,6 @@
 import "./ToFavorite.css";
 import ToFavoriteLayout from "./ToFavoriteLayout";
-import Card from "../Card/Card";
+import EventItem from "../Events/EventItem";
 
 export default function ToFavorite() {
   return (
@@ -9,7 +9,7 @@ export default function ToFavorite() {
         <i class="far fa-heart favorite__icon"></i>
         <h2 className="favorite__primary__heading">My Favorites</h2>
       </div>
-      <Card />
+      {/* <EventItem /> */}
     </ToFavoriteLayout>
   );
 }

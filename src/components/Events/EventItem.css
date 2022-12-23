@@ -1,0 +1,183 @@
+body {
+  background-color: var(--main-bg);
+}
+
+/*******************************************************/
+/* Card layout*/
+.card__layout {
+  padding: 3rem;
+}
+
+/* Card */
+.card {
+  /* width: 25rem; */
+  height: auto;
+  background-color: var(--white);
+  border-radius: 0.3rem;
+  box-shadow: var(--section-medium) rgba(0, 0, 0, 0.05);
+}
+
+.event__item__btn__wrapper {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.event__item__btn:link,
+.event__item__btn:visited {
+  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  padding: 0.75rem 0.6rem;
+  /* border-radius: 0.3rem; */
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: var(--bold-600);
+  letter-spacing: 0.1rem;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+/* IMAGE SECTION */
+.image__section {
+  position: relative;
+  height: 12rem;
+}
+
+.card__img {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  object-fit: cover;
+  filter: brightness(80%);
+}
+
+/*******************************************************/
+/* Price */
+.price__section {
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price__title {
+  font-size: 1.2rem;
+}
+
+.price__ticket {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  font-weight: var(--bold-500);
+}
+
+.price__price {
+  font-size: 1.2rem;
+  font-weight: var(--bold-700);
+  color: var(--main-purple);
+}
+
+/*******************************************************/
+/* Details */
+.details__section {
+  width: 100%;
+  height: 6rem;
+  padding: 0.8rem 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--gray-light-med);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.details__title {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.details__icon {
+  width: 1rem;
+  color: var(--main-purple);
+}
+
+.details__desc {
+  font-size: 1rem;
+  font-weight: var(--bold-700);
+}
+
+.details__data {
+  font-size: 0.8rem;
+  font-weight: var(--bold-500);
+  text-align: center;
+  color: var(--gray-dark-high);
+}
+
+/*******************************************************/
+/* Likes */
+.likes__section {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray-light-med);
+}
+
+/*Likes Icon */
+.likes__icon {
+  width: 1.8rem;
+  color: var(--main-purple);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+/* Likes text */
+.likes__text {
+  font-size: 1.2rem;
+  font-weight: var(--bold-700);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.likes__text > span {
+  font-weight: var(--bold-500);
+}
+
+/* BUTTONS */
+.btn--view:hover,
+.btn--view:active,
+.btn--delete:hover,
+.btn--delete:active {
+  background-color: var(--gray-light-med);
+}
+
+.btn__purchase {
+  padding: 0.8rem 1.2rem;
+  width: 50%;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: var(--bold-600);
+  background-color: var(--main-purple);
+  color: var(--main-bg);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn__purchase:hover {
+  background-color: var(--white);
+  color: var(--main-purple);
+  box-shadow: var(--btn-inset) var(--main-purple);
+}

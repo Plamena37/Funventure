@@ -8,15 +8,16 @@ export default function Profile() {
       <section className="profile__header__container">
         <ul className="profile__list">
           <li>
-            <img
+            {/* <img
               src={localStorage.getItem("profilePic")}
               className="profile__list__img"
               alt="User image"
-            />
+            /> */}
           </li>
           <li>
             <h2 className="profile__list__heading">
-              {localStorage.getItem("username").replace(/"/g, "")}
+              {/* {localStorage.getItem("username").replace(/"/g, "")} */}
+              {localStorage.getItem("username")}
             </h2>
             <p className="profile__list__info">
               <span>Events: 0</span>
@@ -24,6 +25,9 @@ export default function Profile() {
             </p>
           </li>
           <li>
+            <Link to="/change-password">
+              <button className="profile__list__btn">Change password</button>
+            </Link>
             <Link to="/add-event">
               <button className="profile__list__btn">Add Event</button>
             </Link>

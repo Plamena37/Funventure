@@ -1,15 +1,82 @@
 import { useState, useEffect, createContext } from "react";
 
 export const EventContext = createContext({
+  token: "",
+  isLoggedIn: false,
+  login: (token) => {},
+  logout: () => {},
+  getAllEvents: () => {},
   allEvents: [],
+  isLoading: true,
+  error: false,
+
+  getEvent: () => {},
   addToEventsData: () => {},
-  editEvent: () => {},
-  deleteEvent: () => {},
+  // getEvents: () => {},
+  // editEvent: () => {},
+  // deleteEvent: () => {},
 });
 
 export default function EventsContextProvider(props) {
-  //------------------------ Declare the state ------------------------
+  //-----------NEW IMPORTANT-------------------------
+  const initialToken = localStorage.getItem("token");
+  const [token, setToken] = useState(initialToken);
+
+  const userIsLoggedIn = !!token;
+
+  const loginHandler = (token) => {
+    setToken(token);
+    localStorage.setItem("token", token);
+  };
+
+  const logoutHandler = () => {
+    setToken(null);
+    localStorage.removeItem("token");
+  };
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState();
   const [allEvents, setAllEvents] = useState([]);
+
+  // Get All Events
+  const getAllEvents = () => {
+    setIsLoading(true);
+    fetch("https://funventure-3d50c-default-rtdb.firebaseio.com/events.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const events = [];
+
+        for (const key in data) {
+          const event = {
+            id: key,
+            ...data[key],
+          };
+
+          events.push(event);
+        }
+
+        setAllEvents(events);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+    setIsLoading(false);
+  };
+
+  async function getEvent(id) {
+    const response = await fetch(
+      "https://funventure-3d50c-default-rtdb.firebaseio.com/events.json" + id
+    );
+    if (!response.ok) {
+      throw { message: "Failed to fetch post.", status: 500 };
+    }
+    return response.json();
+  }
+
+  //------------------------ Declare the state ------------------------
+  // const [allEvents, setAllEvents] = useState([]);
 
   /* Explanation
         Gets the current eventsData from the local browser storage
@@ -18,10 +85,10 @@ export default function EventsContextProvider(props) {
         Note: This is a useEffect hook that means this is a side effect to the main functionality of the component.
         You can set this hook to be initialized only once by setting the second parameter to [].
     */
-  useEffect(() => {
-    const eventsDataJson = localStorage.getItem("eventsData");
-    setAllEvents(JSON.parse(eventsDataJson) || []);
-  }, []);
+  // useEffect(() => {
+  //   const eventsDataJson = localStorage.getItem("eventsData");
+  //   setAllEvents(JSON.parse(eventsDataJson) || []);
+  // }, []);
 
   //------------------------ Create Event ------------------------
   /*Explanation
@@ -59,16 +126,25 @@ export default function EventsContextProvider(props) {
     localStorage.setItem("eventsData", eventsDataJson);
   }
 
+  //-----------NEW IMPORTANT-------------------------
+  const contextValue = {
+    token: token,
+    isLoggedIn: userIsLoggedIn,
+    login: loginHandler,
+    logout: logoutHandler,
+    getEvent: getEvent,
+    getAllEvents: getAllEvents,
+    allEvents: allEvents,
+    isLoading: isLoading,
+    error: error,
+
+    addToEventsData: addToEventsData,
+    // editEvent: editEvent,
+    // deleteEvent: deleteEvent,
+  };
+
   return (
-    <EventContext.Provider
-      value={{
-        allEvents: allEvents,
-        addToEventsData: addToEventsData,
-        editEvent: editEvent,
-        deleteEvent: deleteEvent,
-      }}
-    >
-      {/*Passes down all of the functions*/}
+    <EventContext.Provider value={contextValue}>
       {props.children}
     </EventContext.Provider>
   );

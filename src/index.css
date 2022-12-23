@@ -7,3 +7,45 @@
 html {
   font-family: "Poppins", sans-serif;
 }
+
+/*  GLOBAL SECTION HEADERS */
+.center {
+  text-align: center;
+}
+
+.m-b--small {
+  margin-bottom: 2rem;
+}
+
+.section__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section__primary__heading {
+  font-size: 2.5rem;
+  font-weight: var(--bold-600);
+  color: var(--purple-dark-low);
+}
+
+.section__icon {
+  font-size: 4rem;
+  color: var(--purple-light-high);
+}
+
+.section__list__icon {
+  font-size: 1.5rem;
+  color: var(--yellow-darker);
+  color: var(--purple-light-high);
+}
+
+/* .btn:link,
+.btn:visited {
+  display: inline-block;
+  outline: none;
+  padding: 1.2rem 1rem;
+  text-align: center;
+} */

@@ -1,15 +1,15 @@
 import Navigation from "../components/Layout/Navigation";
-import SingleCardLayout from "../components/SingleCard/SingleCardLayout";
-import SingleEvent from "../components/SingleCard/SingleEvent";
+import EventDetailLayout from "../components/EventDetail/EventDetailLayout";
+import EventDetail from "../components/EventDetail/EventDetail";
 import Footer from "../components/Layout/Footer";
 
 export default function SingleCard() {
   return (
     <>
       <Navigation />
-      {/* <SingleCardLayout> */}
-      <SingleEvent />
-      {/* </SingleCardLayout> */}
+      {/* <EventDetailLayout> */}
+      <EventDetail />
+      {/* </EventDetailLayout> */}
       <Footer />
     </>
   );

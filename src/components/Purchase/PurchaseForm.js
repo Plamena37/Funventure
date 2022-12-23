@@ -7,6 +7,7 @@ import { validations } from "../validationMessages";
 import SearchIcon from "@material-ui/icons/Search";
 
 export default function PurchaseForm({
+  savedEventInfo,
   purchaseData,
   purchaseHandleChange,
   handleSubmit,
@@ -43,7 +44,7 @@ export default function PurchaseForm({
                 className="purchase__input"
                 id="outlined-basic"
                 label="Event Title"
-                defaultValue="Powder Fest"
+                value={savedEventInfo.title}
                 variant="outlined"
               />
 
@@ -52,7 +53,7 @@ export default function PurchaseForm({
                 className="purchase__input"
                 id="price"
                 name="price"
-                value={purchaseData.price}
+                value={`${savedEventInfo.price}$`}
                 label="Single Price"
                 variant="outlined"
               />
@@ -63,7 +64,7 @@ export default function PurchaseForm({
                 className="purchase__input"
                 id="outlined-basic"
                 label="Category"
-                defaultValue="Festival"
+                value={savedEventInfo.category}
                 variant="outlined"
               />
               <TextField
@@ -71,7 +72,7 @@ export default function PurchaseForm({
                 className="purchase__input"
                 id="outlined-number"
                 label="Seats Available"
-                defaultValue="200 Seats"
+                value={`${savedEventInfo.seats} Seats`}
                 variant="outlined"
               />
             </div>
@@ -82,7 +83,7 @@ export default function PurchaseForm({
                 className="purchase__input"
                 id="outlined-basic"
                 label="Event Organizer"
-                defaultValue="Organizer Group"
+                value={savedEventInfo.team}
                 variant="outlined"
               />
             </div>
@@ -102,7 +103,7 @@ export default function PurchaseForm({
                 className="purchase__input"
                 id="outlined-basic"
                 label="City"
-                defaultValue="Burgas"
+                value={savedEventInfo.city}
                 variant="outlined"
               />
 
@@ -111,7 +112,7 @@ export default function PurchaseForm({
                 className="purchase__input"
                 id="outlined-basic"
                 label="Date"
-                defaultValue="2022-03-21"
+                value={savedEventInfo.date}
                 variant="outlined"
                 type="date"
               />
@@ -122,7 +123,7 @@ export default function PurchaseForm({
                 className="purchase__input time"
                 id="outlined-basic"
                 label="Start Time"
-                defaultValue="07:30"
+                value={savedEventInfo.startTime}
                 variant="outlined"
                 type="time"
               />
@@ -132,7 +133,7 @@ export default function PurchaseForm({
                 className="purchase__input time"
                 id="outlined-basic"
                 label="End Time"
-                defaultValue="12:30"
+                value={savedEventInfo.endTime}
                 variant="outlined"
                 type="time"
               />
@@ -182,7 +183,7 @@ export default function PurchaseForm({
                 <h3 className="total__price__heading">Total:</h3>
                 <p className="total__price__sum">
                   <span>$</span>
-                  {Number(purchaseData.tickets) * Number(purchaseData.price)}
+                  {Number(purchaseData.tickets) * Number(savedEventInfo.price)}
                 </p>
               </div>
             </div>

@@ -23,6 +23,7 @@
 /* Profile Image */
 .profile__list__container {
   width: 5rem;
+  height: 5rem;
   margin-right: 1rem;
 }
 
@@ -78,7 +79,7 @@
 }
 
 .profile__desc {
-  padding: 2rem;
+  padding: 2rem 4rem;
   background-color: var(--white);
   border-radius: 0.3rem;
   width: 100%;
@@ -89,9 +90,45 @@
 .profile__desc__heading {
   font-size: 1.4rem;
   font-weight: var(--bold-500);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .profile__desc__text {
+  font-size: 1.2rem;
+}
+
+/* Profile Form */
+.profile__form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile__form > input {
+  padding: 0.25rem 0.5rem;
+  font-size: 1.2rem;
+}
+
+.profile__form__btn {
+  border: none;
+  padding: 1.2rem 0.6rem;
+  border-radius: 0.3rem;
+  /* text-transform: uppercase; */
   font-size: 1rem;
+  font-weight: var(--bold-600);
+  letter-spacing: 0.1rem;
+  width: 100%;
+  transition: all 0.3s;
+  cursor: pointer;
+  background-color: var(--main-purple);
+  color: var(--main-bg);
+}
+
+.profile__form__btn:hover {
+  color: var(--purple-dark-low);
+  background-color: var(--white);
+  box-shadow: var(--btn-inset) var(--main-purple);
 }

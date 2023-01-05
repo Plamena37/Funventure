@@ -37,7 +37,6 @@ export default function EventList(props) {
             seats={event.seats}
             team={event.team}
             image={event.image}
-            like="37"
           />
         ))}
     </ul>

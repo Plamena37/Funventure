@@ -13,6 +13,8 @@ export default function Modal() {
     event.preventDefault();
     const newPassword = newPasswordRef.current.value;
 
+    // eventCtx.changePassword(eventCtx.token, newPassword);
+
     fetch(
       `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${API_KEY}`,
       {

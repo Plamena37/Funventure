@@ -15,3 +15,7 @@
 .event__list__heading {
   grid-column: 1/-1;
 }
+
+.message__container {
+  text-align: center;
+}

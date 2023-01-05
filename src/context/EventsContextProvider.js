@@ -1,5 +1,5 @@
-import { useState, useEffect, createContext } from "react";
-import { URL_EVENTS } from "../API_KEY";
+import { useState, useEffect, createContext, useCallback } from "react";
+import { URL_EVENTS, API_KEY } from "../API_KEY";
 
 export const EventContext = createContext({
   token: "",
@@ -7,9 +7,13 @@ export const EventContext = createContext({
   login: (token) => {},
   logout: () => {},
   getAllEvents: () => {},
+  getUserData: () => {},
+  changePassword: () => {},
   allEvents: [],
   isLoading: true,
   error: false,
+  username: null,
+  profileImage: null,
 
   getEvent: () => {},
   addToEventsData: () => {},
@@ -22,6 +26,9 @@ export default function EventsContextProvider(props) {
   //-----------NEW IMPORTANT-------------------------
   const initialToken = localStorage.getItem("token");
   const [token, setToken] = useState(initialToken);
+
+  const [username, setUsername] = useState();
+  const [profileImage, setProfileImage] = useState();
 
   const userIsLoggedIn = !!token;
 
@@ -72,6 +79,79 @@ export default function EventsContextProvider(props) {
       throw { message: "Failed to fetch post.", status: 500 };
     }
     return response.json();
+  }
+
+  //------------------------ Get User Data ------------------------
+  const getUserData = useCallback(() => {
+    fetch(
+      `
+      https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${API_KEY}`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          idToken: token,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => {
+        // console.log(res);
+        if (res.ok) {
+          return res.json();
+        } else {
+          return res.json().then((data) => {
+            const errorMessage =
+              data?.error?.message || "Something went wrong!";
+
+            throw new Error(errorMessage);
+          });
+        }
+      })
+      .then((data) => {
+        // console.log(data.users[0]);
+        let user = data.users[0];
+        setUsername(user.displayName);
+        setProfileImage(user.photoUrl);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
+  //------------------------ Change password ------------------------
+  function changePassword(eventToken, newPassword) {
+    fetch(
+      `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${API_KEY}`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          idToken: eventToken,
+          password: newPassword,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => {
+        //   // navigate("/");
+      })
+      .catch((err) => {
+        switch (err.message) {
+          case "INVALID_ID_TOKEN":
+            alert("User's credentials are no longer valid! 💥");
+            break;
+          case "WEAK_PASSWORD":
+            alert("Password must be 6 characters long or more! 💥");
+            break;
+          default:
+            alert("Something went wrong! 💣");
+        }
+        return;
+      });
   }
 
   //------------------------ Declare the state ------------------------
@@ -136,6 +216,10 @@ export default function EventsContextProvider(props) {
     allEvents: allEvents,
     isLoading: isLoading,
     error: error,
+    changePassword: changePassword,
+    username: username,
+    profileImage: profileImage,
+    getUserData: getUserData,
 
     addToEventsData: addToEventsData,
     // editEvent: editEvent,

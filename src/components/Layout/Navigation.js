@@ -2,22 +2,25 @@ import { Link, useNavigate } from "react-router-dom";
 
 import "./Navigation.css";
 import "../../Variables.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { EventContext } from "../../context/EventsContextProvider";
+import { API_KEY } from "../../API_KEY";
 
 export default function Navigation() {
   const navigate = useNavigate();
   const eventCtx = useContext(EventContext);
 
   const isLoggedIn = eventCtx.isLoggedIn;
+  let username = eventCtx.username;
 
   let logoutHandler = () => {
     eventCtx.logout();
     navigate("/login");
   };
 
-  // BUG
-  // ADD USERNAME
+  useEffect(() => {
+    eventCtx.getUserData();
+  }, [username, eventCtx.getUserData]);
 
   return (
     <nav className="nav">
@@ -67,14 +70,6 @@ export default function Navigation() {
           </Link>
         </li>
 
-        {isLoggedIn && (
-          <li>
-            <Link to="/profile" className="router__link">
-              Profile
-            </Link>
-          </li>
-        )}
-
         {!isLoggedIn && (
           <li>
             <Link to="/login" className="router__link last">
@@ -86,8 +81,7 @@ export default function Navigation() {
         {isLoggedIn && (
           <li>
             <Link to="/profile" className="router__link username__link">
-              {/* Hi, {localStorage.getItem("username").replace(/"/g, "")} */}
-              Hi, {localStorage.getItem("username")}
+              Hi, {username}
             </Link>
           </li>
         )}

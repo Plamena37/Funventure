@@ -17,7 +17,7 @@ export default function AllEvents() {
 
   const allEvents = eventCtx.allEvents;
 
-  if (isLoading) {
+  if (!allEvents) {
     return (
       <section>
         <p>Loading...</p>

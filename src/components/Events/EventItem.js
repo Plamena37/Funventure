@@ -5,31 +5,24 @@ import {
   ClockIcon,
   SparklesIcon,
 } from "@heroicons/react/solid";
-import {
-  CheckIcon,
-  XIcon,
-  QuestionMarkCircleIcon,
-  HeartIcon,
-} from "@heroicons/react/outline";
+
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
 import "./EventItem.css";
+
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function EventItem(props) {
   const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(Number(props.like));
 
-  const styles = {
-    fill: liked ? "#4c45b3" : "#fff",
-  };
-
-  const like = () => {
-    setLiked((prevLiked) => !prevLiked);
-    setLikeCount((prevLikeCount) =>
-      !liked ? prevLikeCount + 1 : prevLikeCount - 1
-    );
-  };
+  function addToFavorites() {
+    setLiked((like) => !like);
+    console.log(liked);
+  }
 
   let eventDetail = props;
   const onClickHandler = () => {
@@ -95,14 +88,23 @@ export default function EventItem(props) {
       <section className="likes__section">
         <div className="likes">
           <p className="likes__text">
-            {" "}
+            {/* {" "}
             <HeartIcon
               style={styles}
               className="likes__icon"
               onClick={like}
-            />{" "}
+            />{" "} */}
+            <Checkbox
+              {...label}
+              icon={<FavoriteBorder />}
+              checkedIcon={<Favorite />}
+              style={{
+                color: "#4c45b3",
+              }}
+              checked={liked}
+              onClick={() => addToFavorites}
+            />
             Like
-            {/* <span>{likeCount}</span> */}
           </p>
         </div>
 

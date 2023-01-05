@@ -15,3 +15,8 @@
   font-size: 4rem;
   color: var(--purple-light-high);
 }
+
+.no-content__message {
+  margin-top: 3rem;
+  text-align: center;
+}

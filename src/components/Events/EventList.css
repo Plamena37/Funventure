@@ -3,7 +3,7 @@
 
   width: 80%;
   padding: 1.2rem;
-  margin: 2rem auto 0;
+  margin: 1rem auto 0;
 }
 
 .grid {
@@ -13,7 +13,8 @@
 }
 
 .event__list__heading {
-  grid-column: 1/-1;
+  /* grid-column: 1/-1; */
+  padding: 3rem 0 0 0;
 }
 
 .message__container {

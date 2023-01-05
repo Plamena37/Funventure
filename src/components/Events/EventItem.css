@@ -145,7 +145,7 @@ body {
 /* Likes text */
 .likes__text {
   font-size: 1.2rem;
-  font-weight: var(--bold-700);
+  font-weight: var(--bold-600);
   display: flex;
   align-items: center;
   gap: 0.2rem;

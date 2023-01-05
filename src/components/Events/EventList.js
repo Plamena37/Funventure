@@ -16,10 +16,6 @@ export default function EventList(props) {
 
   return (
     <ul className="list grid">
-      <h1 className="section__primary__heading center m-b--small event__list__heading">
-        All Events 🎉
-      </h1>
-
       {eventCount === 0 && noEventMessage}
       {eventCount > 0 &&
         props.events.map((event) => (

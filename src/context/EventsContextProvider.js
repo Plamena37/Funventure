@@ -82,7 +82,7 @@ export default function EventsContextProvider(props) {
   }
 
   //------------------------ Get User Data ------------------------
-  const getUserData = useCallback(() => {
+  const getUserData = () => {
     fetch(
       `
       https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${API_KEY}`,
@@ -118,7 +118,7 @@ export default function EventsContextProvider(props) {
       .catch((err) => {
         console.log(err);
       });
-  });
+  };
 
   //------------------------ Change password ------------------------
   function changePassword(eventToken, newPassword) {

@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   LocationMarkerIcon,
   CalendarIcon,
@@ -7,11 +6,12 @@ import {
 } from "@heroicons/react/solid";
 
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import "./EventItem.css";
+import FavoritesContext from "../../context/FavoritesContext";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -19,9 +19,29 @@ export default function EventItem(props) {
   const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
 
-  function addToFavorites() {
-    setLiked((like) => !like);
-    console.log(liked);
+  const favoritesCtx = useContext(FavoritesContext);
+
+  const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
+
+  function toggleFavoriteStatusHandler() {
+    if (itemIsFavorite) {
+      favoritesCtx.removeFavorite(props.id);
+    } else {
+      favoritesCtx.addFavorite({
+        id: props.id,
+        title: props.title,
+        description: props.description,
+        price: props.price,
+        city: props.city,
+        date: props.date,
+        startTime: props.startTime,
+        endTime: props.endTime,
+        category: props.category,
+        seats: props.seats,
+        team: props.team,
+        image: props.image,
+      });
+    }
   }
 
   let eventDetail = props;
@@ -88,12 +108,6 @@ export default function EventItem(props) {
       <section className="likes__section">
         <div className="likes">
           <p className="likes__text">
-            {/* {" "}
-            <HeartIcon
-              style={styles}
-              className="likes__icon"
-              onClick={like}
-            />{" "} */}
             <Checkbox
               {...label}
               icon={<FavoriteBorder />}
@@ -101,10 +115,10 @@ export default function EventItem(props) {
               style={{
                 color: "#4c45b3",
               }}
-              checked={liked}
-              onClick={() => addToFavorites}
+              checked={itemIsFavorite}
+              onClick={toggleFavoriteStatusHandler}
             />
-            Like
+            {itemIsFavorite ? "Dislike" : "Like"}
           </p>
         </div>
 

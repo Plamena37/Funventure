@@ -18,7 +18,7 @@ export default function Examples() {
 
         <img
           className="example__img"
-          src={require("../../images/cardExample/card.png")}
+          src={require("../../images/cardExample/card_1.png")}
           alt="Card example"
         />
         {/*  */}

@@ -69,8 +69,14 @@ export default function EventDetail(currentID) {
         <ul className="card__info__container">
           <li>
             <h2 className="card__info__heading">{eventDetail.title}</h2>
+
             <p className="card__info__price">
               Ticket Price: <span>${eventDetail.price}</span>
+            </p>
+          </li>
+          <li>
+            <p className="card__info__seats">
+              {eventDetail.seats} seats available
             </p>
           </li>
           <li className="card__info__desc">{eventDetail.description}</li>

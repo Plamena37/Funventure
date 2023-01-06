@@ -87,7 +87,7 @@ export default function Card() {
 
     let currentID = item.id;
     console.log(currentID);
-    // BUG
+
     // navigate("/event", { state: { ...selectedEvent } });
     navigate("/event", {
       currentID: currentID,

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState, useRef, useContext } from "react";
 import { API_KEY } from "../../API_KEY";
 import { EventContext } from "../../context/EventsContextProvider";
+import { useSnackbar } from "notistack";
 
 export default function Profile() {
   const eventCtx = useContext(EventContext);
@@ -15,6 +16,8 @@ export default function Profile() {
   const usernameRef = useRef();
   const imageRef = useRef();
   const newPasswordRef = useRef();
+
+  const { enqueueSnackbar } = useSnackbar();
 
   // Change Username or Profile Image ************************************
   const changeUsernameInfo = (event) => {
@@ -41,8 +44,12 @@ export default function Profile() {
         }
       )
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.ok) {
+            enqueueSnackbar("Success", {
+              preventDuplicate: true,
+              variant: "success",
+            });
             return res.json();
           } else {
             return res.json().then((data) => {
@@ -60,6 +67,10 @@ export default function Profile() {
         })
         .catch((err) => {
           console.log(err);
+          enqueueSnackbar(err.message, {
+            preventDuplicate: true,
+            variant: "error",
+          });
         });
     }
 
@@ -88,14 +99,23 @@ export default function Profile() {
       }
     )
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (!res.ok) {
           throw new Error();
+        } else {
+          enqueueSnackbar("Password Changed!", {
+            preventDuplicate: true,
+            variant: "success",
+          });
         }
         // BUG ADD NOTISTACK
         // navigate("/");
       })
       .catch((err) => {
+        enqueueSnackbar("Something went wrong!", {
+          preventDuplicate: true,
+          variant: "error",
+        });
         switch (err.message) {
           case "INVALID_ID_TOKEN":
             alert("User's credentials are no longer valid! 💥");
@@ -104,7 +124,7 @@ export default function Profile() {
             alert("Password must be 6 characters long or more! 💥");
             break;
           default:
-            alert("Something went wrong! 💣");
+          // alert("Something went wrong! 💣");
         }
       });
   };
@@ -180,7 +200,7 @@ export default function Profile() {
               ref={newPasswordRef}
               type="password"
               id="new-password"
-              minLength="6"
+              // minLength="6"
               placeholder="new password"
             />
             <button className="profile__form__btn">Submit</button>

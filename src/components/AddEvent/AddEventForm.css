@@ -97,6 +97,14 @@
   cursor: pointer;
 }
 
+.event__image {
+  width: 100%;
+}
+
+.event__image--field {
+  width: 100%;
+}
+
 /* *************************** EVENT BTN ********************************** */
 .event__form__btn {
   border: none;

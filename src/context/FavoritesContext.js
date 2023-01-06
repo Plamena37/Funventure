@@ -9,7 +9,7 @@ const FavoritesContext = createContext({
 });
 
 export function FavoritesContextProvider(props) {
-  const [userFavorites, setUserFavorites] = useState([]);
+  // const [userFavorites, setUserFavorites] = useState([]);
   const [favoriteStorage, setFavoriteStorage] = useState([]);
 
   //------------------------ Add To Favorites ------------------------

@@ -11,11 +11,13 @@ import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import "./EventItem.css";
 import FavoritesContext from "../../context/FavoritesContext";
+import { useSnackbar } from "notistack";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function EventItem(props) {
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
 
   const favoritesCtx = useContext(FavoritesContext);
 
@@ -24,6 +26,10 @@ export default function EventItem(props) {
   function toggleFavoriteStatusHandler() {
     if (itemIsFavorite) {
       favoritesCtx.removeFavorite(props.id);
+      enqueueSnackbar("Removed from Favorites!", {
+        preventDuplicate: true,
+        variant: "error",
+      });
     } else {
       favoritesCtx.addFavorite({
         id: props.id,
@@ -38,6 +44,10 @@ export default function EventItem(props) {
         seats: props.seats,
         team: props.team,
         image: props.image,
+      });
+      enqueueSnackbar("Added to Favorites!", {
+        preventDuplicate: true,
+        variant: "success",
       });
     }
   }
@@ -61,7 +71,7 @@ export default function EventItem(props) {
       <Link to={`/events/${props.id}`}>
         <section className="image__section">
           <img className="card__img" src={props.image} alt={props.title} />
-          {/* <button className="card__btn btn--seat">{props.seats} Seats</button> */}
+          <button className="card__btn btn--seat">{props.seats} Seats</button>
         </section>
       </Link>
 

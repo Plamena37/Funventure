@@ -3,10 +3,19 @@ import "../AddEvent/AddEventLayout.css";
 import { Link, useNavigate } from "react-router-dom";
 import PurchaseLayout from "./PurchaseLayout";
 import { useLocation } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 export default function FinalPreview({ purchaseData, savedEventInfo }) {
   const location = useLocation();
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const showNotification = () => {
+    enqueueSnackbar("Successfull Purchase!", {
+      preventDuplicate: true,
+      variant: "success",
+    });
+  };
 
   return (
     <PurchaseLayout children>
@@ -118,7 +127,9 @@ export default function FinalPreview({ purchaseData, savedEventInfo }) {
         </button>
 
         <Link to="/purchase-success" className="purchase__link">
-          <button className="event__form__btn">Purchase</button>
+          <button className="event__form__btn" onClick={showNotification}>
+            Purchase
+          </button>
         </Link>
       </div>
     </PurchaseLayout>

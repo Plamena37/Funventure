@@ -2,12 +2,16 @@ import "./AuthForm.css";
 import "../../Variables.css";
 import { TextField, Button } from "@material-ui/core";
 import { validations } from "../validationMessages";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { API_KEY } from "../../API_KEY";
+import { useSnackbar } from "notistack";
+import { EventContext } from "../../context/EventsContextProvider";
 
 export default function SignUpForm() {
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
+  const eventCtx = useContext(EventContext);
 
   const [signUpFieldsState, setSignUpFieldsState] = useState({
     username: "",
@@ -46,7 +50,8 @@ export default function SignUpForm() {
     });
 
     handleValidation(name, value);
-    localStorage.setItem("username", signUpFieldsState.username);
+
+    // localStorage.setItem("username", signUpFieldsState.username);
   };
 
   // PUSHES THE ERROR BOOLEANS IN AN ARRAY
@@ -64,6 +69,8 @@ export default function SignUpForm() {
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
+      eventCtx.username = signUpFieldsState.username;
+
       fetch(
         `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`,
         {
@@ -81,6 +88,10 @@ export default function SignUpForm() {
       )
         .then((res) => {
           if (res.ok) {
+            enqueueSnackbar("Success!", {
+              preventDuplicate: true,
+              variant: "success",
+            });
           } else {
             return res.json().then((data) => {
               // THROW AN ERROR IF AUTHENTICATION FAILS
@@ -95,6 +106,10 @@ export default function SignUpForm() {
           navigate("/login");
         })
         .catch((err) => {
+          enqueueSnackbar(err, {
+            preventDuplicate: true,
+            variant: "error",
+          });
           switch (err.message) {
             case "EMAIL_EXISTS":
               alert("Entered email already exists! 💥");
@@ -113,20 +128,6 @@ export default function SignUpForm() {
           return;
         });
     }
-
-    // if (!checkForErrors) {
-    //   // TODO FIXME
-    //   localStorage.setItem(
-    //     "username",
-    //     JSON.stringify(signUpFieldsState.username)
-    //   );
-    //   localStorage.setItem("email", JSON.stringify(signUpFieldsState.email));
-    //   localStorage.setItem(
-    //     "password",
-    //     JSON.stringify(signUpFieldsState.password)
-    //   );
-
-    // }
   };
 
   return (
@@ -217,9 +218,9 @@ export default function SignUpForm() {
           Sign Up
         </Button>
 
-        <button className="btn btn--secondary btn__google">
+        {/* <button className="btn btn--secondary btn__google">
           Sign up with google
-        </button>
+        </button> */}
       </form>
     </div>
   );

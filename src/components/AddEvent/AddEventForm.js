@@ -16,10 +16,11 @@ import PublishIcon from "@material-ui/icons/Publish";
 import { useNavigate } from "react-router-dom";
 import "./AddEventForm.css";
 import { URL_EVENTS } from "../../API_KEY";
+import { useSnackbar } from "notistack";
 
 export default function AddEventForm() {
   const navigate = useNavigate();
-
+  const { enqueueSnackbar } = useSnackbar();
   // Getting current date
   let currentDate = new Date();
 
@@ -35,8 +36,6 @@ export default function AddEventForm() {
     currentDay = `0${currentDay}`;
   }
   const currentDateFinal = `${currentYear}-${currentMonth}-${currentDay}`;
-
-  // IMPORTANT
 
   const [category, setCategory] = useState("");
   const [image, setImage] = useState();
@@ -135,20 +134,25 @@ export default function AddEventForm() {
         team: formData.team,
       };
 
-      fetch(
-        URL_EVENTS,
-        {
-          method: "POST",
-          body: JSON.stringify(eventData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
+      fetch(URL_EVENTS, {
+        method: "POST",
+        body: JSON.stringify(eventData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
         .then(() => {
+          enqueueSnackbar("Your event was published!", {
+            preventDuplicate: true,
+            variant: "success",
+          });
           navigate("/added-event");
         })
         .catch((err) => {
+          enqueueSnackbar(err.message, {
+            preventDuplicate: true,
+            variant: "error",
+          });
           console.warn(err.message);
         });
 
@@ -169,7 +173,6 @@ export default function AddEventForm() {
       //
     }
   };
-  // IMPORTANT
 
   return (
     <AddEventLayout children>
@@ -369,10 +372,10 @@ export default function AddEventForm() {
               Event Image <span>*</span>
             </h3>
           </nav>
-          <div>
+          <div className="event__image--container">
             <TextField
               required
-              className="form__input"
+              className="form__input event__image--field"
               id="image"
               name="image"
               label="Image"

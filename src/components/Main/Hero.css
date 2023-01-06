@@ -1,3 +1,7 @@
+body {
+  /* position: relative; */
+}
+
 /* HERO SECTION */
 .hero__section {
   width: 100%;
@@ -12,6 +16,7 @@
   box-shadow: var(--section-medium) rgba(0, 0, 0, 0.03);
   text-align: center;
   padding-block: 0.5rem;
+  position: relative;
 }
 
 /* HERO IMAGE */
@@ -76,4 +81,44 @@
   /* background-color: #f0efff; */
   background-color: var(--white);
   box-shadow: var(--btn-inset) var(--main-bg);
+}
+
+/* Icon */
+.home__icon {
+  color: var(--main-purple);
+  font-size: 3rem;
+  cursor: pointer;
+  margin: 1rem;
+  animation: movebtn 3s ease-in-out infinite;
+  transition: all 0.5s ease-in-out;
+
+  position: fixed;
+  bottom: 40px;
+  right: 25px;
+  z-index: 999;
+}
+
+.home__icon:hover {
+  animation: none;
+  background: var(--main-bg);
+  border-radius: 50%;
+  color: var(--main-purple);
+}
+
+@keyframes movebtn {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }

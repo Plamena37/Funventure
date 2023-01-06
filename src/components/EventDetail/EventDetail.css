@@ -80,6 +80,13 @@
   color: var(--yellow-darker);
 }
 
+/* Event Detail Seats */
+.card__info__seats {
+  font-weight: var(--bold-500);
+  color: var(--yellow-darker);
+  margin-bottom: 1rem;
+}
+
 /* Event text */
 .card__info__desc {
   font-size: 1rem;

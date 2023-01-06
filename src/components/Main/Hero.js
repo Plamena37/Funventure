@@ -9,6 +9,7 @@ export default function Hero() {
       <img
         className="hero__img"
         src={require("../../images/hero/hero-left.webp")}
+        loading="lazy"
         alt="Different activity images"
       ></img>
       <div className="hero">
@@ -30,6 +31,7 @@ export default function Hero() {
       <img
         className="hero__img"
         src={require("../../images/hero/hero-right.webp")}
+        loading="lazy"
         alt="Different activity images"
       ></img>
     </section>

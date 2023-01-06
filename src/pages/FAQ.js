@@ -19,6 +19,7 @@ export default function FAQ() {
         <img
           className="faq__img"
           src={require("../images/faq/faq-1.png")}
+          loading="lazy"
           alt="icon"
         />
         <AccordionRight />

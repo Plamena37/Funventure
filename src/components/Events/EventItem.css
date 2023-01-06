@@ -181,3 +181,21 @@ body {
   color: var(--main-purple);
   box-shadow: var(--btn-inset) var(--main-purple);
 }
+
+/* Seats Button */
+.card__btn {
+  outline: none;
+  border: none;
+  color: var(--black);
+  background-color: var(--main-bg);
+  padding: 0.75rem;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: var(--bold-700);
+  cursor: pointer;
+  transition: all 0.3s;
+
+  position: absolute;
+  bottom: 1rem;
+  left: 0.75rem;
+}

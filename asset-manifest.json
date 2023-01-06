@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Funventure/static/css/main.361f74c2.css",
+    "main.js": "/Funventure/static/js/main.1921e000.js",
+    "static/media/hero-left.png": "/Funventure/static/media/hero-left.93a65f4575cae800111b.png",
+    "static/media/hero-right.png": "/Funventure/static/media/hero-right.396b4fc9cb95e6169868.png",
+    "static/media/bg-9.jpg": "/Funventure/static/media/bg-9.0ef7c6c753be420cc433.jpg",
+    "static/media/hero-left.webp": "/Funventure/static/media/hero-left.9c897f07e120ef78849e.webp",
+    "static/media/hero-right.webp": "/Funventure/static/media/hero-right.721add582e8987729086.webp",
+    "static/media/orange.png": "/Funventure/static/media/orange.20cf57443bcc790bcd93.png",
+    "static/media/login.jpg": "/Funventure/static/media/login.cd369e7fcee2d9b47deb.jpg",
+    "static/media/card.png": "/Funventure/static/media/card.54a51114a1965ac0cd96.png",
+    "static/media/card_1.png": "/Funventure/static/media/card_1.be0f5bcb85f2db7aecd1.png",
+    "static/media/faq-1.png": "/Funventure/static/media/faq-1.1e5d8780bd2a43cc21ec.png",
+    "static/media/forbes.png": "/Funventure/static/media/forbes.ec1527a624210b54d572.png",
+    "static/media/nytimes.png": "/Funventure/static/media/nytimes.fedc85b26c424d2e167d.png",
+    "static/media/usa-today.png": "/Funventure/static/media/usa-today.1c078f39a4c0bf2d9a2b.png",
+    "static/media/logo-new.png": "/Funventure/static/media/logo-new.1d4590f9304a7e9c9fdf.png",
+    "index.html": "/Funventure/index.html",
+    "main.361f74c2.css.map": "/Funventure/static/css/main.361f74c2.css.map",
+    "main.1921e000.js.map": "/Funventure/static/js/main.1921e000.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.361f74c2.css",
+    "static/js/main.1921e000.js"
+  ]
+}

@@ -141,14 +141,14 @@ export default function EventItem(props) {
           View
         </Link>
 
-        <Link
+        {/* <Link
           to={`/events`}
           className="event__item__btn btn--delete"
           // BUG DELETE HANDLER
           // onClick={() => handleDelete(item)}
         >
           Delete
-        </Link>
+        </Link> */}
       </section>
     </li>
   );

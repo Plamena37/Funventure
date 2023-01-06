@@ -11,6 +11,8 @@ export default function LogInForm() {
   const navigate = useNavigate();
   const eventCtx = useContext(EventContext);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const [logInFieldsState, setLogInFieldsState] = useState({
     email: "",
     password: "",
@@ -59,6 +61,7 @@ export default function LogInForm() {
     event.preventDefault();
     let checkForErrors = pushErrorsInArray();
 
+    setIsLoading(true);
     if (!checkForErrors) {
       fetch(
         `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`,
@@ -75,6 +78,7 @@ export default function LogInForm() {
         }
       )
         .then((res) => {
+          setIsLoading(false);
           if (res.ok) {
             return res.json();
           } else {
@@ -87,8 +91,11 @@ export default function LogInForm() {
           }
         })
         .then((data) => {
-          eventCtx.login(data.idToken);
+          const expirationTime = new Date(
+            new Date().getTime() + +data.expiresIn * 1000
+          );
 
+          eventCtx.login(data.idToken, expirationTime.toISOString());
           console.log(data);
           navigate("/");
         })
@@ -182,6 +189,8 @@ export default function LogInForm() {
         </Button>
 
         <button className="btn btn--secondary">Sign in with google</button>
+        {/* BUG ADD SPINNER */}
+        {isLoading && <p>Sending request...</p>}
       </form>
     </div>
   );

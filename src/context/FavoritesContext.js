@@ -10,27 +10,57 @@ const FavoritesContext = createContext({
 
 export function FavoritesContextProvider(props) {
   const [userFavorites, setUserFavorites] = useState([]);
+  const [favoriteStorage, setFavoriteStorage] = useState([]);
 
+  //------------------------ Add To Favorites ------------------------
   function addFavoriteHandler(favoriteEvent) {
-    setUserFavorites((prevUserFavorites) => {
-      return prevUserFavorites.concat(favoriteEvent);
+    setFavoriteStorage((prevUserFavorites) => {
+      const newFavorites = [favoriteEvent, ...favoriteStorage];
+      const eventsDataJson = JSON.stringify(newFavorites);
+      localStorage.setItem("favorites", eventsDataJson);
+
+      return newFavorites;
     });
   }
-  console.log(userFavorites);
 
+  //------------------------ Remove From Favorites ------------------------
   function removeFavoriteHandler(eventId) {
-    setUserFavorites((prevUserFavorites) => {
-      return prevUserFavorites.filter((events) => events.id !== eventId);
+    setFavoriteStorage((prevUserFavorites) => {
+      const newFavorites = prevUserFavorites.filter(
+        (events) => events.id !== eventId
+      );
+      const eventsDataJson = JSON.stringify(newFavorites);
+      localStorage.setItem("favorites", eventsDataJson);
+      return newFavorites;
     });
   }
 
+  //------------------------ Check If Item Is Favorite ------------------------
   function itemIsFavoriteHandler(eventId) {
-    return userFavorites.some((events) => events.id === eventId);
+    // let newFavorites;
+    // let exactEvent = favoriteStorage.find(
+    //   (singleEvent) => singleEvent.id === eventId
+    // );
+    // if (exactEvent) {
+    //   exactEvent.isFavorite = true;
+    //   newFavorites = [...favoriteStorage, favoriteStorage[exactEvent]];
+    // } else {
+    //   return;
+    // }
+
+    // const eventsDataJson = JSON.stringify(newFavorites);
+    // localStorage.setItem("favorites", eventsDataJson);
+
+    return favoriteStorage.some((events) => events.id === eventId);
+    // return newFavorites;
   }
+
+  let favoritesLength = JSON.parse(localStorage.getItem("favorites"));
 
   const context = {
-    favorites: userFavorites,
-    totalFavorites: userFavorites.length,
+    favorites: favoriteStorage,
+    // totalFavorites: userFavorites.length,
+    totalFavorites: favoritesLength ? favoritesLength.length : 0,
     addFavorite: addFavoriteHandler,
     removeFavorite: removeFavoriteHandler,
     itemIsFavorite: itemIsFavoriteHandler,

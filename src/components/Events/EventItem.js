@@ -4,7 +4,6 @@ import {
   ClockIcon,
   SparklesIcon,
 } from "@heroicons/react/solid";
-
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import Checkbox from "@mui/material/Checkbox";
@@ -17,7 +16,6 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function EventItem(props) {
   const navigate = useNavigate();
-  const [liked, setLiked] = useState(false);
 
   const favoritesCtx = useContext(FavoritesContext);
 

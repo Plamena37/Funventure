@@ -1,10 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-
 import "./Navigation.css";
 import "../../Variables.css";
 import { useContext, useEffect } from "react";
 import { EventContext } from "../../context/EventsContextProvider";
-import { API_KEY } from "../../API_KEY";
 import FavoritesContext from "../../context/FavoritesContext";
 
 export default function Navigation() {
@@ -12,6 +10,8 @@ export default function Navigation() {
   const eventCtx = useContext(EventContext);
 
   const favoritesCtx = useContext(FavoritesContext);
+
+  let favoritesCount = JSON.parse(localStorage.getItem("favorites"));
 
   const isLoggedIn = eventCtx.isLoggedIn;
   let username = eventCtx.username;
@@ -54,6 +54,7 @@ export default function Navigation() {
         {isLoggedIn && (
           <li>
             <Link to="/favorite" className="router__link">
+              {/* My Favorite ({favoritesCount}) */}
               My Favorite ({favoritesCtx.totalFavorites})
             </Link>
           </li>

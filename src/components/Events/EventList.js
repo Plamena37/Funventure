@@ -3,6 +3,13 @@ import EventItem from "./EventItem";
 import { Link } from "react-router-dom";
 
 export default function EventList(props) {
+  // BUG ADD SPINNER
+  const loadingMessage = (
+    <div className="message__container">
+      <span>Loading...😞</span>
+    </div>
+  );
+
   const noEventMessage = (
     <div className="message__container">
       <span>Sorry you haven't created any events yet. 😞</span>
@@ -16,6 +23,7 @@ export default function EventList(props) {
 
   return (
     <ul className="list grid">
+      {!eventCount && loadingMessage}
       {eventCount === 0 && noEventMessage}
       {eventCount > 0 &&
         props.events.map((event) => (

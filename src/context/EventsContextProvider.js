@@ -1,6 +1,8 @@
 import { useState, useEffect, createContext, useCallback } from "react";
 import { URL_EVENTS, API_KEY } from "../API_KEY";
 
+let logoutTimer;
+
 export const EventContext = createContext({
   token: "",
   isLoggedIn: false,
@@ -22,31 +24,84 @@ export const EventContext = createContext({
   // deleteEvent: () => {},
 });
 
+//------------------------ Calculate Remaining Time ------------------------
+const calculateRemainingTime = (expirationTime) => {
+  const currentTime = new Date().getTime();
+  const adjExpirationTime = new Date(expirationTime).getTime();
+
+  const remainingDuration = adjExpirationTime - currentTime;
+
+  return remainingDuration;
+};
+
+//------------------------ Retrieve Stored Token ------------------------
+const retrieveStoredToken = () => {
+  const storedToken = localStorage.getItem("token");
+  const storedExpirationDate = localStorage.getItem("expirationTime");
+
+  const remainingTime = calculateRemainingTime(storedExpirationDate);
+
+  if (remainingTime <= 3600) {
+    localStorage.removeItem("token");
+    localStorage.removeItem("expirationTime");
+    return null;
+  }
+
+  return {
+    token: storedToken,
+    duration: remainingTime,
+  };
+};
+
 export default function EventsContextProvider(props) {
-  //-----------NEW IMPORTANT-------------------------
-  const initialToken = localStorage.getItem("token");
+  const tokenData = retrieveStoredToken();
+
+  let initialToken;
+  if (tokenData) {
+    initialToken = tokenData.token;
+  }
+
+  // const initialToken = localStorage.getItem("token");
   const [token, setToken] = useState(initialToken);
 
   const [username, setUsername] = useState();
   const [profileImage, setProfileImage] = useState();
-
-  const userIsLoggedIn = !!token;
-
-  const loginHandler = (token) => {
-    setToken(token);
-    localStorage.setItem("token", token);
-  };
-
-  const logoutHandler = () => {
-    setToken(null);
-    localStorage.removeItem("token");
-  };
-
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
   const [allEvents, setAllEvents] = useState([]);
 
-  // Get All Events
+  const userIsLoggedIn = !!token;
+
+  //------------------------ Log Out Handler ------------------------
+  const logoutHandler = useCallback(() => {
+    setToken(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("expirationTime");
+
+    if (logoutTimer) {
+      clearTimeout(logoutTimer);
+    }
+  }, []);
+
+  //------------------------ Log In Handler ------------------------
+  const loginHandler = (token, expirationTime) => {
+    setToken(token);
+    localStorage.setItem("token", token);
+    localStorage.setItem("expirationTime", expirationTime);
+
+    const remainingTime = calculateRemainingTime(expirationTime);
+
+    logoutTimer = setTimeout(logoutHandler, remainingTime);
+  };
+
+  useEffect(() => {
+    if (tokenData) {
+      // console.log(tokenData.duration);
+      logoutTimer = setTimeout(logoutHandler, tokenData.duration);
+    }
+  }, [tokenData, logoutHandler]);
+
+  //------------------------ Get All Events ------------------------
   const getAllEvents = () => {
     setIsLoading(true);
     fetch(URL_EVENTS)

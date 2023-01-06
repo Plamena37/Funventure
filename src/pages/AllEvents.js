@@ -5,9 +5,6 @@ import Footer from "../components/Layout/Footer";
 import { EventContext } from "../context/EventsContextProvider";
 
 export default function AllEvents() {
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [loadedEvents, setLoadedEvents] = useState([]);
-
   const eventCtx = useContext(EventContext);
   const isLoading = eventCtx.isLoading;
 
@@ -17,14 +14,6 @@ export default function AllEvents() {
 
   const allEvents = eventCtx.allEvents;
 
-  if (!allEvents) {
-    return (
-      <section>
-        <p>Loading...</p>
-      </section>
-    );
-  }
-
   return (
     <>
       <Navigation />
@@ -32,7 +21,8 @@ export default function AllEvents() {
         <h1 className="section__primary__heading center m-b--small event__list__heading">
           All Events 🎉
         </h1>
-        <EventList events={allEvents} />
+        {isLoading && <p>Loading...</p>}
+        {!isLoading && <EventList events={allEvents} />}
       </section>
       <Footer />
     </>

@@ -8,16 +8,18 @@ import EventList from "../Events/EventList";
 export default function ToFavorite() {
   const favoritesCtx = useContext(FavoritesContext);
 
-  let content;
+  let content, favorites;
 
-  if (favoritesCtx.totalFavorites === 0) {
+  favorites = JSON.parse(localStorage.getItem("favorites"));
+
+  if (favorites.length === 0) {
     content = (
       <p className="no-content__message">
         You got no favorites yet. Start adding some?
       </p>
     );
   } else {
-    content = <EventList events={favoritesCtx.favorites} />;
+    content = <EventList events={favorites} />;
   }
 
   return (

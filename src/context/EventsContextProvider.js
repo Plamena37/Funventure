@@ -17,8 +17,8 @@ export const EventContext = createContext({
   username: null,
   profileImage: null,
 
-  getEvent: () => {},
   addToEventsData: () => {},
+  // getEvent: () => {},
   // getEvents: () => {},
   // editEvent: () => {},
   // deleteEvent: () => {},
@@ -266,7 +266,6 @@ export default function EventsContextProvider(props) {
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
-    getEvent: getEvent,
     getAllEvents: getAllEvents,
     allEvents: allEvents,
     isLoading: isLoading,
@@ -277,6 +276,7 @@ export default function EventsContextProvider(props) {
     getUserData: getUserData,
 
     addToEventsData: addToEventsData,
+    // getEvent: getEvent,
     // editEvent: editEvent,
     // deleteEvent: deleteEvent,
   };

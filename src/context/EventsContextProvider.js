@@ -128,13 +128,13 @@ export default function EventsContextProvider(props) {
     setIsLoading(false);
   };
 
-  async function getEvent(id) {
-    const response = await fetch(URL_EVENTS + id);
-    if (!response.ok) {
-      throw { message: "Failed to fetch post.", status: 500 };
-    }
-    return response.json();
-  }
+  // async function getEvent(id) {
+  //   const response = await fetch(URL_EVENTS + id);
+  //   if (!response.ok) {
+  //     throw { message: "Failed to fetch post.", status: 500 };
+  //   }
+  //   return response.json();
+  // }
 
   //------------------------ Get User Data ------------------------
   const getUserData = () => {

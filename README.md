@@ -1,4 +1,4 @@
-# 🎉 [Funventure](https://?-plamena.netlify.app/) 
+# 🎉 Funventure
 #### The voice of travel commitment
 
 ### 🤸‍♀️ A platform where you can post different kind of events, or buy tickets to already published ones... 

@@ -17,8 +17,8 @@ export const EventContext = createContext({
   username: null,
   profileImage: null,
 
-  addToEventsData: () => {},
   // getEvent: () => {},
+  // addToEventsData: () => {},
   // getEvents: () => {},
   // editEvent: () => {},
   // deleteEvent: () => {},
@@ -128,13 +128,18 @@ export default function EventsContextProvider(props) {
     setIsLoading(false);
   };
 
-  // async function getEvent(id) {
-  //   const response = await fetch(URL_EVENTS + id);
-  //   if (!response.ok) {
-  //     throw { message: "Failed to fetch post.", status: 500 };
-  //   }
-  //   return response.json();
+  //------------------------ Get Single Events ------------------------
+  // function getEvent(eventId) {
+  //   return fetch(`${BASE_URL}/events/${eventId}`).then((res) => {
+  //     console.log(res);
+  //     return res.json();
+  //   });
+  // const response = await fetch(URL_EVENTS + id);
+  // if (!response.ok) {
+  //   throw { message: "Failed to fetch post.", status: 500 };
   // }
+  // return response.json();
+  //}
 
   //------------------------ Get User Data ------------------------
   const getUserData = () => {
@@ -230,23 +235,23 @@ export default function EventsContextProvider(props) {
         Parse the array to string format
         Update the local storage
     */
-  const addToEventsData = (newEvent) => {
-    const newEvents = [newEvent, ...allEvents];
-    setAllEvents(newEvents);
+  // const addToEventsData = (newEvent) => {
+  //   const newEvents = [newEvent, ...allEvents];
+  //   setAllEvents(newEvents);
 
-    const eventsDataJson = JSON.stringify(newEvents);
-    // const eventsDataJson = JSON.parse(JSON.stringify(newEvents));
-    localStorage.setItem("eventsData", eventsDataJson);
-  };
+  //   const eventsDataJson = JSON.stringify(newEvents);
+  //   // const eventsDataJson = JSON.parse(JSON.stringify(newEvents));
+  //   localStorage.setItem("eventsData", eventsDataJson);
+  // };
 
   //------------------------ Edit Event ------------------------
-  function editEvent(event) {
-    const filteredArray = allEvents.filter((item) => item.id !== event.id);
-    const newEvents = [event, ...filteredArray];
-    setAllEvents(newEvents);
-    const eventsDataJson = JSON.stringify(newEvents);
-    localStorage.setItem("eventsData", eventsDataJson);
-  }
+  // function editEvent(event) {
+  //   const filteredArray = allEvents.filter((item) => item.id !== event.id);
+  //   const newEvents = [event, ...filteredArray];
+  //   setAllEvents(newEvents);
+  //   const eventsDataJson = JSON.stringify(newEvents);
+  //   localStorage.setItem("eventsData", eventsDataJson);
+  // }
 
   //------------------------ Delete Event ------------------------
   /* Explanation
@@ -254,11 +259,11 @@ export default function EventsContextProvider(props) {
         Parse the array from obj to string
         Update the local storage
     */
-  function deleteEvent(eventItem) {
-    setAllEvents(allEvents.filter((item) => item !== eventItem));
-    let eventsDataJson = JSON.stringify(allEvents);
-    localStorage.setItem("eventsData", eventsDataJson);
-  }
+  // function deleteEvent(eventItem) {
+  //   setAllEvents(allEvents.filter((item) => item !== eventItem));
+  //   let eventsDataJson = JSON.stringify(allEvents);
+  //   localStorage.setItem("eventsData", eventsDataJson);
+  // }
 
   //-----------NEW IMPORTANT-------------------------
   const contextValue = {
@@ -275,8 +280,8 @@ export default function EventsContextProvider(props) {
     profileImage: profileImage,
     getUserData: getUserData,
 
-    addToEventsData: addToEventsData,
     // getEvent: getEvent,
+    // addToEventsData: addToEventsData,
     // editEvent: editEvent,
     // deleteEvent: deleteEvent,
   };

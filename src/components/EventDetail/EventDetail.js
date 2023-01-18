@@ -6,8 +6,8 @@ import { useContext, useEffect, useState } from "react";
 import { PropaneSharp } from "@mui/icons-material";
 
 export default function EventDetail(currentID) {
-  const params = useParams();
-  const { eventId } = params;
+  const { eventId } = useParams();
+
   const navigate = useNavigate();
 
   const eventCtx = useContext(EventContext);
@@ -98,7 +98,6 @@ export default function EventDetail(currentID) {
   );
   return (
     <>
-      {/* <p>{params.eventId}</p> */}
       {isLoading && <p>Loading post...</p>}
       {error && <p>{error.message}</p>}
       {!error && eventDetail && content}

@@ -21,7 +21,7 @@ export default function Examples() {
           src={require("../../images/cardExample/card_1.png")}
           alt="Card example"
         />
-        {/*  */}
+
         <div class="genres">
           <h3 class="heading__tertiary">Works with any category:</h3>
           <ul class="list">
@@ -55,7 +55,6 @@ export default function Examples() {
             </li>
           </ul>
         </div>
-        {/*  */}
       </div>
     </section>
   );

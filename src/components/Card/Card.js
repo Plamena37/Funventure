@@ -103,20 +103,6 @@ export default function Card() {
 
     return filteredAllEvents.map((item) => (
       <div key={item.id} className="card">
-        {/* <Price price={item.price} title={item.title} />
-        <Link to="/event">
-          <Image seats={item.seats} />
-        </Link>
-        <Details
-          city={item.city}
-          date={item.date}
-          timeFrom={item.startTime}
-          timeTo={item.endTime}
-          category={item.category}
-        />
-        <Going going="30" maybe="20" cant="15" />
-        <Likes like="137" /> */}
-
         <section className="btn__wrapper">
           <button
             className="btn btn--view"

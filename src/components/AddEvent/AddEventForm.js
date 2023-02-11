@@ -382,13 +382,6 @@ export default function AddEventForm() {
               variant="outlined"
               onChange={(event) => eventHandleChange(event)}
             />
-            {/* <input
-              type="file"
-              name="image"
-              id="image"
-              onChange={imageHandleChange}
-              // style={{ display: "none" }}
-            /> */}
           </div>
         </section>
 

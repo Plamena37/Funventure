@@ -11,10 +11,13 @@ export const EventContext = createContext({
   getAllEvents: () => {},
   getUserData: () => {},
   changePassword: () => {},
+  getUserName: () => {},
   allEvents: [],
   isLoading: true,
   error: false,
   username: null,
+  userName: null,
+
   profileImage: null,
 
   // getEvent: () => {},
@@ -65,6 +68,7 @@ export default function EventsContextProvider(props) {
   const [token, setToken] = useState(initialToken);
 
   const [username, setUsername] = useState();
+  const [userName, setUserName] = useState();
   const [profileImage, setProfileImage] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
@@ -126,6 +130,11 @@ export default function EventsContextProvider(props) {
         setError(err.message);
       });
     setIsLoading(false);
+  };
+
+  //------------------------ Get UserName ------------------------
+  const getUserName = (data) => {
+    setUserName(data.displayName);
   };
 
   //------------------------ Get Single Events ------------------------
@@ -272,11 +281,13 @@ export default function EventsContextProvider(props) {
     login: loginHandler,
     logout: logoutHandler,
     getAllEvents: getAllEvents,
+    getUserName: getUserName,
     allEvents: allEvents,
     isLoading: isLoading,
     error: error,
     changePassword: changePassword,
     username: username,
+    userName: userName,
     profileImage: profileImage,
     getUserData: getUserData,
 

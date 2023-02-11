@@ -22,7 +22,9 @@ export default function Navigation() {
   };
 
   useEffect(() => {
-    eventCtx.getUserData();
+    if (username) {
+      eventCtx.getUserData();
+    }
   }, [username, eventCtx.getUserData]);
 
   return (
@@ -82,10 +84,18 @@ export default function Navigation() {
           </li>
         )}
 
-        {isLoggedIn && (
+        {/* {isLoggedIn && (
           <li>
             <Link to="/profile" className="router__link username__link">
               Hi, {username}
+            </Link>
+          </li>
+        )} */}
+
+        {isLoggedIn && (
+          <li>
+            <Link to="/profile" className="router__link">
+              Profile
             </Link>
           </li>
         )}

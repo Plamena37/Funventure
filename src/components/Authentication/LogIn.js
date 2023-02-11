@@ -97,6 +97,10 @@ export default function LogInForm() {
           );
 
           eventCtx.login(data.idToken, expirationTime.toISOString());
+          // make it a function
+          // eventCtx.userName = data.displayName;
+          eventCtx.getUserName(data);
+
           console.log(data);
           navigate("/");
         })

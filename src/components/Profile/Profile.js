@@ -137,7 +137,9 @@ export default function Profile() {
             <img src={image} className="profile__list__img" alt="User image" />
           </li>
           <li>
-            <h2 className="profile__list__heading">{username}</h2>
+            <h2 className="profile__list__heading">
+              {eventCtx.userName ? eventCtx.userName : "no username..."}
+            </h2>
             <p className="profile__list__info">
               <span>Events: 0</span>
               <span>Likes: 0</span>

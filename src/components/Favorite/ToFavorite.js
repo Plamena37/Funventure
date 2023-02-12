@@ -1,13 +1,8 @@
 import "./ToFavorite.css";
 import ToFavoriteLayout from "./ToFavoriteLayout";
-import EventItem from "../Events/EventItem";
-import { useContext } from "react";
-import FavoritesContext from "../../context/FavoritesContext";
 import EventList from "../Events/EventList";
 
 export default function ToFavorite() {
-  const favoritesCtx = useContext(FavoritesContext);
-
   let content, favorites;
 
   favorites = JSON.parse(localStorage.getItem("favorites"));

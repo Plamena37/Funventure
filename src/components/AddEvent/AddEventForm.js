@@ -1,6 +1,4 @@
-import { EventContext } from "../../context/EventsContextProvider";
-import { useState, useContext } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { useState } from "react";
 import AddEventLayout from "./AddEventLayout";
 import { validations } from "../validationMessages";
 import {
@@ -38,10 +36,9 @@ export default function AddEventForm() {
   const currentDateFinal = `${currentYear}-${currentMonth}-${currentDay}`;
 
   const [category, setCategory] = useState("");
-  const [image, setImage] = useState();
+  // const [image, setImage] = useState();
 
   const [formData, setFormData] = useState({
-    // id: uuidv4(),
     title: "",
     description: "",
     price: 0,
@@ -98,10 +95,12 @@ export default function AddEventForm() {
     // setImage(URL.createObjectURL(event.target.files[0]));
   };
 
+  /*
   function imageHandleChange(event) {
-    // console.log(e.target.files);
+     console.log(e.target.files);
     setImage(URL.createObjectURL(event.target.files[0]));
   }
+  */
 
   // PUSHES THE ERROR BOOLEANS IN AN ARRAY
   const pushErrorsInArray = () => {

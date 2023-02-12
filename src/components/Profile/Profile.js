@@ -108,7 +108,6 @@ export default function Profile() {
             variant: "success",
           });
         }
-        // BUG ADD NOTISTACK
         // navigate("/");
       })
       .catch((err) => {
@@ -124,7 +123,7 @@ export default function Profile() {
             alert("Password must be 6 characters long or more! 💥");
             break;
           default:
-          // alert("Something went wrong! 💣");
+            alert("Something went wrong! 💣");
         }
       });
   };
@@ -134,7 +133,7 @@ export default function Profile() {
       <section className="profile__header__container">
         <ul className="profile__list">
           <li className="profile__list__container">
-            <img src={image} className="profile__list__img" alt="User image" />
+            <img src={image} className="profile__list__img" alt="User" />
           </li>
           <li>
             <h2 className="profile__list__heading">

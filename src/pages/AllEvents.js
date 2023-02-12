@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import EventList from "../components/Events/EventList";
 import Navigation from "../components/Layout/Navigation";
 import Footer from "../components/Layout/Footer";

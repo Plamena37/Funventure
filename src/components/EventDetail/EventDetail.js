@@ -2,8 +2,7 @@ import "./EventDetail.css";
 import "../../index.css";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { EventContext } from "../../context/EventsContextProvider";
-import { useContext, useEffect, useState } from "react";
-import { PropaneSharp } from "@mui/icons-material";
+import { useContext, useEffect } from "react";
 
 export default function EventDetail(currentID) {
   const { eventId } = useParams();

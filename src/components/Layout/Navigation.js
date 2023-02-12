@@ -11,7 +11,7 @@ export default function Navigation() {
 
   const favoritesCtx = useContext(FavoritesContext);
 
-  let favoritesCount = JSON.parse(localStorage.getItem("favorites"));
+  // let favoritesCount = JSON.parse(localStorage.getItem("favorites"));
 
   const isLoggedIn = eventCtx.isLoggedIn;
   let username = eventCtx.username;
@@ -33,7 +33,7 @@ export default function Navigation() {
         <img
           className="nav__logo"
           src={require("../../images/logo/logo-new.png")}
-          alt="Logo image"
+          alt="Logo"
         />
       </Link>
       <Link to="/" className="router__link logo">

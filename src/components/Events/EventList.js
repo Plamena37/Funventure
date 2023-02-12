@@ -10,6 +10,7 @@ export default function EventList(props) {
     </div>
   );
 
+  /*
   const noEventMessage = (
     <div className="message__container">
       <span>Sorry you haven't created any events yet. 😞</span>
@@ -18,6 +19,7 @@ export default function EventList(props) {
       </Link>
     </div>
   );
+  */
 
   const eventCount = props.events.length;
 

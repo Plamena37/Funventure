@@ -5,7 +5,7 @@ import {
   SparklesIcon,
 } from "@heroicons/react/solid";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";

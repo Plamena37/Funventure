@@ -23,8 +23,8 @@
   margin-bottom: 4rem;
 }
 
-.icon {
-  width: 2rem;
+.how > .icon {
+  color: var(--main-purple);
 }
 
 .how {
@@ -133,12 +133,12 @@
 
 .container.left .icon {
   right: 5.6rem;
-  fill: var(--purple-light-med);
+  /* fill: var(--purple-light-med); */
 }
 
 .container.right .icon {
   left: 5.6rem;
-  fill: var(--purple-light-med);
+  /* fill: var(--purple-light-med); */
 }
 
 .container .content {

@@ -1,6 +1,6 @@
 import "./Examples.css";
 import "../../Variables.css";
-import { CheckIcon } from "@heroicons/react/outline";
+import CheckIcon from "@mui/icons-material/Check";
 
 export default function Examples() {
   return (

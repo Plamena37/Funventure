@@ -1,40 +1,26 @@
 {
-  "homepage": "https://Plamena37.github.io/Funventure",
-  "name": "fun-venture",
+  "name": "funventure",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@date-io/date-fns": "^2.13.1",
-    "@emotion/cache": "^11.9.3",
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
-    "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "@fortawesome/react-fontawesome": "^0.1.18",
-    "@heroicons/react": "^1.0.6",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.3",
-    "@mui/icons-material": "^5.6.2",
-    "@mui/material": "^5.8.7",
-    "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^12.1.4",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.8",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "firebase": "^9.7.0",
-    "notistack": "^2.0.5",
-    "react": "^17.0.2",
-    "react-confetti": "^6.0.1",
-    "react-dom": "^17.0.2",
-    "react-input-mask": "^2.0.4",
+    "notistack": "^2.0.8",
+    "react": "^18.2.0",
+    "react-confetti": "^6.1.0",
+    "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "^5.0.1",
-    "swiper": "^8.1.4",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -56,8 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^3.2.3"
   }
 }

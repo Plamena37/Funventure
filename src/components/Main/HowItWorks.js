@@ -1,6 +1,8 @@
 import "./HowItWorks.css";
 import "../../Variables.css";
-import { HeartIcon, LightBulbIcon, MapIcon } from "@heroicons/react/outline";
+import MapIcon from "@mui/icons-material/Map";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 export default function HowItWorks() {
   return (
@@ -28,7 +30,7 @@ export default function HowItWorks() {
         {/* 02 */}
         <div className="container right">
           <div className="step">02</div>
-          <LightBulbIcon className="icon" />
+          <LightbulbIcon className="icon" />
           <div className="content">
             <h2>Filter your needs</h2>
             <p>
@@ -41,7 +43,7 @@ export default function HowItWorks() {
         {/* 03 */}
         <div className="container left">
           <div className="step">03</div>
-          <HeartIcon className="icon" />
+          <FavoriteIcon className="icon" />
           <div className="content">
             <h2>Simply buy a ticket</h2>
             <p>

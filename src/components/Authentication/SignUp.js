@@ -1,6 +1,6 @@
 import "./AuthForm.css";
 import "../../Variables.css";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button } from "@mui/material";
 import { validations } from "../validationMessages";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";

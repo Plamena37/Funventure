@@ -9,8 +9,8 @@ import {
   FormControl,
   Box,
   Button,
-} from "@material-ui/core";
-import PublishIcon from "@material-ui/icons/Publish";
+} from "@mui/material";
+import PublishIcon from "@mui/icons-material/Publish";
 import { useNavigate } from "react-router-dom";
 import "./AddEventForm.css";
 import { URL_EVENTS } from "../../API_KEY";

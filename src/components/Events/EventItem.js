@@ -1,9 +1,3 @@
-import {
-  LocationMarkerIcon,
-  CalendarIcon,
-  ClockIcon,
-  SparklesIcon,
-} from "@heroicons/react/solid";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import Checkbox from "@mui/material/Checkbox";
@@ -12,6 +6,11 @@ import Favorite from "@mui/icons-material/Favorite";
 import "./EventItem.css";
 import FavoritesContext from "../../context/FavoritesContext";
 import { useSnackbar } from "notistack";
+
+import RoomIcon from "@mui/icons-material/Room";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import CategoryIcon from "@mui/icons-material/Category";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -79,7 +78,10 @@ export default function EventItem(props) {
       <section className="details__section">
         <div className="details">
           <div className="details__title">
-            <LocationMarkerIcon className="details__icon" />{" "}
+            <RoomIcon
+              className="details__icon"
+              style={{ fontSize: "1.4rem" }}
+            />
             <p className="details__desc">City</p>
           </div>
           <p className="details__data">{props.city}</p>
@@ -87,7 +89,10 @@ export default function EventItem(props) {
 
         <div className="details">
           <div className="details__title">
-            <CalendarIcon className="details__icon" />{" "}
+            <CalendarMonthIcon
+              className="details__icon"
+              style={{ fontSize: "1.4rem" }}
+            />
             <p className="details__desc">Date</p>
           </div>
           <p className="details__data">{props.date}</p>
@@ -95,7 +100,10 @@ export default function EventItem(props) {
 
         <div className="details">
           <div className="details__title">
-            <ClockIcon className="details__icon" />{" "}
+            <AccessTimeIcon
+              className="details__icon"
+              style={{ fontSize: "1.4rem" }}
+            />
             <p className="details__desc">Time</p>
           </div>
           <p className="details__data">
@@ -105,7 +113,10 @@ export default function EventItem(props) {
 
         <div className="details">
           <div className="details__title">
-            <SparklesIcon className="details__icon" />{" "}
+            <CategoryIcon
+              className="details__icon"
+              style={{ fontSize: "1.4rem" }}
+            />
             <p className="details__desc">Category</p>
           </div>
           <p className="details__data">{props.category}</p>

@@ -2,9 +2,9 @@ import "../AddEvent/AddEventLayout.css";
 import "../AddEvent/AddEventForm.css";
 import "./PurchaseForm.css";
 import PurchaseLayout from "./PurchaseLayout";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button } from "@mui/material";
 import { validations } from "../validationMessages";
-import SearchIcon from "@material-ui/icons/Search";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function PurchaseForm({
   savedEventInfo,

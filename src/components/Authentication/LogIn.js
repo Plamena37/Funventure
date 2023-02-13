@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { validations } from "../validationMessages";
 import "./AuthForm.css";

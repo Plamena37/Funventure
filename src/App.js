@@ -5,6 +5,9 @@ import {
   Navigate,
 } from "react-router-dom";
 import { useContext } from "react";
+import { EventContext } from "./context/EventsContextProvider";
+import { SnackbarProvider } from "notistack";
+
 import FAQ from "./pages/FAQ";
 import Main from "./pages/Main";
 import LogIn from "./pages/LogIn";
@@ -18,8 +21,6 @@ import Purchase from "./pages/Purchase";
 import Modal from "./components/Purchase/Modal";
 import ModalEvent from "./components/AddEvent/ModalEvent";
 import FinalPreview from "./components/Purchase/FinalPreview";
-import { EventContext } from "./context/EventsContextProvider";
-import { SnackbarProvider } from "notistack";
 import AllEvents from "./pages/AllEvents";
 
 function App() {

@@ -7,7 +7,7 @@ export default function ToFavorite() {
 
   favorites = JSON.parse(localStorage.getItem("favorites"));
 
-  if (favorites.length === 0) {
+  if (!favorites || favorites.length === 0) {
     content = (
       <p className="no-content__message">
         You got no favorites yet. Start adding some?

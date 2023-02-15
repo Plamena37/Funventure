@@ -29,7 +29,7 @@
 > - React, React Router, JSX, CSS Variables, fetch API, Context API, Firebase, Localstorage, Notistack, Material UI, React Carousel
 
 ### 🔗 Here are some previews 🎯:
-![Main](https://i.imgur.com/SeXirrT.png)
+![Main](https://i.imgur.com/WVagO4D.png)
 
 ![AllEvents](https://i.imgur.com/tlqDfSt.png)
 

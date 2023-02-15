@@ -45,7 +45,6 @@ export default function AddEventForm() {
     city: "",
     date: "",
     startTime: "",
-    endTime: "",
     category: "",
     seats: 0,
     image: "",
@@ -75,7 +74,6 @@ export default function AddEventForm() {
   const handleValidation = (fieldName, fieldValue) => {
     if (
       fieldName !== "date" &&
-      fieldName !== "endTime" &&
       fieldName !== "category" &&
       fieldName !== "image"
     ) {
@@ -126,7 +124,6 @@ export default function AddEventForm() {
         city: formData.city,
         date: formData.date,
         startTime: formData.startTime,
-        endTime: formData.endTime,
         category: formData.category,
         seats: formData.seats,
         image: formData.image,
@@ -164,7 +161,6 @@ export default function AddEventForm() {
       //   city: "",
       //   date: "",
       //   startTime: "",
-      //   endTime: "",
       //   category: "",
       //   seats: 0,
       //   team: "",
@@ -290,19 +286,6 @@ export default function AddEventForm() {
                 onChange={(event) => eventHandleChange(event)}
                 error={fieldErrors.startTime} // will be true if the string contains numbers
                 helperText={fieldErrors.startTime && validations.time}
-              />
-
-              <TextField
-                required
-                className="form__input time"
-                InputLabelProps={{ shrink: true }}
-                id="endTime"
-                name="endTime"
-                value={formData.endTime}
-                label="End Time"
-                variant="outlined"
-                type="time"
-                onChange={(event) => eventHandleChange(event)}
               />
             </div>
           </div>

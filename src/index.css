@@ -42,6 +42,10 @@ html {
   color: var(--purple-light-high);
 }
 
+.all__events {
+  padding: 0 10rem;
+}
+
 /* .btn:link,
 .btn:visited {
   display: inline-block;

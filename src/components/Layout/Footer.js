@@ -16,7 +16,7 @@ export default function Footer() {
             />
           </Link>
           <Link to="/" className="router__link logo">
-            <h3 className="nav__header">FunVenture</h3>
+            <h3 className="nav__header">Funventure</h3>
           </Link>
         </div>
         <p>
@@ -30,7 +30,8 @@ export default function Footer() {
           <i class="fab fa-twitter"></i>
         </div>
         <p className="footer__copyright">
-          Copyright &copy; 2022 by FunVenture. All rights reserved.
+          Copyright &copy; {new Date().getFullYear()} by Funventure. All rights
+          reserved.
         </p>
       </div>
       <nav className="footer__about">

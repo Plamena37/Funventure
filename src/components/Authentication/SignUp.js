@@ -50,8 +50,6 @@ export default function SignUpForm() {
     });
 
     handleValidation(name, value);
-
-    // localStorage.setItem("username", signUpFieldsState.username);
   };
 
   // PUSHES THE ERROR BOOLEANS IN AN ARRAY
@@ -112,18 +110,35 @@ export default function SignUpForm() {
           });
           switch (err.message) {
             case "EMAIL_EXISTS":
-              alert("Entered email already exists! 💥");
+              enqueueSnackbar("Entered email already exists! 💥", {
+                preventDuplicate: true,
+                variant: "error",
+              });
               break;
             case "OPERATION_NOT_ALLOWED":
-              alert("Entered password is disabled for this project! 💥");
-              break;
-            case "TOO_MANY_ATTEMPTS_TRY_LATER":
-              alert(
-                "All requests from this device are blocked due to unusual activity. Try again later! 💥"
+              enqueueSnackbar(
+                "Entered password is disabled for this project! 💥",
+                {
+                  preventDuplicate: true,
+                  variant: "error",
+                }
               );
               break;
+            case "TOO_MANY_ATTEMPTS_TRY_LATER":
+              enqueueSnackbar(
+                "All requests from this device are blocked due to unusual activity. Try again later! 💥",
+                {
+                  preventDuplicate: true,
+                  variant: "error",
+                }
+              );
+
+              break;
             default:
-              alert("Something went wrong! 💣");
+              enqueueSnackbar("Something went wrong! 💣", {
+                preventDuplicate: true,
+                variant: "error",
+              });
           }
           return;
         });
@@ -175,6 +190,7 @@ export default function SignUpForm() {
           required
           className="textfield"
           type="password"
+          variant="standard"
           autoComplete="current-password"
           error={fieldErrors.password} // for more than 5 characters
           helperText={fieldErrors.password && validations.password}
@@ -189,6 +205,7 @@ export default function SignUpForm() {
           required
           className="textfield"
           type="password"
+          variant="standard"
           autoComplete="current-password"
           error={
             signUpFieldsState.confirmPassword !== signUpFieldsState.password &&

@@ -7,10 +7,12 @@ import "../../Variables.css";
 import { EventContext } from "../../context/EventsContextProvider";
 import { API_KEY } from "../../API_KEY";
 import LoadingSpinner from "../Layout/LoadingSpinner";
+import { useSnackbar } from "notistack";
 
 export default function LogInForm() {
   const navigate = useNavigate();
   const eventCtx = useContext(EventContext);
+  const { enqueueSnackbar } = useSnackbar();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -97,9 +99,9 @@ export default function LogInForm() {
           );
 
           eventCtx.login(data.idToken, expirationTime.toISOString());
-          // make it a function
-          // eventCtx.userName = data.displayName;
-          eventCtx.getUserName(data);
+
+          eventCtx.setNewUsername(data.displayName);
+          eventCtx.setNewProfileImage(data.profilePicture);
 
           console.log(data);
           navigate("/");
@@ -107,16 +109,28 @@ export default function LogInForm() {
         .catch((err) => {
           switch (err.message) {
             case "EMAIL_NOT_FOUND":
-              alert("Entered email is not found! 💥");
+              enqueueSnackbar("Entered email is not found! 💥", {
+                preventDuplicate: true,
+                variant: "error",
+              });
               break;
             case "INVALID_PASSWORD":
-              alert("Entered invalid password! 💥");
+              enqueueSnackbar("Entered invalid password! 💥", {
+                preventDuplicate: true,
+                variant: "error",
+              });
               break;
             case "USER_DISABLED":
-              alert("User is disabled! 💥");
+              enqueueSnackbar("User is disabled! 💥", {
+                preventDuplicate: true,
+                variant: "error",
+              });
               break;
             default:
-              alert("Something went wrong! 💣");
+              enqueueSnackbar("Something went wrong! 💣", {
+                preventDuplicate: true,
+                variant: "error",
+              });
           }
           return;
         });
@@ -156,6 +170,7 @@ export default function LogInForm() {
             required
             className="textfield"
             type="password"
+            variant="standard"
             autoComplete="current-password"
             error={fieldErrors.password} // for more than 5 characters
             helperText={fieldErrors.password && validations.password}

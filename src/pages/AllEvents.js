@@ -17,7 +17,7 @@ export default function AllEvents() {
   return (
     <>
       <Navigation />
-      <section>
+      <section className="all__events">
         <h1 className="section__primary__heading center m-b--small event__list__heading">
           All Events 🎉
         </h1>

@@ -1,7 +1,7 @@
 import "./Profile.css";
 import ProfileLayout from "./ProfileLayout";
 import { Link } from "react-router-dom";
-import { useState, useRef, useContext } from "react";
+import { useRef, useContext } from "react";
 import { API_KEY } from "../../API_KEY";
 import { EventContext } from "../../context/EventsContextProvider";
 import { useSnackbar } from "notistack";
@@ -9,9 +9,6 @@ import { useSnackbar } from "notistack";
 export default function Profile() {
   const eventCtx = useContext(EventContext);
   const eventToken = eventCtx.token;
-
-  const [username, setUsername] = useState(eventCtx.username);
-  const [image, setImage] = useState(eventCtx.profileImage);
 
   const usernameRef = useRef();
   const imageRef = useRef();
@@ -61,8 +58,14 @@ export default function Profile() {
           }
         })
         .then((data) => {
-          setUsername(data.displayName);
-          setImage(data.photoUrl);
+          if (enteredUsername) {
+            eventCtx.setNewUsername(data.displayName);
+            // setUsername(data.displayName);
+          }
+          if (enteredImage) {
+            eventCtx.setNewProfileImage(data.photoUrl);
+            // setImage(data.photoUrl);
+          }
           console.log(data);
         })
         .catch((err) => {
@@ -111,19 +114,28 @@ export default function Profile() {
         // navigate("/");
       })
       .catch((err) => {
-        enqueueSnackbar("Something went wrong!", {
-          preventDuplicate: true,
-          variant: "error",
-        });
+        // enqueueSnackbar("Something went wrong!", {
+        //   preventDuplicate: true,
+        //   variant: "error",
+        // });
         switch (err.message) {
           case "INVALID_ID_TOKEN":
-            alert("User's credentials are no longer valid! 💥");
+            enqueueSnackbar("User's credentials are no longer valid! 💥", {
+              preventDuplicate: true,
+              variant: "error",
+            });
             break;
           case "WEAK_PASSWORD":
-            alert("Password must be 6 characters long or more! 💥");
+            enqueueSnackbar("Password must be 6 characters long or more! 💥", {
+              preventDuplicate: true,
+              variant: "error",
+            });
             break;
           default:
-            alert("Something went wrong! 💣");
+            enqueueSnackbar("Something went wrong! 💣", {
+              preventDuplicate: true,
+              variant: "error",
+            });
         }
       });
   };
@@ -133,16 +145,20 @@ export default function Profile() {
       <section className="profile__header__container">
         <ul className="profile__list">
           <li className="profile__list__container">
-            <img src={image} className="profile__list__img" alt="User" />
+            <img
+              src={eventCtx.profileImage}
+              className="profile__list__img"
+              alt="User"
+            />
           </li>
           <li>
             <h2 className="profile__list__heading">
-              {eventCtx.userName ? eventCtx.userName : "no username..."}
+              {eventCtx.username || "no username..."}
             </h2>
-            <p className="profile__list__info">
+            {/* <p className="profile__list__info">
               <span>Events: 0</span>
               <span>Likes: 0</span>
-            </p>
+            </p> */}
           </li>
           <li>
             {/* <Link to="/change-password">
@@ -201,7 +217,7 @@ export default function Profile() {
               ref={newPasswordRef}
               type="password"
               id="new-password"
-              // minLength="6"
+              minLength="6"
               placeholder="new password"
             />
             <button className="profile__form__btn">Submit</button>

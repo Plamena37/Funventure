@@ -38,7 +38,6 @@ export default function EventList(props) {
             city={event.city}
             date={event.date}
             startTime={event.startTime}
-            endTime={event.endTime}
             category={event.category}
             seats={event.seats}
             team={event.team}

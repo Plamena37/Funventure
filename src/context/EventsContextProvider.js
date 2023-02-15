@@ -9,22 +9,16 @@ export const EventContext = createContext({
   login: (token) => {},
   logout: () => {},
   getAllEvents: () => {},
-  getUserData: () => {},
   changePassword: () => {},
-  getUserName: () => {},
+  setNewUsername: () => {},
+  setNewProfileImage: () => {},
   allEvents: [],
   isLoading: true,
   error: false,
   username: null,
-  userName: null,
-
   profileImage: null,
 
-  // getEvent: () => {},
   // addToEventsData: () => {},
-  // getEvents: () => {},
-  // editEvent: () => {},
-  // deleteEvent: () => {},
 });
 
 //------------------------ Calculate Remaining Time ------------------------
@@ -68,7 +62,6 @@ export default function EventsContextProvider(props) {
   const [token, setToken] = useState(initialToken);
 
   const [username, setUsername] = useState();
-  const [userName, setUserName] = useState();
   const [profileImage, setProfileImage] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
@@ -132,62 +125,54 @@ export default function EventsContextProvider(props) {
     setIsLoading(false);
   };
 
-  //------------------------ Get UserName ------------------------
-  const getUserName = (data) => {
-    setUserName(data.displayName);
+  //------------------------ Set Username ------------------------
+  const setNewUsername = (newUsername) => {
+    setUsername(newUsername);
   };
 
-  //------------------------ Get Single Events ------------------------
-  // function getEvent(eventId) {
-  //   return fetch(`${BASE_URL}/events/${eventId}`).then((res) => {
-  //     console.log(res);
-  //     return res.json();
-  //   });
-  // const response = await fetch(URL_EVENTS + id);
-  // if (!response.ok) {
-  //   throw { message: "Failed to fetch post.", status: 500 };
-  // }
-  // return response.json();
-  //}
+  //------------------------ Set Profile Image ------------------------
+  const setNewProfileImage = (newProfileImage) => {
+    setProfileImage(newProfileImage);
+  };
 
   //------------------------ Get User Data ------------------------
-  const getUserData = () => {
-    fetch(
-      `
-      https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${API_KEY}`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          idToken: token,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => {
-        // console.log(res);
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            const errorMessage =
-              data?.error?.message || "Something went wrong!";
+  // const getUserData = () => {
+  //   fetch(
+  //     `
+  //     https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${API_KEY}`,
+  //     {
+  //       method: "POST",
+  //       body: JSON.stringify({
+  //         idToken: token,
+  //       }),
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     }
+  //   )
+  //     .then((res) => {
+  //       // console.log(res);
+  //       if (res.ok) {
+  //         return res.json();
+  //       } else {
+  //         return res.json().then((data) => {
+  //           const errorMessage =
+  //             data?.error?.message || "Something went wrong!";
 
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .then((data) => {
-        // console.log(data.users[0]);
-        let user = data.users[0];
-        setUsername(user.displayName);
-        setProfileImage(user.photoUrl);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  //           throw new Error(errorMessage);
+  //         });
+  //       }
+  //     })
+  //     .then((data) => {
+  //       // console.log(data.users[0]);
+  //       let user = data.users[0];
+  //       setUsername(user.displayName);
+  //       setProfileImage(user.photoUrl);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   //------------------------ Change password ------------------------
   function changePassword(eventToken, newPassword) {
@@ -223,57 +208,6 @@ export default function EventsContextProvider(props) {
       });
   }
 
-  //------------------------ Declare the state ------------------------
-  // const [allEvents, setAllEvents] = useState([]);
-
-  /* Explanation
-        Gets the current eventsData from the local browser storage
-        Sets the state (parses the data from a string to obj, or display an empty array if there is no data)
-
-        Note: This is a useEffect hook that means this is a side effect to the main functionality of the component.
-        You can set this hook to be initialized only once by setting the second parameter to [].
-    */
-  // useEffect(() => {
-  //   const eventsDataJson = localStorage.getItem("eventsData");
-  //   setAllEvents(JSON.parse(eventsDataJson) || []);
-  // }, []);
-
-  //------------------------ Create Event ------------------------
-  /*Explanation
-        Set the new state (spread the array qallEvents and add the new event to it)
-        Parse the array to string format
-        Update the local storage
-    */
-  // const addToEventsData = (newEvent) => {
-  //   const newEvents = [newEvent, ...allEvents];
-  //   setAllEvents(newEvents);
-
-  //   const eventsDataJson = JSON.stringify(newEvents);
-  //   // const eventsDataJson = JSON.parse(JSON.stringify(newEvents));
-  //   localStorage.setItem("eventsData", eventsDataJson);
-  // };
-
-  //------------------------ Edit Event ------------------------
-  // function editEvent(event) {
-  //   const filteredArray = allEvents.filter((item) => item.id !== event.id);
-  //   const newEvents = [event, ...filteredArray];
-  //   setAllEvents(newEvents);
-  //   const eventsDataJson = JSON.stringify(newEvents);
-  //   localStorage.setItem("eventsData", eventsDataJson);
-  // }
-
-  //------------------------ Delete Event ------------------------
-  /* Explanation
-        Set the new state (removes the item from the state)
-        Parse the array from obj to string
-        Update the local storage
-    */
-  // function deleteEvent(eventItem) {
-  //   setAllEvents(allEvents.filter((item) => item !== eventItem));
-  //   let eventsDataJson = JSON.stringify(allEvents);
-  //   localStorage.setItem("eventsData", eventsDataJson);
-  // }
-
   //-----------NEW IMPORTANT-------------------------
   const contextValue = {
     token: token,
@@ -281,20 +215,16 @@ export default function EventsContextProvider(props) {
     login: loginHandler,
     logout: logoutHandler,
     getAllEvents: getAllEvents,
-    getUserName: getUserName,
     allEvents: allEvents,
     isLoading: isLoading,
     error: error,
     changePassword: changePassword,
     username: username,
-    userName: userName,
     profileImage: profileImage,
-    getUserData: getUserData,
+    setNewUsername: setNewUsername,
+    setNewProfileImage: setNewProfileImage,
 
-    // getEvent: getEvent,
     // addToEventsData: addToEventsData,
-    // editEvent: editEvent,
-    // deleteEvent: deleteEvent,
   };
 
   return (

@@ -127,16 +127,6 @@ export default function PurchaseForm({
                 variant="outlined"
                 type="time"
               />
-
-              <TextField
-                disabled
-                className="purchase__input time"
-                id="outlined-basic"
-                label="End Time"
-                value={savedEventInfo.endTime}
-                variant="outlined"
-                type="time"
-              />
             </div>
           </div>
         </section>

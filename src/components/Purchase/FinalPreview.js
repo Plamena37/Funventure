@@ -47,7 +47,7 @@ export default function FinalPreview({ purchaseData, savedEventInfo }) {
           <li>
             Time:{" "}
             <span className="purchase-data-highlight">
-              {location.state?.startTime} to {location.state?.endTime}
+              {location.state?.startTime}
             </span>
           </li>
           <li>

@@ -42,9 +42,7 @@ export default function EventDetail(currentID) {
         </li>
         <li>
           <i class="fas fa-clock section__list__icon"></i>
-          <p className="card__list__desc">
-            {eventDetail.startTime} to {eventDetail.endTime}
-          </p>
+          <p className="card__list__desc">{eventDetail.startTime}</p>
         </li>
         <li>
           <i class="fas fa-calendar-day section__list__icon"></i>

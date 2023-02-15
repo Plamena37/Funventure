@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navigation.css";
 import "../../Variables.css";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { EventContext } from "../../context/EventsContextProvider";
 import FavoritesContext from "../../context/FavoritesContext";
 
@@ -14,18 +14,11 @@ export default function Navigation() {
   // let favoritesCount = JSON.parse(localStorage.getItem("favorites"));
 
   const isLoggedIn = eventCtx.isLoggedIn;
-  let username = eventCtx.username;
 
   let logoutHandler = () => {
     eventCtx.logout();
     navigate("/login");
   };
-
-  useEffect(() => {
-    if (username) {
-      eventCtx.getUserData();
-    }
-  }, [username, eventCtx.getUserData]);
 
   return (
     <nav className="nav">
@@ -37,7 +30,7 @@ export default function Navigation() {
         />
       </Link>
       <Link to="/" className="router__link logo">
-        <h3 className="nav__header">FunVenture</h3>
+        <h3 className="nav__header">Funventure</h3>
       </Link>
 
       <ul className="nav__list">
@@ -83,14 +76,6 @@ export default function Navigation() {
             </Link>
           </li>
         )}
-
-        {/* {isLoggedIn && (
-          <li>
-            <Link to="/profile" className="router__link username__link">
-              Hi, {username}
-            </Link>
-          </li>
-        )} */}
 
         {isLoggedIn && (
           <li>

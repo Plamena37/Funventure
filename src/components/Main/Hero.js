@@ -13,7 +13,7 @@ export default function Hero() {
         alt="Different activity images"
       ></img>
       <div className="hero">
-        <h1 className="hero__heading">FunVenture</h1>
+        <h1 className="hero__heading">Funventure</h1>
         <p className="hero__desc">
           We are the voice of travel committed to long-term, sustainable growth
           of adventure travel around.

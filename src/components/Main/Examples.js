@@ -7,7 +7,7 @@ export default function Examples() {
     <section className="example__section">
       <div class="wrapper center-text">
         <span class="subheading">Events</span>
-        <h2 class="heading__secondary">FunVenture chooses from best eventss</h2>
+        <h2 class="heading__secondary">Funventure chooses from best events</h2>
       </div>
       <div className="wrapper example__grid">
         <img

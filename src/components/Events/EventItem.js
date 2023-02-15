@@ -38,7 +38,6 @@ export default function EventItem(props) {
         city: props.city,
         date: props.date,
         startTime: props.startTime,
-        endTime: props.endTime,
         category: props.category,
         seats: props.seats,
         team: props.team,
@@ -106,9 +105,7 @@ export default function EventItem(props) {
             />
             <p className="details__desc">Time</p>
           </div>
-          <p className="details__data">
-            {props.startTime} to {props.endTime}
-          </p>
+          <p className="details__data">{props.startTime}</p>
         </div>
 
         <div className="details">

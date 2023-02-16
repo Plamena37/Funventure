@@ -46,10 +46,25 @@ html {
   padding: 0 10rem;
 }
 
-/* .btn:link,
-.btn:visited {
-  display: inline-block;
-  outline: none;
-  padding: 1.2rem 1rem;
-  text-align: center;
-} */
+/*******************************************************/
+/* MEDIA QUERIES */
+/* 1550px */
+@media only screen and (max-width: 1550px) {
+  .all__events {
+    padding: 0 3rem;
+  }
+}
+
+/* 850px */
+@media only screen and (max-width: 850px) {
+  .all__events {
+    /* padding: 0 5rem; */
+  }
+}
+
+/* 700px */
+@media only screen and (max-width: 700px) {
+  .section__primary__heading {
+    font-size: 2rem;
+  }
+}

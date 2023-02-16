@@ -52,7 +52,7 @@ export default function AccordionLeft() {
           id="panel1a-header"
         >
           <Typography className="accordion__summary">
-            Can I purchase items again?
+            What information do I need to check out?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>

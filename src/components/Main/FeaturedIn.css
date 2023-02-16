@@ -21,10 +21,26 @@
 .featured__img {
   display: flex;
   justify-content: space-around;
-}
-
-.featured__img {
   height: 2.5rem;
   filter: brightness(0);
   opacity: 50%;
+}
+
+/*******************************************************/
+/* MEDIA QUERIES */
+/* 1000px */
+@media only screen and (max-width: 1000px) {
+  .featured__img {
+    height: 2rem;
+  }
+}
+
+/* 750px */
+@media only screen and (max-width: 750px) {
+  /* .featured__img {
+    height: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  } */
 }

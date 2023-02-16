@@ -16,12 +16,14 @@ export default function FAQ() {
       </header>
       <section className="accordion__container">
         <AccordionLeft />
-        <img
-          className="faq__img"
-          src={require("../images/faq/faq-1.png")}
-          loading="lazy"
-          alt="icon"
-        />
+        <div className="accordion__image__wrapper">
+          <img
+            className="faq__img"
+            src={require("../images/faq/faq-1.png")}
+            loading="lazy"
+            alt="icon"
+          />
+        </div>
         <AccordionRight />
       </section>
       <Footer />

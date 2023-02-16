@@ -40,7 +40,7 @@ export default function Main() {
         />
       )}
       <Hero />
-      <FeaturedIn />;
+      <FeaturedIn />
       <HowItWorks />
       <Examples />
       <section className="testimonial__layout">

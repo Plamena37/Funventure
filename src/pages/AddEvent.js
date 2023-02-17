@@ -1,13 +1,12 @@
-import Navigation from "../components/Layout/Navigation";
 import AddEventForm from "../components/AddEvent/AddEventForm";
-import Footer from "../components/Layout/Footer";
+import NavigationLayout from "../components/Layout/NavigationLayout";
 
 export default function Events() {
   return (
     <div className="form__body">
-      <Navigation />
-      <AddEventForm />
-      <Footer />
+      <NavigationLayout>
+        <AddEventForm />
+      </NavigationLayout>
     </div>
   );
 }

@@ -1,13 +1,11 @@
-import Navigation from "../components/Layout/Navigation";
-import Footer from "../components/Layout/Footer";
 import "../components/Faq/Accordion.css";
 import AccordionLeft from "../components/Faq/AccordionLeft";
 import AccordionRight from "../components/Faq/AccordionRight";
+import NavigationLayout from "../components/Layout/NavigationLayout";
 
 export default function FAQ() {
   return (
-    <>
-      <Navigation />
+    <NavigationLayout>
       <header className="faq__header">
         <i class="fas fa-info-circle faq__icon"></i>
         <h1 className="heading__secondary faq__heading">
@@ -26,7 +24,6 @@ export default function FAQ() {
         </div>
         <AccordionRight />
       </section>
-      <Footer />
-    </>
+    </NavigationLayout>
   );
 }

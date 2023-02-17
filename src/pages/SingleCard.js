@@ -1,13 +1,10 @@
-import Navigation from "../components/Layout/Navigation";
 import EventDetail from "../components/EventDetail/EventDetail";
-import Footer from "../components/Layout/Footer";
+import NavigationLayout from "../components/Layout/NavigationLayout";
 
 export default function SingleCard() {
   return (
-    <>
-      <Navigation />
+    <NavigationLayout>
       <EventDetail />
-      <Footer />
-    </>
+    </NavigationLayout>
   );
 }

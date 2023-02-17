@@ -1,6 +1,6 @@
 import "./Footer.css";
-import "../../Variables.css";
-import "./Navigation.css";
+import "../../../Variables.css";
+import "../Navigation/Navigation.css";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
           <Link to="/" className="router__link logo">
             <img
               className="footer__logo__img"
-              src={require("../../images/logo/logo-new.png")}
+              src={require("../../../images/logo/logo-new.png")}
               alt="FunVenture logo"
             />
           </Link>

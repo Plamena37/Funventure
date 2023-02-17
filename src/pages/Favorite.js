@@ -1,13 +1,12 @@
-import Navigation from "../components/Layout/Navigation";
 import ToFavorite from "../components/Favorite/ToFavorite";
-import Footer from "../components/Layout/Footer";
+import NavigationLayout from "../components/Layout/NavigationLayout";
 
 export default function Favorite() {
   return (
     <div className="favorite__body">
-      <Navigation />
-      <ToFavorite />
-      <Footer />
+      <NavigationLayout>
+        <ToFavorite />
+      </NavigationLayout>
     </div>
   );
 }

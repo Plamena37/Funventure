@@ -1,8 +1,7 @@
 import { useEffect, useContext } from "react";
 import EventList from "../components/Events/EventList";
-import Navigation from "../components/Layout/Navigation";
-import Footer from "../components/Layout/Footer";
 import { EventContext } from "../context/EventsContextProvider";
+import NavigationLayout from "../components/Layout/NavigationLayout";
 
 export default function AllEvents() {
   const eventCtx = useContext(EventContext);
@@ -15,8 +14,7 @@ export default function AllEvents() {
   const allEvents = eventCtx.allEvents;
 
   return (
-    <>
-      <Navigation />
+    <NavigationLayout>
       <section className="all__events">
         <h1 className="section__primary__heading center m-b--small event__list__heading">
           All Events 🎉
@@ -24,7 +22,6 @@ export default function AllEvents() {
         {isLoading && <p>Loading...</p>}
         {!isLoading && <EventList events={allEvents} />}
       </section>
-      <Footer />
-    </>
+    </NavigationLayout>
   );
 }

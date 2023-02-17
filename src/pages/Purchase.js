@@ -1,8 +1,7 @@
-import Navigation from "../components/Layout/Navigation";
 import PurchaseForm from "../components/Purchase/PurchaseForm";
-import Footer from "../components/Layout/Footer";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import NavigationLayout from "../components/Layout/NavigationLayout";
 
 export default function Purchase({ eventDetail }) {
   const navigate = useNavigate();
@@ -77,16 +76,16 @@ export default function Purchase({ eventDetail }) {
 
   return (
     <div className="form__body">
-      <Navigation />
-      <PurchaseForm
-        savedEventInfo={savedEventInfo}
-        purchaseData={purchaseData}
-        purchaseHandleChange={purchaseHandleChange}
-        handleSubmit={handleSubmit}
-        error={fieldErrors}
-        pushErrorsInArray={pushErrorsInArray}
-      />
-      <Footer />
+      <NavigationLayout>
+        <PurchaseForm
+          savedEventInfo={savedEventInfo}
+          purchaseData={purchaseData}
+          purchaseHandleChange={purchaseHandleChange}
+          handleSubmit={handleSubmit}
+          error={fieldErrors}
+          pushErrorsInArray={pushErrorsInArray}
+        />
+      </NavigationLayout>
     </div>
   );
 }

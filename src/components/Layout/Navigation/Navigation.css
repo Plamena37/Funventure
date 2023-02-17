@@ -1,11 +1,23 @@
 /* NAVIGATION CONTAINER */
-.nav {
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--purple-light-low);
+}
+
+.nav__logo__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navigation {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 1.2rem 1rem;
   padding: 0.5rem;
-  background-color: var(--purple-light-low);
   box-shadow: var(--section-medium) rgba(0, 0, 0, 0.03);
   z-index: 9;
   position: relative;
@@ -16,14 +28,14 @@
 }
 
 /* LOGO IMAGE */
-.nav .nav__logo {
+.nav__logo {
   width: 3rem;
   filter: brightness(60%);
   cursor: pointer;
 }
 
 /* LOGO HEADING */
-.nav .router__link.logo .nav__header {
+.navigation .router__link.logo .nav__header {
   display: inline-block;
   font-size: 1.4rem;
   letter-spacing: 0.2rem;
@@ -35,7 +47,7 @@
 }
 
 /* NAV LIST */
-.nav .nav__list {
+.navigation .nav__list {
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -65,7 +77,6 @@
 
 .logout-button {
   color: var(--main-purple);
-
   box-shadow: var(--btn-inset) var(--purple-light-high);
   border: none;
   outline: none;
@@ -143,4 +154,71 @@
   box-shadow: none;
   border-bottom: none;
   color: var(--purple-dark-high) !important;
+}
+
+.mobile__navigation {
+  display: none;
+}
+
+/*******************************************************/
+/* MEDIA QUERIES */
+/* 990px */
+@media only screen and (max-width: 990px) {
+  .navigation {
+    display: none;
+    position: unset;
+  }
+
+  .mobile__navigation {
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile__navigation .hamburger {
+    position: absolute;
+    right: 5%;
+    cursor: pointer;
+  }
+
+  .mobile__navigation .nav__list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 53px;
+    right: 0;
+    width: 100%;
+    background: #f0effff3;
+    border-top: 2px solid var(--main-purple);
+    padding: 2rem;
+    height: 100vh;
+  }
+
+  .navbar {
+    opacity: 1;
+  }
+
+  .logout-button {
+    box-shadow: none;
+    font-weight: var(--bold-500);
+    padding: 0;
+  }
+
+  .router__link:link,
+  .router__link:visited,
+  .router__link.last:link,
+  .router__link.last:visited,
+  .logout-button {
+    text-decoration: none;
+    transition: all 0.3s;
+    background-color: transparent;
+    color: var(--main-purple);
+  }
+  .router__link:hover,
+  .router__link:active,
+  .router__link.last:hover,
+  .router__link.last:active .logout-button:hover {
+    cursor: pointer;
+    color: var(--purple-light-high);
+    border-bottom: 1px solid currentColor;
+  }
 }

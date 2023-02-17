@@ -1,13 +1,10 @@
-import Navigation from "../components/Layout/Navigation";
 import Profile from "../components/Profile/Profile";
-import Footer from "../components/Layout/Footer";
+import NavigationLayout from "../components/Layout/NavigationLayout";
 
 export default function ProfilePage() {
   return (
-    <>
-      <Navigation />
+    <NavigationLayout>
       <Profile />
-      <Footer />
-    </>
+    </NavigationLayout>
   );
 }

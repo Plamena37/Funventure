@@ -10,14 +10,14 @@ const MobileNavigation = () => {
     <CgClose
       className="hamburger"
       size="40px"
-      color="#f0efff"
+      color="#4c45b3"
       onClick={() => setOpen((prevValue) => !prevValue)}
     />
   ) : (
     <CgMenu
       className="hamburger"
       size="40px"
-      color="#f0efff"
+      color="#4c45b3"
       onClick={() => setOpen((prevValue) => !prevValue)}
     />
   );

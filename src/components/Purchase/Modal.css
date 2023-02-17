@@ -57,3 +57,44 @@
 .router__modal {
   text-decoration: none;
 }
+
+/*******************************************************/
+/* MEDIA QUERIES */
+/* 990px */
+@media only screen and (max-width: 990px) {
+  .modal {
+    width: 75%;
+    padding: 3rem;
+  }
+
+  .modal__heading {
+    font-size: 1.8rem;
+  }
+
+  .modal__text {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn__modal {
+    padding: 1.2rem 0.8rem;
+    width: 50%;
+  }
+}
+
+/* 650px */
+@media only screen and (max-width: 650px) {
+  .modal {
+    width: 80%;
+    padding: 2rem;
+  }
+
+  .modal__text {
+    margin-bottom: 2.4rem;
+  }
+
+  .btn__modal {
+    padding: 1rem 0.8rem;
+    width: 50%;
+  }
+}

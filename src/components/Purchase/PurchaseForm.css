@@ -66,3 +66,31 @@
 .purchase__inputs.total__price {
   margin-bottom: 2.5rem;
 }
+
+/*******************************************************/
+/* MEDIA QUERIES */
+/* 700px */
+@media only screen and (max-width: 700px) {
+  .events__icon {
+    font-size: 3rem;
+  }
+
+  .form__primary__heading {
+    font-size: 2rem;
+  }
+
+  .purchase__description > section > nav > h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* 550px */
+@media only screen and (max-width: 550px) {
+  .purchase__container .purchase__inputs {
+    flex-direction: column;
+  }
+
+  .purchase__inputs.total__price {
+    /* align-items: flex-end; */
+  }
+}

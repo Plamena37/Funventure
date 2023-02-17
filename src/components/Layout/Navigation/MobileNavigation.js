@@ -6,19 +6,29 @@ import { useState } from "react";
 const MobileNavigation = () => {
   const [open, setOpen] = useState(false);
 
+  const openHamburgerMenu = () => {
+    if (!open) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    return setOpen((prevValue) => !prevValue);
+  };
+
   const hamburgerIcon = open ? (
     <CgClose
       className="hamburger"
       size="40px"
       color="#4c45b3"
-      onClick={() => setOpen((prevValue) => !prevValue)}
+      onClick={openHamburgerMenu}
     />
   ) : (
     <CgMenu
       className="hamburger"
       size="40px"
       color="#4c45b3"
-      onClick={() => setOpen((prevValue) => !prevValue)}
+      onClick={openHamburgerMenu}
     />
   );
 

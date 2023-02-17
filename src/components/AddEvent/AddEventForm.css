@@ -126,3 +126,42 @@
 .event__form__btn:hover {
   background-color: var(--purple-dark-med);
 }
+
+/*******************************************************/
+/* MEDIA QUERIES */
+/* 700px */
+@media only screen and (max-width: 700px) {
+  .events__icon {
+    font-size: 3rem;
+  }
+
+  .form__primary__heading {
+    font-size: 2rem;
+  }
+
+  .add__event__form > section > nav > h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px) {
+  .events__icon {
+    font-size: 2rem;
+  }
+
+  .form__primary__heading {
+    font-size: 1.6rem;
+  }
+
+  .add__event__form > section > nav > h3 {
+    font-size: 1rem;
+  }
+  .add__event__form > section > nav > i {
+    font-size: 1.2rem;
+  }
+
+  .form__inputs.select__category {
+    flex-direction: column;
+  }
+}

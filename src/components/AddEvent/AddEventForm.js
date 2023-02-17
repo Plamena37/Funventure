@@ -393,7 +393,7 @@ export default function AddEventForm() {
         {/************************ EVENT BTN **********************************/}
         <Button
           style={{
-            padding: "1.2rem 0.6rem",
+            padding: "1rem 0.6rem",
             borderRadius: "0.3rem",
             width: "100%",
             fontSize: "1.2rem",

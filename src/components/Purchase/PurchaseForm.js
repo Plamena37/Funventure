@@ -276,7 +276,7 @@ export default function PurchaseForm({
           <Button
             style={{
               marginTop: "2.5rem",
-              padding: "1.2rem 0.6rem",
+              padding: "1rem 0.6rem",
               borderRadius: "0.3rem",
               width: "100%",
               fontSize: "1.2rem",

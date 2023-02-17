@@ -5,3 +5,21 @@
   /* 100vh - footer - navigation - section padding */
   /* height: calc(100vh - 360px - 70px - 32px); */
 }
+
+/*******************************************************/
+/* MEDIA QUERIES */
+/* 1250px */
+@media only screen and (max-width: 1250px) {
+  .profile__layout {
+    width: 90%;
+    padding: 2rem;
+  }
+}
+
+/* 860px */
+@media only screen and (max-width: 860px) {
+  .profile__layout {
+    width: 95%;
+    padding: 1rem;
+  }
+}

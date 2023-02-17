@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { EventContext } from "../../../context/EventsContextProvider";
 import FavoritesContext from "../../../context/FavoritesContext";
 import { motion } from "framer-motion";
+import { enableBodyScroll } from "body-scroll-lock";
 
 const NavLinks = ({ isMobile, closeMobileMenu }) => {
   const navigate = useNavigate();
@@ -23,7 +24,10 @@ const NavLinks = ({ isMobile, closeMobileMenu }) => {
     navigate("/login");
   };
 
-  const closeMobileMenuHandler = () => isMobile && closeMobileMenu();
+  const closeMobileMenuHandler = () => {
+    enableBodyScroll(document);
+    return isMobile && closeMobileMenu();
+  };
 
   return (
     <ul className="nav__list">

@@ -2,16 +2,13 @@ import "./Navigation.css";
 import NavLinks from "./NavLinks";
 import { CgMenu, CgClose } from "react-icons/cg";
 import { useState } from "react";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 const MobileNavigation = () => {
   const [open, setOpen] = useState(false);
 
   const openHamburgerMenu = () => {
-    if (!open) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
-    }
+    !open ? disableBodyScroll(document) : enableBodyScroll(document);
 
     return setOpen((prevValue) => !prevValue);
   };

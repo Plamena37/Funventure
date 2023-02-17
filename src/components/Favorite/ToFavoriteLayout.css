@@ -21,3 +21,26 @@
   border-radius: 0.5rem;
   padding: 2rem;
 }
+
+/*******************************************************/
+/* MEDIA QUERIES */
+/*1450px */
+@media only screen and (max-width: 1450px) {
+  .favorite__layout {
+    width: 90vw;
+  }
+}
+
+/*690px */
+@media only screen and (max-width: 690px) {
+  .favorite__layout {
+    padding: 2rem 10%;
+  }
+}
+
+/*460px */
+@media only screen and (max-width: 460px) {
+  .favorite__layout {
+    padding: 2rem 5%;
+  }
+}

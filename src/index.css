@@ -55,16 +55,20 @@ html {
   }
 }
 
-/* 850px */
-@media only screen and (max-width: 850px) {
-  .all__events {
-    /* padding: 0 5rem; */
-  }
-}
-
 /* 700px */
 @media only screen and (max-width: 700px) {
   .section__primary__heading {
     font-size: 2rem;
+  }
+
+  .all__events {
+    padding: 0 15%;
+  }
+}
+
+/* 500px */
+@media only screen and (max-width: 500px) {
+  .all__events {
+    padding: 0 7%;
   }
 }

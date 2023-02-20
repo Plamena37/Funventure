@@ -1,12 +1,12 @@
 import "./HowItWorks.css";
-import "../../Variables.css";
+import "../../../Variables.css";
 import MapIcon from "@mui/icons-material/Map";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-export default function HowItWorks() {
+const HowItWorksDesktop = () => {
   return (
-    <section className="how__section">
+    <section className="how__section desktop__how">
       <div className="wrapper">
         <span class="subheading">How it works</span>
         <h2 class="heading__secondary">
@@ -55,4 +55,6 @@ export default function HowItWorks() {
       </div>
     </section>
   );
-}
+};
+
+export default HowItWorksDesktop;

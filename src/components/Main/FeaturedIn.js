@@ -20,7 +20,7 @@ export default function FeaturedIn() {
             alt="Featured logos"
           />
           <img
-            src={require("../../images/hero/nytimes.png")}
+            src={require("../../images/hero/lomax.png")}
             alt="Featured logos"
           />
         </div>

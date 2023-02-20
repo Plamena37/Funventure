@@ -37,10 +37,33 @@
 
 /* 750px */
 @media only screen and (max-width: 750px) {
-  /* .featured__img {
-    height: 1rem;
+  .featured__section {
+    padding: 2rem 0;
+  }
+  .featured__img {
+    height: auto;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  } */
+    gap: 1rem;
+  }
+  .featured__img > img {
+    max-width: 6rem;
+  }
+  .featured__heading {
+    font-size: 1.2rem;
+  }
+}
+
+/* 550px */
+@media only screen and (max-width: 550px) {
+  .featured__section {
+    padding: 1.8rem 0;
+  }
+  .featured__img > img {
+    max-width: 5rem;
+  }
+  .featured__heading {
+    font-size: 1rem;
+  }
 }

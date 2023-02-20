@@ -42,7 +42,7 @@
 
 /*  */
 .test__card {
-  padding: 4rem 0;
+  padding: 4rem 0 7rem;
   background-color: var(--main-bg);
   display: flex;
   flex-direction: column;

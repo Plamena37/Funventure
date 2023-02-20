@@ -100,3 +100,10 @@
     max-width: 20rem;
   }
 }
+
+/* 900px */
+@media only screen and (max-width: 900px) {
+  .accordion__container {
+    padding: 0 2rem;
+  }
+}

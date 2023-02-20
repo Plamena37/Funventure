@@ -211,4 +211,9 @@
   .single__card__info > div {
     width: 90%;
   }
+
+  .card__info__container > li .info__btn {
+    padding: 0.4rem 1rem;
+    text-align: center;
+  }
 }

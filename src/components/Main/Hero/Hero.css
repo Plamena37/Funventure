@@ -320,3 +320,36 @@
     font-size: 1rem;
   }
 }
+
+/* 450px */
+@media only screen and (max-width: 450px) {
+  .composition .composition__photo {
+    width: 50%;
+  }
+
+  /* Composition images */
+  .composition__photo--p1 {
+    left: 2rem;
+    top: 1.2rem;
+  }
+  .composition__photo--p2 {
+    right: 1.5rem;
+    top: 3rem;
+  }
+
+  /* Hero text */
+  .hero {
+    padding-left: 0rem;
+  }
+  .hero .hero__heading {
+    font-size: 1.6rem;
+  }
+  .hero .hero__desc {
+    font-size: 1rem;
+    line-height: 1.6rem;
+  }
+  .hero__btn .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+}

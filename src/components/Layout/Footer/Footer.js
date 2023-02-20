@@ -36,14 +36,12 @@ export default function Footer() {
       </div>
       <nav className="footer__about">
         <h3>About</h3>
-        <p>Contact Us</p>
         <p>Log In</p>
         <p>Create Account</p>
       </nav>
       <nav className="footer__recources">
         <h3>Resources</h3>
         <p>All Events</p>
-        <p>Wishlist</p>
         <p>FAQ's</p>
       </nav>
       <nav className="footer__legal">

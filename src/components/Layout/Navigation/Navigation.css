@@ -4,12 +4,14 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--purple-light-low);
+  padding: 0.5rem 0;
 }
 
 .nav__logo__wrapper {
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding-left: 1rem;
 }
 
 .navigation {
@@ -17,11 +19,10 @@
   align-items: center;
   justify-content: flex-start;
   gap: 1.2rem 1rem;
-  padding: 0.5rem;
   box-shadow: var(--section-medium) rgba(0, 0, 0, 0.03);
   z-index: 9;
   position: relative;
-  padding-inline: 2rem;
+  padding-inline: 1rem;
   position: sticky;
   top: 0;
   left: 0;
@@ -107,7 +108,7 @@
   background-color: var(--main-purple);
   color: var(--main-bg);
   border-radius: 0.3rem;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   transition: all 0.3s;
 }
 

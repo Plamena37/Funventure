@@ -120,7 +120,7 @@
 @media only screen and (max-width: 750px) {
   .test__test {
     flex-direction: column;
-    height: 22rem;
+    height: 23rem;
   }
 
   .test__img {

@@ -1,6 +1,5 @@
 import "./EventList.css";
 import EventItem from "./EventItem";
-import { Link } from "react-router-dom";
 import LoadingSpinner from "../Layout/LoadingSpinner";
 
 export default function EventList(props) {

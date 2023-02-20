@@ -28,6 +28,11 @@
   margin-bottom: 3rem;
 }
 
+.form__btn,
+.form__btn.btn--active {
+  white-space: nowrap;
+}
+
 /* Login and Sign up btns */
 .form__btn {
   font-size: 1.4rem;

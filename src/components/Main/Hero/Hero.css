@@ -279,9 +279,10 @@
   .hero__section__phone {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin: 0 auto;
-    padding: 2rem 0.5rem;
-    height: calc(100vh - 2.5rem);
+    padding: 2rem 0.5rem 0.5rem;
+    height: calc(100vh - 3rem);
     background-color: var(--white);
     box-shadow: var(--section-medium) rgba(0, 0, 0, 0.03);
     text-align: center;

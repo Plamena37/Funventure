@@ -75,3 +75,65 @@
   font-style: oblique;
   color: var(--main-yellow);
 }
+
+/*******************************************************/
+/* MEDIA QUERIES */
+/* 750px */
+@media only screen and (max-width: 750px) {
+  .test__test {
+    padding: 2.5rem;
+  }
+
+  .test__img {
+    width: 14rem;
+  }
+
+  .test__img::after {
+    width: 100%;
+    height: 100%;
+  }
+
+  .test__img::before {
+    width: 100%;
+    height: 100%;
+  }
+
+  .test__wrapper {
+    padding: 1rem;
+  }
+
+  .test__desc {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .test__author {
+    font-size: 0.8rem;
+  }
+
+  .test__job {
+    font-size: 0.7rem;
+  }
+}
+
+/* 750px */
+@media only screen and (max-width: 750px) {
+  .test__test {
+    flex-direction: column;
+    height: 22rem;
+  }
+
+  .test__img {
+    width: 7rem;
+  }
+
+  .test__img::after {
+    top: -18px;
+    left: -18px;
+  }
+
+  .test__img::before {
+    top: -8px;
+    left: -8px;
+  }
+}

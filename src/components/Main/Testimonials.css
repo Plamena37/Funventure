@@ -85,3 +85,22 @@
 .carousel.carousel-slider .control-arrow:hover {
   background: none !important;
 }
+
+/*******************************************************/
+/* MEDIA QUERIES */
+/* 1200px */
+@media only screen and (max-width: 1200px) {
+  .carousel-root {
+    width: 85%;
+  }
+}
+
+/* 750px */
+@media only screen and (max-width: 750px) {
+  .carousel-root {
+    width: 90%;
+  }
+  .carousel.carousel-slider .control-arrow::after {
+    top: 150px;
+  }
+}

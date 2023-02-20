@@ -316,7 +316,8 @@
     gap: 0.5rem;
     padding: 1rem 2rem 2rem;
     background: var(--main-bg);
-    border-radius: 50rem 50rem;
+    /* border-radius: 50rem 50rem; */
+    border-radius: 30% 70% 70% 30% / 32% 58% 42% 68%;
   }
   .container__tablet .content > h2 {
     font-size: 1.4rem;

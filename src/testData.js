@@ -2,7 +2,7 @@ const data = [
   {
     id: 1,
     description:
-      '"I will share with you what I call "Positively Impactful Moments of Disappointment." Throughout my career, many of my highest moments only came after setbacks and losses. But learning from those difficult moments is what gave me the ability to rise above them and reach my goals."',
+      '"I will share with you what I call "Positively Impactful Moments of Disappointment." Throughout my career, many of my highest moments only came after setbacks and losses."',
     img: "testimonial-1.jpg",
     author: "Johna Doeva",
     job: "Senior Product Marketing Manager",
@@ -18,7 +18,7 @@ const data = [
   {
     id: 3,
     description:
-      '"I will share with you what I call "Positively Impactful Moments of Disappointment." Throughout my career, many of my highest moments only came after setbacks and losses. But learning from those difficult moments."',
+      '"I will share with you what I call "Positively Impactful Moments of Disappointment." Throughout my career, many of my highest moments only came after setbacks and losses."',
     img: "testimonial-3.jpg",
     author: "Elena Dragoeva",
     job: "Junior Front-end Developer",
@@ -26,7 +26,7 @@ const data = [
   {
     id: 4,
     description:
-      '"Throughout my career, many of my highest moments only came after setbacks and losses. But learning from those difficult moments is what gave me the ability to rise above them and reach my goals."',
+      '"Throughout my career, many of my highest moments only came after setbacks and losses. But learning from those difficult moments is what gave me the ability to rise above them."',
     img: "testimonial-4.jpg",
     author: "Paskal Paskalev",
     job: "Senior Marketing Manager",
@@ -34,7 +34,7 @@ const data = [
   {
     id: 5,
     description:
-      '"I call "Positively Impactful Moments of Disappointment." Throughout my career, many of my highest moments only came after setbacks and losses. But learning from those difficult moments is what gave me the ability to rise above."',
+      '"I call "Positively Impactful Moments of Disappointment." Throughout my career, many of my highest moments only came after setbacks and losses."',
     img: "testimonial-5.jpg",
     author: "Gilbert Dolon",
     job: "Mid HR Manager",

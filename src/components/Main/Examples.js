@@ -11,7 +11,7 @@ export default function Examples() {
       </div>
       <div className="wrapper example__grid">
         <img
-          className="example__img"
+          className="example__img special"
           src={require("../../images/cardExample/card.png")}
           alt="Card example"
         />

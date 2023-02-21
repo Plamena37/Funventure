@@ -3,7 +3,6 @@
 #### The voice of travel commitment
 
 ### 🤸‍♀️ A platform where you can post different kind of events, or buy tickets to already published ones... 
-##### Desktop version **only** /for now/...
 
 
 ### Functionalities:
@@ -16,6 +15,7 @@
 > - form validation on all forms (regex used)
 > - notifies the user when certain operation was successful or not
 > - automatically logouts the user after 1h
+> - responsive design
 
 ### Worked with:
 > - GET, POST requests in Firebase
@@ -26,7 +26,7 @@
 > - hooks used: useState, useEffect, useNavigate, useLocation, useCallback, useContext, useParams, useRef
 
 ### Used Technologies:
-> - React, React Router, JSX, CSS Variables, fetch API, Context API, Firebase, Localstorage, Notistack, Material UI, React Carousel
+> - React, React Router, JSX, CSS Variables, fetch API, Context API, Firebase, Localstorage, Notistack, Material UI, Framer Motion, React Carousel, Responsive Design
 
 ### 🔗 Here are some previews 🎯:
 ![Main](https://i.imgur.com/WVagO4D.png)

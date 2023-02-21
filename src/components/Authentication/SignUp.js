@@ -67,7 +67,8 @@ export default function SignUpForm() {
     let checkForErrors = pushErrorsInArray();
 
     if (!checkForErrors) {
-      eventCtx.username = signUpFieldsState.username;
+      eventCtx.setNewUsername(signUpFieldsState.username);
+      // eventCtx.username = signUpFieldsState.username;
 
       fetch(
         `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`,
@@ -101,7 +102,7 @@ export default function SignUpForm() {
           }
         })
         .then((data) => {
-          navigate("/login");
+          navigate("/");
         })
         .catch((err) => {
           enqueueSnackbar(err, {

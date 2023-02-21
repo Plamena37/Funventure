@@ -11,25 +11,27 @@ import RoomIcon from "@mui/icons-material/Room";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CategoryIcon from "@mui/icons-material/Category";
+import { EventContext } from "../../context/EventsContextProvider";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function EventItem(props) {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
+  const eventCtx = useContext(EventContext);
 
   const favoritesCtx = useContext(FavoritesContext);
 
   const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
 
   function toggleFavoriteStatusHandler() {
-    if (itemIsFavorite) {
+    if (itemIsFavorite && eventCtx.isLoggedIn) {
       favoritesCtx.removeFavorite(props.id);
       enqueueSnackbar("Removed from Favorites!", {
         preventDuplicate: true,
         variant: "error",
       });
-    } else {
+    } else if (!itemIsFavorite && eventCtx.isLoggedIn) {
       favoritesCtx.addFavorite({
         id: props.id,
         title: props.title,
@@ -46,6 +48,13 @@ export default function EventItem(props) {
       enqueueSnackbar("Added to Favorites!", {
         preventDuplicate: true,
         variant: "success",
+      });
+    }
+
+    if (!itemIsFavorite && !eventCtx.isLoggedIn) {
+      enqueueSnackbar("You are not logged in!", {
+        preventDuplicate: true,
+        variant: "error",
       });
     }
   }

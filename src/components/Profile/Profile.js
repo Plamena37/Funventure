@@ -66,7 +66,7 @@ export default function Profile() {
             eventCtx.setNewProfileImage(data.photoUrl);
             // setImage(data.photoUrl);
           }
-          console.log(data);
+          // console.log(data);
         })
         .catch((err) => {
           console.log(err);

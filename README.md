@@ -7,23 +7,15 @@
 
 ### Functionalities:
 > - authentication with email and password
-> - fetching events from the database
-> - posting an event
-> - add to favorites page (localstorage used)
+> - http requests
+> - add to favorites (localstorage used)
 > - purchase a ticket
 > - change user information (username, profile image, password)
-> - form validation on all forms (regex used)
-> - notifies the user when certain operation was successful or not
+> - form validation
+> - notifications on error and success operations
 > - automatically logouts the user after 1h
 > - responsive design
 
-### Worked with:
-> - GET, POST requests in Firebase
-> - login/signup with email and password with Firebase
-> - working with dynamic and protected URL's
-> - loading spinner or message on loading state
-> - passing data with useNavigate, useLocation 
-> - hooks used: useState, useEffect, useNavigate, useLocation, useCallback, useContext, useParams, useRef
 
 ### Used Technologies:
 > - React, React Router, JSX, CSS Variables, fetch API, Context API, Firebase, Localstorage, Notistack, Material UI, Framer Motion, React Carousel, Responsive Design

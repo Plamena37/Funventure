@@ -2,7 +2,7 @@
 
 #### The voice of travel commitment
 
-### 🤸‍♀️ A platform where you can post different kind of events, or buy tickets to already published ones... 
+#### 🤸‍♀️ A platform where you can post all kind of events, track other's events or purchase tickets... 
 
 
 ### Tech Stack:

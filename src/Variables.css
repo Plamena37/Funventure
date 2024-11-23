@@ -1,7 +1,8 @@
 :root {
   /*========== Colors ==========*/
   --main-purple: #4c45b3;
-  --main-bg: #f0efff;
+  /* --main-bg: #f0efff; */
+  --main-bg: #f9f9ff;
   --purple-light-high: #b3a7dd;
   --purple-light-med: #d3d0ff;
   --purple-light-low: #e2e0ff;
